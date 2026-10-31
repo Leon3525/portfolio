@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lab — Leon Hayes</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load the navigation Web Component -->
+    <script src="components/main-nav.js" defer></script>
     <style>
         /* Modern, clean typography setup and smooth scroll behavior */
         html { scroll-behavior: smooth; }
@@ -42,53 +44,13 @@
     </style>
 </head>
 <body class="bg-white text-black min-h-screen">
+    <!-- Centrally Managed Web Component Navigation -->
+  <main-nav></main-nav>
 
     <!-- Main Container Constrained to Max 1200px -->
     <div class="max-w-[1200px] mx-auto px-4 md:px-8 py-4 md:py-8">
 
-        <!-- Top Navigation Header -->
-        <header class="border-b border-gray-100 pb-4 mb-10 md:mb-16">
-            <div class="flex justify-between items-center">
-                <a href="index.html" class="text-base md:text-lg font-bold tracking-normal text-black hover:text-gray-600 transition-colors flex items-center space-x-2">
-                    <span class="text-base font-normal">&larr;</span>
-                    <span>Back to Portfolio</span>
-                </a>
-
-                <!-- Desktop Navigation Links -->
-                <nav class="hidden md:flex space-x-8 text-xs md:text-sm font-medium items-center" aria-label="Main Navigation">
-                    <a href="ux.html" class="hover:text-gray-600 transition-colors py-1">UX</a>
-                    <a href="lab.html" class="font-bold text-black border-b-2 border-black py-1">Lab</a>
-                    <a href="about.html" class="hover:text-gray-600 transition-colors py-1">About</a>
-                </nav>
-
-                <!-- Accessible Mobile Menu Toggle Button -->
-                <button 
-                    id="menu-toggle" 
-                    type="button" 
-                    class="md:hidden p-2 text-black hover:text-gray-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-black rounded transition-colors" 
-                    aria-expanded="false" 
-                    aria-controls="mobile-menu" 
-                    aria-label="Toggle navigation menu"
-                >
-                    <!-- Hamburger Icon -->
-                    <svg id="menu-open-icon" class="w-6 h-6 block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                    <!-- Close Icon (Hidden by Default) -->
-                    <svg id="menu-close-icon" class="w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Mobile Navigation Drawer -->
-            <nav id="mobile-menu" class="hidden md:hidden pt-4 pb-2 flex flex-col space-y-3 text-sm font-medium border-t border-gray-100 mt-3" aria-label="Mobile Navigation">
-                <a href="ux.html" class="hover:text-gray-600 transition-colors py-1">UX</a>
-                <a href="lab.html" class="font-bold text-black py-1">Lab</a>
-                <a href="about.html" class="hover:text-gray-600 transition-colors py-1">About</a>
-            </nav>
-        </header>
-
+        
         <!-- Hero Section -->
         <section class="mb-16 max-w-3xl">
             <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-4 leading-tight">
@@ -131,173 +93,168 @@
         <main class="space-y-24 border-t border-gray-200 pt-16">
 
             <!-- SECTION 1: Interactive Components Container -->
-            <section id="is-components" class="space-y-8 scroll-mt-8" aria-labelledby="components-heading">
-                <div class="space-y-2">
-                    <div class="flex justify-between items-center w-full">
-                        <h2 id="components-heading" class="text-xl md:text-2xl font-bold tracking-tight text-black">Interactive Components</h2>
-                        <a href="#" class="text-xs font-mono text-gray-500 hover:text-black transition-colors underline decoration-gray-300 underline-offset-4 shrink-0">
-                            Back to Top &uarr;
-                        </a>
-                    </div>
-                    <p class="text-base md:text-lg text-gray-700 leading-relaxed max-w-3xl">
-                        Explore live, functional builds of custom course component assets deployed within enterprise LMS learning environments.
+<section id="is-components" class="space-y-8 scroll-mt-8" aria-labelledby="components-heading">
+    <div class="space-y-2">
+        <div class="flex justify-between items-center w-full">
+            <h2 id="components-heading" class="text-xl md:text-2xl font-bold tracking-tight text-black">Interactive Components</h2>
+            <a href="#" class="text-xs font-mono text-gray-500 hover:text-black transition-colors underline decoration-gray-300 underline-offset-4 shrink-0">
+                Back to Top &uarr;
+            </a>
+        </div>
+        <p class="text-base md:text-lg text-gray-700 leading-relaxed max-w-3xl">
+            Explore live, functional builds of custom course component assets deployed within enterprise LMS learning environments.
+        </p>
+    </div>
+
+    <!-- Child Assets Stack -->
+    <div class="space-y-16 max-w-[850px] mx-auto">
+        
+        <!-- Child 1: Interdisciplinary Integration Blender -->
+        <article class="w-full mx-auto border border-gray-200 rounded-sm p-4 md:p-6 bg-white shadow-sm">
+            <header class="text-center mb-6">
+                <h3 id="blenderTitle" class="text-xl md:text-2xl font-bold tracking-tight text-black mb-2 leading-snug">
+                    Synthesize New Perspectives
+                </h3>
+                
+                <div id="narrativeRegion" aria-live="polite" aria-atomic="true">
+                    <p id="narrativeText" class="text-xs md:text-sm text-gray-600 leading-relaxed font-normal min-h-[24px]">
+                        Distinct disciplines remain separate until collaboration begins.
                     </p>
                 </div>
+            </header>
 
-                <!-- Child Assets Stack -->
-                <div class="space-y-16 max-w-[850px] mx-auto">
-                    
-                    <!-- Child 1: Interdisciplinary Integration Blender -->
-                    <article class="space-y-6">
-                        <div class="space-y-2 text-center md:text-left">
-                            <div class="flex flex-wrap gap-2 justify-center md:justify-start">
-                                <span class="text-xs font-mono text-black border border-gray-200 px-2.5 py-0.5 rounded-sm uppercase tracking-wider">Virtual Manipulative</span>
-                                <span class="text-xs font-mono text-black border border-gray-200 px-2.5 py-0.5 rounded-sm uppercase tracking-wider">Vanilla JS</span>
-                            </div>
-                            <h3 class="font-bold text-lg md:text-xl text-black">Interdisciplinary Integration Blender</h3>
-                            <p class="text-sm md:text-base text-gray-600 leading-relaxed max-w-2xl mx-auto md:mx-0">
-                                Making abstract interdisciplinary theory tangible by visually synthesizing distinct academic majors into a unified collaborative perspective.
-                            </p>
-                        </div>
-                        
-                        <div class="w-full mx-auto">
-                            <header class="text-center mb-6">
-                                <p class="text-xs font-mono text-gray-500 uppercase tracking-widest mb-2">
-                                    Interdisciplinary Integration Blender
-                                </p>
-                                <h4 id="blenderTitle" class="text-xl md:text-2xl font-bold tracking-tight text-black mb-2 leading-snug">
-                                    Synthesize New Perspectives
-                                </h4>
-                                
-                                <div id="narrativeRegion" aria-live="polite" aria-atomic="true">
-                                    <p id="narrativeText" class="text-xs md:text-sm text-gray-600 leading-relaxed font-normal min-h-[24px]">
-                                        Distinct disciplines remain separate until collaboration begins.
-                                    </p>
-                                </div>
-                            </header>
-
-                            <div>
-                                <div id="blenderContainer" class="relative w-full h-[280px] md:h-[340px] overflow-hidden border border-gray-200 rounded-sm bg-gradient-to-b from-white to-gray-50 shadow-inner">
-                                    <div id="sqCyan" class="blender-square blender-square-cyan" aria-label="Cyan Discipline Square"></div>
-                                    <div id="sqCoral" class="blender-square blender-square-coral" aria-label="Coral Discipline Square"></div>
-                                    <div id="sqGold" class="blender-square blender-square-gold" aria-label="Gold Discipline Square"></div>
-                                </div>
-
-                                <div class="mt-6 flex justify-center">
-                                    <button 
-                                        id="blenderStartBtn" 
-                                        type="button"
-                                        onclick="runBlender()"
-                                        class="bg-black text-white hover:bg-gray-800 focus:ring-2 focus:ring-black focus:ring-offset-2 transition-all px-8 py-3 text-xs font-mono font-bold uppercase tracking-wider rounded-sm shadow-sm focus:outline-none">
-                                        Start Blender
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Child 2: Data Analysis Methodology Widget -->
-                    <article class="space-y-6">
-                        <div class="space-y-2 text-center md:text-left">
-                            <div class="flex flex-wrap gap-2 justify-center md:justify-start">
-                                <span class="text-xs font-mono text-black border border-gray-200 px-2.5 py-0.5 rounded-sm uppercase tracking-wider">Toggle Switch</span>
-                                <span class="text-xs font-mono text-black border border-gray-200 px-2.5 py-0.5 rounded-sm uppercase tracking-wider">ARIA Live Region</span>
-                            </div>
-                            <h3 class="font-bold text-lg md:text-xl text-black">Data Analysis Methodology Widget</h3>
-                            <p class="text-sm md:text-base text-gray-600 leading-relaxed max-w-2xl mx-auto md:mx-0">
-                                Custom decision widget featuring structured ARIA landmarks, image state synchronization, and screen-reader status announcements.
-                            </p>
-                        </div>
-                        
-                        <div class="w-full mx-auto">
-                            <header class="text-center mb-6">
-                                <h4 class="text-xl md:text-2xl font-bold tracking-tight text-black mb-2">
-                                    Data Analysis In The Lab
-                                </h4>
-                                <p class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider">
-                                    Select a methodology below to examine the analysis framework
-                                </p>
-                            </header>
-
-                            <div class="flex justify-center mb-6">
-                                <div role="region" aria-label="Methodology Toggle Switch" class="inline-flex max-w-[450px] w-full border border-gray-300 rounded-sm p-1 gap-1">
-                                    <button 
-                                        id="qualBtn" 
-                                        type="button"
-                                        aria-pressed="false"
-                                        class="toggle-btn flex-1 py-2.5 px-3 text-xs font-mono font-bold text-gray-600 bg-transparent rounded-sm transition-all hover:text-black focus:outline-none focus:ring-2 focus:ring-black focus:z-10">
-                                        Qualitative Analysis
-                                    </button>
-                                    <button 
-                                        id="quantBtn" 
-                                        type="button"
-                                        aria-pressed="false"
-                                        class="toggle-btn flex-1 py-2.5 px-3 text-xs font-mono font-bold text-gray-600 bg-transparent rounded-sm transition-all hover:text-black focus:outline-none focus:ring-2 focus:ring-black focus:z-10">
-                                        Quantitative Analysis
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="space-y-6">
-                                <div class="grid grid-cols-2 gap-4">
-                                    <button 
-                                        id="qualCardBtn"
-                                        type="button"
-                                        onclick="setMethodology('qualitative')"
-                                        class="group relative border-2 border-gray-200 rounded-sm p-2 md:p-4 transition-all duration-200 text-left focus:outline-none focus:ring-2 focus:ring-black">
-                                        <div class="aspect-[4/3] w-full flex items-center justify-center overflow-hidden">
-                                            <img 
-                                                id="qualImg" 
-                                                src="Images/M3_W1_A5@10x.png" 
-                                                alt="Qualitative data analysis framework illustration" 
-                                                class="w-full h-full object-contain transition-opacity duration-200"
-                                            >
-                                        </div>
-                                        <span class="block text-center text-xs font-mono font-bold uppercase tracking-wider mt-2 text-gray-500 group-hover:text-black">
-                                            Qualitative
-                                        </span>
-                                    </button>
-
-                                    <button 
-                                        id="quantCardBtn"
-                                        type="button"
-                                        onclick="setMethodology('quantitative')"
-                                        class="group relative border-2 border-gray-200 rounded-sm p-2 md:p-4 transition-all duration-200 text-left focus:outline-none focus:ring-2 focus:ring-black">
-                                        <div class="aspect-[4/3] w-full flex items-center justify-center overflow-hidden">
-                                            <img 
-                                                id="quantImg" 
-                                                src="Images/M3_W1_A6@10x.png" 
-                                                alt="Quantitative data analysis framework illustration" 
-                                                class="w-full h-full object-contain transition-opacity duration-200"
-                                            >
-                                        </div>
-                                        <span class="block text-center text-xs font-mono font-bold uppercase tracking-wider mt-2 text-gray-500 group-hover:text-black">
-                                            Quantitative
-                                        </span>
-                                    </button>
-                                </div>
-
-                                <div class="border border-gray-200 rounded-sm p-5 min-h-[120px] flex items-center justify-center">
-                                    <div id="displayTextRegion" aria-live="polite" aria-atomic="true" class="w-full">
-                                        <p id="defaultText" class="text-xs md:text-sm text-gray-500 italic text-center leading-relaxed">
-                                            Click either button above or select an image card to display its corresponding methodology description.
-                                        </p>
-                                        
-                                        <p id="qualText" class="hidden text-xs md:text-sm text-gray-700 leading-relaxed font-normal">
-                                            Qualitative analysis explores meaning, context, and lived experience within research. Interviews and observations often reveal insights numbers alone cannot capture. Researchers interpret themes and narratives to better understand human behavior. Open-ended inquiry allows unexpected patterns to emerge.
-                                        </p>
-
-                                        <p id="quantText" class="hidden text-xs md:text-sm text-gray-700 leading-relaxed font-normal">
-                                            Quantitative analysis focuses on measurable variables and statistical relationships. Researchers use numerical models to identify trends and test hypotheses. Large datasets allow analysts to compare patterns across populations. Structured methods support repeatability and precision in findings.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
+            <div>
+                <div id="blenderContainer" class="relative w-full h-[280px] md:h-[340px] overflow-hidden border border-gray-200 rounded-sm bg-gradient-to-b from-white to-gray-50 shadow-inner">
+                    <div id="sqCyan" class="blender-square blender-square-cyan" aria-label="Cyan Discipline Square"></div>
+                    <div id="sqCoral" class="blender-square blender-square-coral" aria-label="Coral Discipline Square"></div>
+                    <div id="sqGold" class="blender-square blender-square-gold" aria-label="Gold Discipline Square"></div>
                 </div>
-            </section>
+
+                <div class="mt-6 flex justify-center">
+                    <button 
+                        id="blenderStartBtn" 
+                        type="button"
+                        onclick="runBlender()"
+                        class="bg-black text-white hover:bg-gray-800 focus:ring-2 focus:ring-black focus:ring-offset-2 transition-all px-8 py-3 text-xs font-mono font-bold uppercase tracking-wider rounded-sm shadow-sm focus:outline-none">
+                        Start Blender
+                    </button>
+                </div>
+            </div>
+        </article>
+
+        <!-- Child 2: Data Analysis Methodology Widget -->
+        <article class="w-full mx-auto border border-gray-200 rounded-sm p-4 md:p-6 bg-white shadow-sm">
+            <header class="text-center mb-6">
+                <h3 class="text-xl md:text-2xl font-bold tracking-tight text-black mb-2">
+                    Data Analysis In The Lab
+                </h3>
+                <p class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider">
+                    Select a methodology below to examine the analysis framework
+                </p>
+            </header>
+
+            <div class="flex justify-center mb-6">
+                <div role="region" aria-label="Methodology Toggle Switch" class="inline-flex max-w-[450px] w-full border border-gray-300 rounded-sm p-1 gap-1">
+                    <button 
+                        id="qualBtn" 
+                        type="button"
+                        aria-pressed="false"
+                        class="toggle-btn flex-1 py-2.5 px-3 text-xs font-mono font-bold text-gray-600 bg-transparent rounded-sm transition-all hover:text-black focus:outline-none focus:ring-2 focus:ring-black focus:z-10">
+                        Qualitative Analysis
+                    </button>
+                    <button 
+                        id="quantBtn" 
+                        type="button"
+                        aria-pressed="false"
+                        class="toggle-btn flex-1 py-2.5 px-3 text-xs font-mono font-bold text-gray-600 bg-transparent rounded-sm transition-all hover:text-black focus:outline-none focus:ring-2 focus:ring-black focus:z-10">
+                        Quantitative Analysis
+                    </button>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <div class="grid grid-cols-2 gap-4">
+                    <button 
+                        id="qualCardBtn"
+                        type="button"
+                        onclick="setMethodology('qualitative')"
+                        class="group relative border-2 border-gray-200 rounded-sm p-2 md:p-4 transition-all duration-200 text-left focus:outline-none focus:ring-2 focus:ring-black">
+                        <div class="aspect-[4/3] w-full flex items-center justify-center overflow-hidden">
+                            <img 
+                                id="qualImg" 
+                                src="Images/M3_W1_A5@10x.png" 
+                                alt="Qualitative data analysis framework illustration" 
+                                class="w-full h-full object-contain transition-opacity duration-200"
+                            >
+                        </div>
+                        <span class="block text-center text-xs font-mono font-bold uppercase tracking-wider mt-2 text-gray-500 group-hover:text-black">
+                            Qualitative
+                        </span>
+                    </button>
+
+                    <button 
+                        id="quantCardBtn"
+                        type="button"
+                        onclick="setMethodology('quantitative')"
+                        class="group relative border-2 border-gray-200 rounded-sm p-2 md:p-4 transition-all duration-200 text-left focus:outline-none focus:ring-2 focus:ring-black">
+                        <div class="aspect-[4/3] w-full flex items-center justify-center overflow-hidden">
+                            <img 
+                                id="quantImg" 
+                                src="Images/M3_W1_A6@10x.png" 
+                                alt="Quantitative data analysis framework illustration" 
+                                class="w-full h-full object-contain transition-opacity duration-200"
+                            >
+                        </div>
+                        <span class="block text-center text-xs font-mono font-bold uppercase tracking-wider mt-2 text-gray-500 group-hover:text-black">
+                            Quantitative
+                        </span>
+                    </button>
+                </div>
+
+                <div class="border border-gray-200 rounded-sm p-5 min-h-[120px] flex items-center justify-center">
+                    <div id="displayTextRegion" aria-live="polite" aria-atomic="true" class="w-full">
+                        <p id="defaultText" class="text-xs md:text-sm text-gray-500 italic text-center leading-relaxed">
+                            Click either button above or select an image card to display its corresponding methodology description.
+                        </p>
+                        
+                        <p id="qualText" class="hidden text-xs md:text-sm text-gray-700 leading-relaxed font-normal">
+                            Qualitative analysis explores meaning, context, and lived experience within research. Interviews and observations often reveal insights numbers alone cannot capture. Researchers interpret themes and narratives to better understand human behavior. Open-ended inquiry allows unexpected patterns to emerge.
+                        </p>
+
+                        <p id="quantText" class="hidden text-xs md:text-sm text-gray-700 leading-relaxed font-normal">
+                            Quantitative analysis focuses on measurable variables and statistical relationships. Researchers use numerical models to identify trends and test hypotheses. Large datasets allow analysts to compare patterns across populations. Structured methods support repeatability and precision in findings.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Child 3: Printmaking Vocabulary Flashcard Grid -->
+        <article class="w-full mx-auto border border-gray-200 rounded-sm overflow-hidden bg-white shadow-sm">
+            <iframe 
+                src="https://leon3525.github.io/portfolio-lab-assets/flip-card-grid/" 
+                class="w-full h-[660px] border-0 block" 
+                id="flashcardIframe"
+                title="Screen Printing Vocabulary Flashcard Grid"
+                loading="lazy"
+                scrolling="yes">
+            </iframe>
+            <script>
+  window.addEventListener('message', (event) => {
+    if (event.data && event.data.frameHeight) {
+      const iframe = document.getElementById('flashcardIframe');
+      if (iframe) {
+        iframe.style.height = event.data.frameHeight + 'px';
+      }
+    }
+  });
+</script>
+
+        </article>
+
+    </div>
+</section>
+
 
             <!-- SECTION 2: Interactive Video Container -->
             <section id="interactive-video" class="space-y-8 border-t border-gray-200 pt-16 scroll-mt-8" aria-labelledby="video-heading">
@@ -326,7 +283,7 @@
                     <div class="w-full mx-auto">
                         <div class="relative w-full aspect-[16/9] bg-black rounded-sm overflow-hidden">
                             <iframe 
-                                src="https://leon3525.github.io/American-Gothic-Challenge/American_Gothic_Challenge_Export/index.html" 
+                                src="https://leon3525.github.io/american-gothic-challenge/American_Gothic_Challenge_Export/index.html" 
                                 class="absolute top-0 left-0 w-full h-full border-none" 
                                 title="American Gothic Challenge Interactive Game"
                                 allowfullscreen>
@@ -598,6 +555,7 @@
             }
         });
     </script>
+
 
 </body>
 </html>
