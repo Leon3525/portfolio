@@ -1,269 +1,430 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hit Me Up — Leon Hayes</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="components/main-nav.js" defer></script>
     <style>
-        /* Modern, clean typography setup and smooth scroll behavior */
-        html { scroll-behavior: smooth; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+      /* Modern, clean typography setup and smooth scroll behavior */
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      }
     </style>
-</head>
-<body class="bg-white text-black min-h-screen">
-  <!-- Centrally Managed Web Component Navigation -->
-  <main-nav></main-nav>
+  </head>
+  <body class="bg-white text-black min-h-screen">
+    <!-- Centrally Managed Web Component Navigation -->
+    <main-nav></main-nav>
 
     <!-- Main Container Constrained to Max 1200px -->
     <div class="max-w-[1200px] mx-auto px-4 md:px-8 py-4 md:py-8">
+      <!-- Main Content -->
+      <main class="w-full">
+        <!-- Hero Heading -->
+        <div class="mb-12 max-w-2xl">
+          <h1
+            class="text-3xl md:text-5xl font-bold tracking-tight mb-4 leading-tight"
+          >
+            Let's skip the
+            <span class="italic font-serif font-normal text-gray-700"
+              >corporate</span
+            >
+            bureaucracy.
+          </h1>
+          <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+            Tell me about what you want to build, your timeline, and the best
+            way to get back to you. I will reply within 24 hours.
+          </p>
+        </div>
 
-        <!-- Main Content -->
-        <main class="w-full">
-            
-            <!-- Hero Heading -->
-            <div class="mb-12 max-w-2xl">
-                <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-4 leading-tight">
-                    Let's skip the <span class="italic font-serif font-normal text-gray-700">corporate</span> bureaucracy.
-                </h1>
-                <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                    Tell me about what you want to build, your timeline, and the best way to get back to you. I will reply within 24 hours.
-                </p>
+        <!-- Form & Sidebar Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+          <!-- Form Section -->
+          <!-- Submission is handled by the script at the bottom of the page -->
+          <form id="intake-form" class="md:col-span-2 space-y-8">
+            <!-- Honeypot: invisible to people, tempting to bots. Do not remove or rename. -->
+            <div
+              aria-hidden="true"
+              style="
+                position: absolute;
+                left: -9999px;
+                width: 1px;
+                height: 1px;
+                overflow: hidden;
+              "
+            >
+              <label for="botcheck">Leave this box unchecked</label>
+              <input
+                type="checkbox"
+                id="botcheck"
+                name="botcheck"
+                tabindex="-1"
+                autocomplete="off"
+              />
             </div>
 
-            <!-- Form & Sidebar Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
-                
-                <!-- Form Section -->
-                <!-- Submission is handled by the script at the bottom of the page -->
-                <form id="intake-form" class="md:col-span-2 space-y-8">
-
-                    <!-- Honeypot: invisible to people, tempting to bots. Do not remove or rename. -->
-                    <div aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;">
-                        <label for="botcheck">Leave this box unchecked</label>
-                        <input type="checkbox" id="botcheck" name="botcheck" tabindex="-1" autocomplete="off">
-                    </div>
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div class="flex flex-col space-y-2">
-                            <label for="name" class="font-mono text-xs md:text-sm uppercase tracking-wider text-gray-500">Your Name</label>
-                            <input type="text" id="name" name="name" placeholder="Leon Hayes" class="w-full bg-white border border-gray-200 p-3.5 text-base md:text-lg rounded-none focus:outline-none focus:border-black transition-colors" required>
-                        </div>
-                        <div class="flex flex-col space-y-2">
-                            <label for="company" class="font-mono text-xs md:text-sm uppercase tracking-wider text-gray-500">Company / Organization</label>
-                            <input type="text" id="company" name="company" placeholder="Independent Studio" class="w-full bg-white border border-gray-200 p-3.5 text-base md:text-lg rounded-none focus:outline-none focus:border-black transition-colors">
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col space-y-2">
-                        <label for="email" class="font-mono text-xs md:text-sm uppercase tracking-wider text-gray-500">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="you@example.com" class="w-full bg-white border border-gray-200 p-3.5 text-base md:text-lg rounded-none focus:outline-none focus:border-black transition-colors" required>
-                    </div>
-
-                    <div class="flex flex-col space-y-3">
-                        <span class="font-mono text-xs md:text-sm uppercase tracking-wider text-gray-500">What asset are we building?</span>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            <label class="border border-gray-200 p-3.5 flex items-center space-x-3 cursor-pointer hover:bg-gray-50 transition-colors">
-                                <input type="checkbox" name="asset-type" value="HTML / JS Widget" class="accent-black w-4 h-4">
-                                <span class="text-base md:text-lg text-gray-700">HTML / JS Widget</span>
-                            </label>
-                            <label class="border border-gray-200 p-3.5 flex items-center space-x-3 cursor-pointer hover:bg-gray-50 transition-colors">
-                                <input type="checkbox" name="asset-type" value="H5P Media Asset" class="accent-black w-4 h-4">
-                                <span class="text-base md:text-lg text-gray-700">H5P Media Asset</span>
-                            </label>
-                            <label class="border border-gray-200 p-3.5 flex items-center space-x-3 cursor-pointer hover:bg-gray-50 transition-colors">
-                                <input type="checkbox" name="asset-type" value="Motion Graphics / Video" class="accent-black w-4 h-4">
-                                <span class="text-base md:text-lg text-gray-700">Motion Graphics / Video</span>
-                            </label>
-                            <label class="border border-gray-200 p-3.5 flex items-center space-x-3 cursor-pointer hover:bg-gray-50 transition-colors">
-                                <input type="checkbox" name="asset-type" value="Other" class="accent-black w-4 h-4">
-                                <span class="text-base md:text-lg text-gray-700">Other</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="flex flex-col space-y-2">
-                        <label for="timeline" class="font-mono text-xs md:text-sm uppercase tracking-wider text-gray-500">Ideal Timeline Sprint</label>
-                        <select id="timeline" name="timeline" class="w-full bg-white border border-gray-200 p-3.5 text-base md:text-lg rounded-none focus:outline-none focus:border-black transition-colors appearance-none cursor-pointer">
-                            <option>Immediate Sprint (1–2 weeks)</option>
-                            <option>Standard Milestone (3–4 weeks)</option>
-                            <option>Just consulting / scoping right now</option>
-                            <option>Other</option>
-                        </select>
-                    </div>
-
-                    <div class="flex flex-col space-y-2">
-                        <label for="details" class="font-mono text-xs md:text-sm uppercase tracking-wider text-gray-500">Project Context & Constraints</label>
-                        <textarea id="details" name="message" rows="5" placeholder="Share a few brief details about the learning experience, your raw content assets, or project goals..." class="w-full bg-white border border-gray-200 p-3.5 text-base md:text-lg rounded-none focus:outline-none focus:border-black transition-colors resize-none" required></textarea>
-                    </div>
-
-                    <!-- Submit button + status message -->
-                    <div class="space-y-4">
-                        <button id="submit-btn" type="submit" class="inline-block bg-black text-white px-8 py-3.5 text-base font-medium hover:bg-gray-800 transition-colors disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:bg-black">
-                            Send Brief
-                        </button>
-
-                        <!-- Screen readers announce changes here. Empty and collapsed until a message is shown. -->
-                        <div id="form-status" role="status" aria-live="polite" class="hidden border p-4 text-sm md:text-base leading-relaxed"></div>
-                    </div>
-
-                </form>
-
-                <!-- Sidebar Box -->
-                <aside class="md:col-span-1 space-y-8 bg-gray-50 border border-gray-200 p-8">
-                    <div>
-                        <h2 class="font-mono text-xs md:text-sm uppercase tracking-wider text-gray-500 mb-2">Direct Channel</h2>
-                        <p class="text-xs md:text-sm text-gray-600 leading-relaxed">Prefer secure or open email formats? Skip this panel and email me anytime at:</p>
-                        <a href="mailto:leonhayes100@gmail.com" class="text-sm md:text-base font-bold text-black block mt-2 hover:text-gray-600 transition-colors">leonhayes100@gmail.com</a>
-                    </div>
-                    
-                    <div class="border-t border-gray-200 pt-6">
-                        <h2 class="font-mono text-xs md:text-sm uppercase tracking-wider text-gray-500 mb-2">Contract Guidelines</h2>
-                        <ul class="text-xs md:text-sm text-gray-600 space-y-2 leading-relaxed">
-                            <li>• Fixed-price asset sprint quotes only</li>
-                            <li>• 100% remote asynchronous coordination</li>
-                            <li>• Zero Storyline or Rise module overhauls</li>
-                        </ul>
-                    </div>
-                </aside>
-
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="flex flex-col space-y-2">
+                <label
+                  for="name"
+                  class="font-mono text-xs md:text-sm uppercase tracking-wider text-gray-500"
+                  >Your Name</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Leon Hayes"
+                  class="w-full bg-white border border-gray-200 p-3.5 text-base md:text-lg rounded-none focus:outline-none focus:border-black transition-colors"
+                  required
+                />
+              </div>
+              <div class="flex flex-col space-y-2">
+                <label
+                  for="company"
+                  class="font-mono text-xs md:text-sm uppercase tracking-wider text-gray-500"
+                  >Company / Organization</label
+                >
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  placeholder="Independent Studio"
+                  class="w-full bg-white border border-gray-200 p-3.5 text-base md:text-lg rounded-none focus:outline-none focus:border-black transition-colors"
+                />
+              </div>
             </div>
-        </main>
 
-        <!-- Footer -->
-        <footer class="mt-24 pt-8 border-t border-gray-200 text-xs md:text-sm flex justify-between items-center">
-            <p>&copy; 2026 Leon Hayes. All rights reserved.</p>
-            <a href="#" class="border border-black px-3 py-1 font-medium hover:bg-black hover:text-white transition-all">
-                Back to Top &uarr;
-            </a>
-        </footer>
+            <div class="flex flex-col space-y-2">
+              <label
+                for="email"
+                class="font-mono text-xs md:text-sm uppercase tracking-wider text-gray-500"
+                >Email Address</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                class="w-full bg-white border border-gray-200 p-3.5 text-base md:text-lg rounded-none focus:outline-none focus:border-black transition-colors"
+                required
+              />
+            </div>
 
+            <div class="flex flex-col space-y-3">
+              <span
+                class="font-mono text-xs md:text-sm uppercase tracking-wider text-gray-500"
+                >What asset are we building?</span
+              >
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <label
+                  class="border border-gray-200 p-3.5 flex items-center space-x-3 cursor-pointer hover:bg-gray-50 transition-colors"
+                >
+                  <input
+                    type="checkbox"
+                    name="asset-type"
+                    value="HTML / JS Widget"
+                    class="accent-black w-4 h-4"
+                  />
+                  <span class="text-base md:text-lg text-gray-700"
+                    >HTML / JS Widget</span
+                  >
+                </label>
+                <label
+                  class="border border-gray-200 p-3.5 flex items-center space-x-3 cursor-pointer hover:bg-gray-50 transition-colors"
+                >
+                  <input
+                    type="checkbox"
+                    name="asset-type"
+                    value="H5P Media Asset"
+                    class="accent-black w-4 h-4"
+                  />
+                  <span class="text-base md:text-lg text-gray-700"
+                    >H5P Media Asset</span
+                  >
+                </label>
+                <label
+                  class="border border-gray-200 p-3.5 flex items-center space-x-3 cursor-pointer hover:bg-gray-50 transition-colors"
+                >
+                  <input
+                    type="checkbox"
+                    name="asset-type"
+                    value="Motion Graphics / Video"
+                    class="accent-black w-4 h-4"
+                  />
+                  <span class="text-base md:text-lg text-gray-700"
+                    >Motion Graphics / Video</span
+                  >
+                </label>
+                <label
+                  class="border border-gray-200 p-3.5 flex items-center space-x-3 cursor-pointer hover:bg-gray-50 transition-colors"
+                >
+                  <input
+                    type="checkbox"
+                    name="asset-type"
+                    value="Other"
+                    class="accent-black w-4 h-4"
+                  />
+                  <span class="text-base md:text-lg text-gray-700">Other</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="flex flex-col space-y-2">
+              <label
+                for="timeline"
+                class="font-mono text-xs md:text-sm uppercase tracking-wider text-gray-500"
+                >Ideal Timeline Sprint</label
+              >
+              <select
+                id="timeline"
+                name="timeline"
+                class="w-full bg-white border border-gray-200 p-3.5 text-base md:text-lg rounded-none focus:outline-none focus:border-black transition-colors appearance-none cursor-pointer"
+              >
+                <option>Immediate Sprint (1–2 weeks)</option>
+                <option>Standard Milestone (3–4 weeks)</option>
+                <option>Just consulting / scoping right now</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="flex flex-col space-y-2">
+              <label
+                for="details"
+                class="font-mono text-xs md:text-sm uppercase tracking-wider text-gray-500"
+                >Project Context & Constraints</label
+              >
+              <textarea
+                id="details"
+                name="message"
+                rows="5"
+                placeholder="Share a few brief details about the learning experience, your raw content assets, or project goals..."
+                class="w-full bg-white border border-gray-200 p-3.5 text-base md:text-lg rounded-none focus:outline-none focus:border-black transition-colors resize-none"
+                required
+              ></textarea>
+            </div>
+
+            <!-- Submit button + status message -->
+            <div class="space-y-4">
+              <button
+                id="submit-btn"
+                type="submit"
+                class="inline-block bg-black text-white px-8 py-3.5 text-base font-medium hover:bg-gray-800 transition-colors disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:bg-black"
+              >
+                Send Brief
+              </button>
+
+              <!-- Screen readers announce changes here. Empty and collapsed until a message is shown. -->
+              <div
+                id="form-status"
+                role="status"
+                aria-live="polite"
+                class="hidden border p-4 text-sm md:text-base leading-relaxed"
+              ></div>
+            </div>
+          </form>
+
+          <!-- Sidebar Box -->
+          <aside
+            class="md:col-span-1 space-y-8 bg-gray-50 border border-gray-200 p-8"
+          >
+            <div>
+              <h2
+                class="font-mono text-xs md:text-sm uppercase tracking-wider text-gray-500 mb-2"
+              >
+                Direct Channel
+              </h2>
+              <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
+                Prefer secure or open email formats? Skip this panel and email
+                me anytime at:
+              </p>
+              <a
+                href="mailto:leonhayes100@gmail.com"
+                class="text-sm md:text-base font-bold text-black block mt-2 hover:text-gray-600 transition-colors"
+                >leonhayes100@gmail.com</a
+              >
+            </div>
+
+            <div class="border-t border-gray-200 pt-6">
+              <h2
+                class="font-mono text-xs md:text-sm uppercase tracking-wider text-gray-500 mb-2"
+              >
+                Contract Guidelines
+              </h2>
+              <ul
+                class="text-xs md:text-sm text-gray-600 space-y-2 leading-relaxed"
+              >
+                <li>• Fixed-price asset sprint quotes only</li>
+                <li>• 100% remote asynchronous coordination</li>
+                <li>• Zero Storyline or Rise module overhauls</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer
+        class="mt-24 pt-8 border-t border-gray-200 text-xs md:text-sm flex justify-between items-center"
+      >
+        <p>&copy; 2026 Leon Hayes. All rights reserved.</p>
+        <a
+          href="#"
+          class="border border-black px-3 py-1 font-medium hover:bg-black hover:text-white transition-all"
+        >
+          Back to Top &uarr;
+        </a>
+      </footer>
     </div>
 
     <!-- Mobile Menu Accessible Toggle Script -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const toggleBtn = document.getElementById('menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const openIcon = document.getElementById('menu-open-icon');
-            const closeIcon = document.getElementById('menu-close-icon');
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggleBtn = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const openIcon = document.getElementById("menu-open-icon");
+        const closeIcon = document.getElementById("menu-close-icon");
 
-            if (toggleBtn && mobileMenu) {
-                toggleBtn.addEventListener('click', () => {
-                    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-                    toggleBtn.setAttribute('aria-expanded', !isExpanded);
-                    mobileMenu.classList.toggle('hidden');
-                    openIcon.classList.toggle('hidden');
-                    closeIcon.classList.toggle('hidden');
-                });
+        if (toggleBtn && mobileMenu) {
+          toggleBtn.addEventListener("click", () => {
+            const isExpanded =
+              toggleBtn.getAttribute("aria-expanded") === "true";
+            toggleBtn.setAttribute("aria-expanded", !isExpanded);
+            mobileMenu.classList.toggle("hidden");
+            openIcon.classList.toggle("hidden");
+            closeIcon.classList.toggle("hidden");
+          });
 
-                // Close menu on ESC key press
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape' && toggleBtn.getAttribute('aria-expanded') === 'true') {
-                        toggleBtn.setAttribute('aria-expanded', 'false');
-                        mobileMenu.classList.add('hidden');
-                        openIcon.classList.remove('hidden');
-                        closeIcon.classList.add('hidden');
-                        toggleBtn.focus();
-                    }
-                });
+          // Close menu on ESC key press
+          document.addEventListener("keydown", (e) => {
+            if (
+              e.key === "Escape" &&
+              toggleBtn.getAttribute("aria-expanded") === "true"
+            ) {
+              toggleBtn.setAttribute("aria-expanded", "false");
+              mobileMenu.classList.add("hidden");
+              openIcon.classList.remove("hidden");
+              closeIcon.classList.add("hidden");
+              toggleBtn.focus();
             }
-        });
+          });
+        }
+      });
     </script>
 
     <!-- Intake Form Submission Script (Web3Forms) -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            console.log('intake script loaded'); // DEBUG: remove once the form works
+      document.addEventListener("DOMContentLoaded", () => {
+        console.log("intake script loaded"); // DEBUG: remove once the form works
 
-            // This key is meant to be public; the honeypot and Web3Forms' spam filtering protect it.
-            const ACCESS_KEY = '978766d8-90aa-4a97-b529-85a1b659e8e0';
-            const ENDPOINT = 'https://api.web3forms.com/submit';
+        // This key is meant to be public; the honeypot and Web3Forms' spam filtering protect it.
+        const ACCESS_KEY = "978766d8-90aa-4a97-b529-85a1b659e8e0";
+        const ENDPOINT = "https://api.web3forms.com/submit";
 
-            const form = document.getElementById('intake-form');
-            const submitBtn = document.getElementById('submit-btn');
-            const statusBox = document.getElementById('form-status');
-            if (!form || !submitBtn || !statusBox) return;
+        const form = document.getElementById("intake-form");
+        const submitBtn = document.getElementById("submit-btn");
+        const statusBox = document.getElementById("form-status");
+        if (!form || !submitBtn || !statusBox) return;
 
-            const defaultBtnText = submitBtn.textContent.trim();
+        const defaultBtnText = submitBtn.textContent.trim();
 
-            const SUCCESS_CLASSES = ['border-black', 'bg-gray-50', 'text-black'];
-            const ERROR_CLASSES = ['border-red-600', 'bg-red-50', 'text-red-800'];
+        const SUCCESS_CLASSES = ["border-black", "bg-gray-50", "text-black"];
+        const ERROR_CLASSES = ["border-red-600", "bg-red-50", "text-red-800"];
 
-            function showStatus(type, message) {
-                statusBox.classList.remove('hidden', ...SUCCESS_CLASSES, ...ERROR_CLASSES);
-                statusBox.classList.add(...(type === 'success' ? SUCCESS_CLASSES : ERROR_CLASSES));
-                statusBox.textContent = message;
-            }
+        function showStatus(type, message) {
+          statusBox.classList.remove(
+            "hidden",
+            ...SUCCESS_CLASSES,
+            ...ERROR_CLASSES,
+          );
+          statusBox.classList.add(
+            ...(type === "success" ? SUCCESS_CLASSES : ERROR_CLASSES),
+          );
+          statusBox.textContent = message;
+        }
 
-            function hideStatus() {
-                statusBox.classList.add('hidden');
-                statusBox.textContent = '';
-            }
+        function hideStatus() {
+          statusBox.classList.add("hidden");
+          statusBox.textContent = "";
+        }
 
-            function setLoading(isLoading) {
-                submitBtn.disabled = isLoading;
-                submitBtn.setAttribute('aria-busy', String(isLoading));
-                submitBtn.textContent = isLoading ? 'Sending…' : defaultBtnText;
-            }
+        function setLoading(isLoading) {
+          submitBtn.disabled = isLoading;
+          submitBtn.setAttribute("aria-busy", String(isLoading));
+          submitBtn.textContent = isLoading ? "Sending…" : defaultBtnText;
+        }
 
-            form.addEventListener('submit', async (event) => {
-                event.preventDefault();
-                console.log('submit handler fired'); // DEBUG: remove once the form works
-                if (submitBtn.disabled) return; // blocks double-clicks
+        form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          console.log("submit handler fired"); // DEBUG: remove once the form works
+          if (submitBtn.disabled) return; // blocks double-clicks
 
-                hideStatus();
+          hideStatus();
 
-                // Honeypot: if a bot ticked the hidden box, pretend it worked and send nothing.
-                if (form.elements['botcheck'].checked) {
-                    showStatus('success', 'Thanks! Your brief is on its way.');
-                    return;
-                }
+          // Honeypot: if a bot ticked the hidden box, pretend it worked and send nothing.
+          if (form.elements["botcheck"].checked) {
+            showStatus("success", "Thanks! Your brief is on its way.");
+            return;
+          }
 
-                // Build the payload from the form fields.
-                const data = new FormData(form);
-                const assetTypes = data.getAll('asset-type');
-                data.delete('asset-type');
-                data.delete('botcheck');
+          // Build the payload from the form fields.
+          const data = new FormData(form);
+          const assetTypes = data.getAll("asset-type");
+          data.delete("asset-type");
+          data.delete("botcheck");
 
-                const payload = Object.fromEntries(data.entries());
-                payload.access_key = ACCESS_KEY;
-                payload.subject = `New project brief from ${payload.name || 'your portfolio'}`;
-                payload.from_name = 'Portfolio Intake Form';
-                payload['asset-type'] = assetTypes.length ? assetTypes.join(', ') : 'None selected';
+          const payload = Object.fromEntries(data.entries());
+          payload.access_key = ACCESS_KEY;
+          payload.subject = `New project brief from ${payload.name || "your portfolio"}`;
+          payload.from_name = "Portfolio Intake Form";
+          payload["asset-type"] = assetTypes.length
+            ? assetTypes.join(", ")
+            : "None selected";
 
-                setLoading(true);
+          setLoading(true);
 
-                try {
-                    const response = await fetch(ENDPOINT, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json'
-                        },
-                        body: JSON.stringify(payload)
-                    });
-
-                    const result = await response.json();
-                    console.log('Web3Forms response:', response.status, result); // DEBUG: remove once the form works
-
-                    if (response.ok && result.success) {
-                        form.reset();
-                        showStatus('success', "Thanks! Your brief is in. I'll reply within 24 hours.");
-                    } else {
-                        console.error('Web3Forms error:', result);
-                        showStatus('error', "Something went wrong and your brief wasn't sent. Please try again, or email me directly at leonhayes100@gmail.com.");
-                    }
-                } catch (error) {
-                    console.error('Network error:', error);
-                    showStatus('error', "Couldn't reach the server. Check your connection and try again, or email me directly at leonhayes100@gmail.com.");
-                } finally {
-                    setLoading(false);
-                }
+          try {
+            const response = await fetch(ENDPOINT, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+              },
+              body: JSON.stringify(payload),
             });
-        });
-    </script>
 
-</body>
+            const result = await response.json();
+            console.log("Web3Forms response:", response.status, result); // DEBUG: remove once the form works
+
+            if (response.ok && result.success) {
+              form.reset();
+              showStatus(
+                "success",
+                "Thanks! Your brief is in. I'll reply within 24 hours.",
+              );
+            } else {
+              console.error("Web3Forms error:", result);
+              showStatus(
+                "error",
+                "Something went wrong and your brief wasn't sent. Please try again, or email me directly at leonhayes100@gmail.com.",
+              );
+            }
+          } catch (error) {
+            console.error("Network error:", error);
+            showStatus(
+              "error",
+              "Couldn't reach the server. Check your connection and try again, or email me directly at leonhayes100@gmail.com.",
+            );
+          } finally {
+            setLoading(false);
+          }
+        });
+      });
+    </script>
+  </body>
 </html>

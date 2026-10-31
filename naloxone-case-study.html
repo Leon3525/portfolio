@@ -1,651 +1,1077 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Naloxone Emergency Response Training — Leon Hayes</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="components/main-nav.js" defer></script>
 
     <style>
-        /* Modern, clean typography setup and smooth scroll behavior */
-        html { scroll-behavior: smooth; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+      /* Modern, clean typography setup and smooth scroll behavior */
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      }
     </style>
-</head>
-<body class="bg-white text-black min-h-screen">
+  </head>
+  <body class="bg-white text-black min-h-screen">
     <!-- Centrally Managed Web Component Navigation -->
-  <main-nav></main-nav>
+    <main-nav></main-nav>
 
     <!-- Main Container Constrained to Max 1200px -->
     <div class="max-w-[1200px] mx-auto px-4 md:px-8 py-4 md:py-8">
-
-        <main class="w-full space-y-20">
-            <!-- Hero UI Image -->
-            <div>
-              <img
-                src="Images/naloxone-hero-unsplash.jpg"
-                alt="Emergency Response Training Naloxone (Narcan®) course interface overview"
-                class="aspect-[16/9] w-full object-fit border border-gray-200 rounded-sm"
-              />
-            </div>
-
-            <!-- Hero / Overview Section -->
-            <section>
-                <div class="mb-12 max-w-3xl">
-                    <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-3">Naloxone (Narcan®) Emergency Response Training</h1>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start mb-12">
-                    <!-- Overview & Audience -->
-                    <div class="md:col-span-2 space-y-8 border border-gray-200 p-8">
-                        <div>
-                            <h2 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2">Overview</h2>
-                            <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-4">
-                                Imagine encountering someone you suspect is experiencing an opioid overdose. In that critical moment, your swift action with Naloxone (Narcan ®) can mean the difference between life and death. Many professionals have faced this exact situation. Opioid overdose emergencies often strike suddenly in settings like schools, clinics, and community centers. To ensure safety, professionals must be prepared to respond decisively and confidently. Existing resources have not always been enough. True preparedness comes from equipping professionals not only with the procedural skills to administer Naloxone, but also with strategies to prevent overdoses in the first place.
-                            </p>
-                        </div>
-                        <div>
-                            <h2 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2">Audience and Context</h2>
-                            <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-6">
-                                This training course built in Rise empowers professionals working in public settings with the vital knowledge and skills to recognize overdose symptoms and administer Naloxone effectively.
-                            </p>
-                            <!-- Elevated CTAs at Top -->
-                            <div class="flex flex-wrap items-center gap-4">
-                                <a href="https://leon3525.github.io/Naloxone-Narcan-Training/" class="inline-block bg-black text-white px-7 py-3.5 text-base font-medium hover:bg-gray-800 transition-colors">
-                                    Go To Live Course
-                                </a>
-
-                                <a href="hitmeup.html" class="inline-block border border-black text-black px-7 py-3.5 text-base font-medium hover:bg-black hover:text-white transition-colors">
-                                    Hire Me for a Similar Project &rarr;
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Metadata Panel -->
-                    <div class="bg-gray-50 border border-gray-200 p-8 space-y-6">
-                        <div>
-                            <h3 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1">Client</h3>
-                            <p class="text-sm md:text-base font-bold text-black">Independent Project</p>
-                        </div>
-                        <div>
-                            <h3 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1">Timeline</h3>
-                            <p class="text-sm md:text-base font-bold text-black">2-Week Sprint (Oct 2025)</p>
-                        </div>
-                        <div>
-                            <h3 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1">Tools</h3>
-                            <p class="text-xs md:text-sm font-mono text-gray-800 leading-relaxed">
-                                Articulate Rise 360<br>
-                                Synthesia<br>
-                                GitHub
-                            </p>
-                        </div>
-                        <div>
-                            <h3 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1">Skills</h3>
-                            <ul class="text-xs md:text-sm space-y-1.5 font-medium text-gray-700 leading-relaxed">
-                                <li>• eLearning Development</li>
-                                <li>• Content Strategy</li>
-                                <li>• Project Management</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Identifying Critical Knowledge Gaps -->
-            <section class="space-y-8 border-t border-gray-200 pt-16">
-                <div class="max-w-3xl">
-                    <h2 class="text-xl md:text-2xl font-bold tracking-tight mb-3">Identifying Critical Knowledge Gaps</h2>
-                    <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                        When it comes to saving lives, it is essential that this course closes the right gap for learners. Critical knowledge gaps were identified through a comprehensive needs assessment, guiding targeted improvements in course content.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="border border-gray-200 p-6 space-y-3 bg-gray-50">
-                        <h3 class="font-bold text-lg md:text-xl text-black">Research Activities</h3>
-                        <ul class="text-sm md:text-base text-gray-600 space-y-2 leading-relaxed">
-                            <li>• Interview with one SME</li>
-                            <li>• Reviewed CDC, SAMHSA, and public health overdose prevention guidelines</li>
-                            <li>• Analyzed existing Naloxone training programs to identify content gaps</li>
-                        </ul>
-                    </div>
-                    <div class="border border-gray-200 p-6 space-y-3 bg-gray-50">
-                        <h3 class="font-bold text-lg md:text-xl text-black">Key Insights</h3>
-                        <ul class="text-sm md:text-base text-gray-600 space-y-2 leading-relaxed">
-                            <li>• Learners need both recognition skills and procedural knowledge</li>
-                            <li>• Crisis situations require clear, memorable protocols</li>
-                            <li>• Identified need for universal (non-organization-specific) training</li>
-                        </ul>
-                    </div>
-                    <div class="border border-gray-200 p-6 space-y-3 bg-gray-50">
-                        <h3 class="font-bold text-lg md:text-xl text-black">Audience Characteristics</h3>
-                        <ul class="text-sm md:text-base text-gray-600 space-y-2 leading-relaxed">
-                            <li>• Wide range of comfort levels with medical content</li>
-                            <li>• Limited professional development time</li>
-                            <li>• Diverse learning preferences and technology proficiency levels</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Key Training Challenges and Solutions -->
-            <section class="space-y-8 border-t border-gray-200 pt-16" aria-labelledby="challenges-heading">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
-                    
-                    <!-- Left Column (50% Width, Sticky on Desktop) -->
-                    <div class="space-y-3 md:sticky md:top-8">
-                        <h2 id="challenges-heading" class="text-xl md:text-2xl font-bold tracking-tight text-black">Key Training Challenges and Solutions</h2>
-                        <h3 class="text-lg md:text-xl font-bold text-black pt-1">Making Medical Content Accessible</h3>
-                        <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                            Findings highlight the need to differentiate course content to learners who have limited or no experience with opioid overdose response, ensuring instruction is accessible and relevant for all participants.
-                        </p>
-                    </div>
-
-                    <!-- Right Accordion Column (50% Width) -->
-                    <div class="border-t border-gray-200 divide-y divide-gray-200">
-                        <details class="group py-5 [&_summary::-webkit-details-marker]:hidden">
-                            <summary class="flex items-center justify-between cursor-pointer font-bold text-lg md:text-xl text-black">
-                                <span>Balancing Medical Accuracy with Accessibility</span>
-                                <svg class="w-5 h-5 text-gray-500 transition-transform duration-200 group-open:rotate-180 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </summary>
-                            <p class="mt-4 text-base md:text-lg text-gray-700 leading-relaxed pr-6">
-                                I collaborated with public health resources (CDC, SAMHSA) to ensure accuracy while using plain language. Avoided medical jargon; when technical terms were necessary (e.g., "respiratory depression"), provided immediate context. Key Consideration: Content must be clear enough for non-medical audiences while maintaining accuracy for emergency response.
-                            </p>
-                        </details>
-
-                        <details class="group py-5 [&_summary::-webkit-details-marker]:hidden">
-                            <summary class="flex items-center justify-between cursor-pointer font-bold text-lg md:text-xl text-black">
-                                <span>Creating Engaging Content for Serious Topic</span>
-                                <svg class="w-5 h-5 text-gray-500 transition-transform duration-200 group-open:rotate-180 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </summary>
-                            <p class="mt-4 text-base md:text-lg text-gray-700 leading-relaxed pr-6">
-                                Accessible, non-medical training that enables staff across multiple sectors (education, corporate, nonprofit) to respond effectively to opioid emergencies.
-                            </p>
-                        </details>
-
-                        <details class="group py-5 [&_summary::-webkit-details-marker]:hidden">
-                            <summary class="flex items-center justify-between cursor-pointer font-bold text-lg md:text-xl text-black">
-                                <span>Limited Time for Comprehensive Training</span>
-                                <svg class="w-5 h-5 text-gray-500 transition-transform duration-200 group-open:rotate-180 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </summary>
-                            <p class="mt-4 text-base md:text-lg text-gray-700 leading-relaxed pr-6">
-                                This course focuses on critical skills (recognize, call 911, administer) while providing resources for deeper learning. Prioritized "need to know" over "nice to know" to respect learners' time.
-                            </p>
-                        </details>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- Approach to Content Strategy -->
-            <section class="space-y-10 border-t border-gray-200 pt-16" aria-labelledby="strategy-heading">
-                <!-- Top Header & Subheading -->
-                <div class="max-w-3xl space-y-2">
-                    <h2 id="strategy-heading" class="text-xl md:text-2xl font-bold tracking-tight text-black">Approach to Content Strategy</h2>
-                    <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                        A structured learning progression designed to move users seamlessly from foundational knowledge to critical decision-making and procedural execution.
-                    </p>
-                </div>
-
-                <!-- Vertical Timeline Track -->
-                <div class="relative pl-6 md:pl-10 space-y-10 max-w-3xl">
-                    
-                    <!-- Continuous Vertical Line -->
-                    <div class="absolute top-3 bottom-3 left-2.5 md:left-3.5 w-0.5 bg-gray-200" aria-hidden="true"></div>
-
-                    <!-- Timeline Step 1: Awareness -->
-                    <div class="relative pl-6 md:pl-8 space-y-3 group">
-                        <!-- Node Dot -->
-                        <div class="absolute -left-[19px] md:-left-[23px] top-1 w-4 h-4 rounded-full bg-white border-2 border-black group-hover:bg-black transition-colors" aria-hidden="true"></div>
-                        
-                        <div class="flex flex-wrap items-center gap-2">
-                            <span class="font-mono text-xs md:text-sm font-bold text-black uppercase tracking-wider bg-gray-100 border border-gray-200 px-2.5 py-0.5 rounded-sm">
-                                Phase 01
-                            </span>
-                            <span class="text-xs font-mono text-gray-500 uppercase tracking-wider">Foundational Context</span>
-                        </div>
-
-                        <h3 class="text-lg md:text-xl font-bold text-black">Awareness</h3>
-                        <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                            The course builds context by defining what Naloxone is and describing risk factors associated with opioid abuse. It also provides users with information about who can administer, legal protection and additional resources.
-                        </p>
-                    </div>
-
-                    <!-- Timeline Step 2: Recognition -->
-                    <div class="relative pl-6 md:pl-8 space-y-3 group">
-                        <!-- Node Dot -->
-                        <div class="absolute -left-[19px] md:-left-[23px] top-1 w-4 h-4 rounded-full bg-white border-2 border-black group-hover:bg-black transition-colors" aria-hidden="true"></div>
-                        
-                        <div class="flex flex-wrap items-center gap-2">
-                            <span class="font-mono text-xs md:text-sm font-bold text-black uppercase tracking-wider bg-gray-100 border border-gray-200 px-2.5 py-0.5 rounded-sm">
-                                Phase 02
-                            </span>
-                            <span class="text-xs font-mono text-gray-500 uppercase tracking-wider">Critical Decision Point</span>
-                        </div>
-
-                        <h3 class="text-lg md:text-xl font-bold text-black">Recognition</h3>
-                        <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                            The course teaches learners how to identify the signs of overdose (critical decision point) through interactive blocks including flash cards.
-                        </p>
-                    </div>
-
-                    <!-- Timeline Step 3: Procedure -->
-                    <div class="relative pl-6 md:pl-8 space-y-3 group">
-                        <!-- Node Dot -->
-                        <div class="absolute -left-[19px] md:-left-[23px] top-1 w-4 h-4 rounded-full bg-white border-2 border-black group-hover:bg-black transition-colors" aria-hidden="true"></div>
-                        
-                        <div class="flex flex-wrap items-center gap-2">
-                            <span class="font-mono text-xs md:text-sm font-bold text-black uppercase tracking-wider bg-gray-100 border border-gray-200 px-2.5 py-0.5 rounded-sm">
-                                Phase 03
-                            </span>
-                            <span class="text-xs font-mono text-gray-500 uppercase tracking-wider">Practical Execution</span>
-                        </div>
-
-                        <h3 class="text-lg md:text-xl font-bold text-black">Procedure</h3>
-                        <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                            Finally, the course provides learners with procedural steps outlining how to administer Naloxone effectively.
-                        </p>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- SECTION: Core Features -->
-            <section class="space-y-8 border-t border-gray-200 pt-16" aria-labelledby="features-heading">
-                <div class="max-w-3xl">
-                    <h2 id="features-heading" class="text-xl md:text-2xl font-bold tracking-tight text-black mb-2">Core Features</h2>
-                    <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                        Modular, scenario-driven architecture designed for rapid deployment across diverse learning environments.
-                    </p>
-                </div>
-
-                <!-- 4-Column Feature Grid -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    
-                    <!-- Feature 1 -->
-                    <div class="border border-gray-200 p-6 space-y-4 bg-gray-50 flex flex-col justify-between rounded-sm">
-                        <div class="space-y-2">
-                            <h3 class="font-bold text-lg md:text-xl text-black">Universal Design</h3>
-                            <p class="text-sm md:text-base text-gray-700 leading-relaxed">
-                                Flexible training framework customizable for K–12 districts, corporate offices, public libraries, and higher-ed campuses.
-                            </p>
-                        </div>
-                        <div class="pt-3 border-t border-gray-200/60">
-                            <span class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1">Adaptability</span>
-                            <span class="text-xs md:text-sm font-medium text-gray-800">Multi-Setting Support</span>
-                        </div>
-                    </div>
-
-                    <!-- Feature 2 -->
-                    <div class="border border-gray-200 p-6 space-y-4 bg-gray-50 flex flex-col justify-between rounded-sm">
-                        <div class="space-y-2">
-                            <h3 class="font-bold text-lg md:text-xl text-black">Microlearning Modules</h3>
-                            <p class="text-sm md:text-base text-gray-700 leading-relaxed">
-                                Time-agnostic, asynchronous structure allowing learners to complete short units or revisit specific topics on demand.
-                            </p>
-                        </div>
-                        <div class="pt-3 border-t border-gray-200/60">
-                            <span class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1">Pacing</span>
-                            <span class="text-xs md:text-sm font-medium text-gray-800">Self-Paced & Asynchronous</span>
-                        </div>
-                    </div>
-
-                    <!-- Feature 3 -->
-                    <div class="border border-gray-200 p-6 space-y-4 bg-gray-50 flex flex-col justify-between rounded-sm">
-                        <div class="space-y-2">
-                            <h3 class="font-bold text-lg md:text-xl text-black">SME Resource Library</h3>
-                            <p class="text-sm md:text-base text-gray-700 leading-relaxed">
-                                Embedded post-training references including SAMHSA toolkits, harm reduction guides, and video walk-throughs.
-                            </p>
-                        </div>
-                        <div class="pt-3 border-t border-gray-200/60">
-                            <span class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1">Reference</span>
-                            <span class="text-xs md:text-sm font-medium text-gray-800">Curated Toolkits</span>
-                        </div>
-                    </div>
-
-                    <!-- Feature 4 -->
-                    <div class="border border-gray-200 p-6 space-y-4 bg-gray-50 flex flex-col justify-between rounded-sm">
-                        <div class="space-y-2">
-                            <h3 class="font-bold text-lg md:text-xl text-black">Scenario Practice</h3>
-                            <p class="text-sm md:text-base text-gray-700 leading-relaxed">
-                                Low-stakes decision-making scenarios that assess practical real-world application rather than simple rote memorization.
-                            </p>
-                        </div>
-                        <div class="pt-3 border-t border-gray-200/60">
-                            <span class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1">Assessment</span>
-                            <span class="text-xs md:text-sm font-medium text-gray-800">Authentic Simulation</span>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- Creating Opioid Safety Experts Section -->
-<section class="space-y-16 border-t border-gray-200 pt-16" aria-labelledby="safety-experts-heading">
-    <div>
-        <h2 id="safety-experts-heading" class="text-xl md:text-2xl font-bold tracking-tight text-black mb-8">
-            Creating Opioid Safety Experts in the Community
-        </h2>
-        
-        <!-- Subsection 1: Development Phase (Image Left / Copy Right) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-16">
-            <!-- Left Column: Image -->
-            <div class="w-full">
-                <img
-                    src="Images/naloxone-training-ui.jpg"
-                    alt="Laboratory setting illustrating opioid safety and Naloxone development preparation"
-                    class="aspect-square w-full object-cover object-right border border-gray-200 rounded-sm"
-                />
-            </div>
-
-            <!-- Right Column: Content -->
-            <div class="space-y-4">
-                <h3 class="text-lg md:text-xl font-bold text-black">Development Phase</h3>
-                <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                    Strategic use of Rise's interactive blocks (tabs, flashcards, process) maintain engagement without trivializing the content.
-                </p>
-                <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                    All content is written using a conversational and empathetic tone in alignment with course goals. This course balances narrative realism through character dialogue to support learner immersion. While building I kept the following goals as my North Star:
-                </p>
-                <ul class="text-sm md:text-base text-gray-700 space-y-2 leading-relaxed pl-2">
-                    <li>• Intentional use of Rise interactive blocks to enhance engagement while maintaining pedagogical integrity.</li>
-                    <li>• Continuous assessment and self-evaluation happens within embedded reflection cards, scenario decisions, and rating scales.</li>
-                    <li>• Purposeful use of Storyline blocks for branching simulations.</li>
-                </ul>
-            </div>
+      <main class="w-full space-y-20">
+        <!-- Hero UI Image -->
+        <div>
+          <img
+            src="Images/naloxone-hero-unsplash.jpg"
+            alt="Emergency Response Training Naloxone (Narcan®) course interface overview"
+            class="aspect-[16/9] w-full object-fit border border-gray-200 rounded-sm"
+          />
         </div>
 
-        <!-- Subsection 2: Storyboarding & Video (Copy Left / Image Right) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-            <!-- Left Column: Content -->
-            <div class="space-y-6">
-                <div>
-                    <h3 class="text-lg md:text-xl font-bold text-black mb-2">Storyboarding & Video</h3>
-                    <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-3">
-                        Initially, I created a short training video using Synthesia, an AI-powered video creation tool. While the tool was effective for rapid development, my content lacked the depth of clinical research needed to ensure accuracy and credibility.
-                    </p>
-                    <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                        I decided instead to incorporate a video developed by SMEs at the Johns Hopkins Bloomberg School of Public Health. This decision not only improved the reliability of my training materials but also modeled the importance of integrating expert-verified content into instructional design projects.
-                    </p>
-                </div>
-                <div>
-                    <h3 class="text-lg md:text-xl font-bold text-black mb-2">Accessibility Considerations</h3>
-                    <ul class="text-sm md:text-base text-gray-600 space-y-1.5 leading-relaxed">
-                        <li>• Clear, jargon-free language (8th–grade reading level)</li>
-                        <li>• Multiple content formats (text, visual, audio)</li>
-                        <li>• High contrast for readability</li>
-                    </ul>
-                </div>
-            </div>
+        <!-- Hero / Overview Section -->
+        <section>
+          <div class="mb-12 max-w-3xl">
+            <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-3">
+              Naloxone (Narcan®) Emergency Response Training
+            </h1>
+          </div>
 
-            <!-- Right Column: Image -->
-            <div class="w-full">
-                <img
-                    src="Images/naloxone-glove-lab.jpeg"
-                    alt="Laboratory setting illustrating opioid safety and Naloxone development preparation"
-                    class="aspect-square w-full object-cover object-right border border-gray-200 rounded-sm"
-                />
-            </div>
-        </div>
-    </div>
-</section>
-
-
-            <!-- Design Decisions & Rationale -->
-            <section class="space-y-8 border-t border-gray-200 pt-16">
-                <h2 class="text-xl md:text-2xl font-bold tracking-tight mb-8">Design Decisions & Rationale</h2>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-                    <div class="w-full">
-    <img
-        src="Images/naloxone-training-ui.jpg"
-        alt="Naloxone training course visual slide and user interface mockup"
-        class="aspect-square w-full object-cover border border-gray-200 rounded-sm"
-    />
-</div>
-
-
-                    <div class="space-y-6">
-                        <h3 class="text-lg md:text-xl font-bold text-black">Visual Design</h3>
-                        
-                        <div>
-                            <h4 class="text-base md:text-lg font-bold text-black mb-1">Color Palette</h4>
-                            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                                Primary color used is professional blue (#1E6BA8) conveying trust, calm authority, and medical professionalism without creating anxiety.
-                            </p>
-                        </div>
-
-                        <div>
-                            <h4 class="text-base md:text-lg font-bold text-black mb-1">Typography & Layout</h4>
-                            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                                Emergency training must be easy to reference under stress. Formatting includes ample white space and key terms are bold and for scanning during review/crisis reference.
-                            </p>
-                        </div>
-
-                        <div>
-                            <h4 class="text-base md:text-lg font-bold text-black mb-1">Assessment Design</h4>
-                            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                                Compliance training requires demonstrated competency. The final assessment prioritizes and emergency protocol, not just knowledge recall and includes 5 questions and an 80% passing threshold (4/5 correct). The 80% threshold ensures learners can apply critical skills while accounting for test anxiety. Variety in questions and question types (multiple choice, true/false, scenario-based) test critical actions, not trivial details.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SECTION: Results & Impact -->
-            <section class="space-y-8 border-t border-gray-200 pt-16" aria-labelledby="results-heading">
-                <div class="max-w-3xl">
-                    <h2 id="results-heading" class="text-xl md:text-2xl font-bold tracking-tight text-black mb-2">Results & Impact</h2>
-                    <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                        Equipping learners with the power to save lives when every second counts.
-                    </p>
-                </div>
-
-                <!-- 3-Column Impact Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    
-                    <!-- Impact Card 1 -->
-                    <div class="border border-gray-200 p-6 space-y-4 bg-gray-50 flex flex-col justify-between rounded-sm">
-                        <div class="space-y-2">
-                            <span class="text-2xl md:text-3xl font-bold font-mono text-black block">01</span>
-                            <h3 class="font-bold text-lg md:text-xl text-black">Symptom Recognition</h3>
-                            <p class="text-sm md:text-base text-gray-700 leading-relaxed">
-                                Increased staff confidence in rapidly recognizing critical opioid overdose symptoms and taking decisive action.
-                            </p>
-                        </div>
-                        <div class="pt-3 border-t border-gray-200/60">
-                            <span class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1">Key Outcome</span>
-                            <span class="text-xs md:text-sm font-medium text-gray-800">Enhanced Readiness</span>
-                        </div>
-                    </div>
-
-                    <!-- Impact Card 2 -->
-                    <div class="border border-gray-200 p-6 space-y-4 bg-gray-50 flex flex-col justify-between rounded-sm">
-                        <div class="space-y-2">
-                            <span class="text-2xl md:text-3xl font-bold font-mono text-black block">02</span>
-                            <h3 class="font-bold text-lg md:text-xl text-black">Response Speed</h3>
-                            <p class="text-sm md:text-base text-gray-700 leading-relaxed">
-                                Faster emergency response times achieved by significantly reducing hesitation to administer Naloxone nasal spray.
-                            </p>
-                        </div>
-                        <div class="pt-3 border-t border-gray-200/60">
-                            <span class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1">Key Outcome</span>
-                            <span class="text-xs md:text-sm font-medium text-gray-800">Reduced Hesitation</span>
-                        </div>
-                    </div>
-
-                    <!-- Impact Card 3 -->
-                    <div class="border border-gray-200 p-6 space-y-4 bg-gray-50 flex flex-col justify-between rounded-sm">
-                        <div class="space-y-2">
-                            <span class="text-2xl md:text-3xl font-bold font-mono text-black block">03</span>
-                            <h3 class="font-bold text-lg md:text-xl text-black">Harm Reduction</h3>
-                            <p class="text-sm md:text-base text-gray-700 leading-relaxed">
-                                Fostered a broader, empathy-first organizational culture grounded in active harm reduction and peer support.
-                            </p>
-                        </div>
-                        <div class="pt-3 border-t border-gray-200/60">
-                            <span class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1">Key Outcome</span>
-                            <span class="text-xs md:text-sm font-medium text-gray-800">Cultural Alignment</span>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- Summary Section (Balanced 2-Column Layout) -->
-<section class="border-t border-gray-200 pt-16" aria-labelledby="summary-heading">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
-        
-        <!-- Left Column: Summary & Future Enhancements (5 cols) -->
-        <div class="md:col-span-5 space-y-8">
-            <!-- Header & Overview Text -->
-            <div class="space-y-3">
-                <h2 id="summary-heading" class="text-xl md:text-2xl font-bold tracking-tight text-black">Summary</h2>
-                <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                    This project demonstrates my ability to design accessible, engaging eLearning for high-stakes topics while applying instructional design principles and leveraging authoring tool capabilities strategically.
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start mb-12">
+            <!-- Overview & Audience -->
+            <div class="md:col-span-2 space-y-8 border border-gray-200 p-8">
+              <div>
+                <h2
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
+                >
+                  Overview
+                </h2>
+                <p
+                  class="text-base md:text-lg text-gray-700 leading-relaxed mb-4"
+                >
+                  Imagine encountering someone you suspect is experiencing an
+                  opioid overdose. In that critical moment, your swift action
+                  with Naloxone (Narcan ®) can mean the difference between life
+                  and death. Many professionals have faced this exact situation.
+                  Opioid overdose emergencies often strike suddenly in settings
+                  like schools, clinics, and community centers. To ensure
+                  safety, professionals must be prepared to respond decisively
+                  and confidently. Existing resources have not always been
+                  enough. True preparedness comes from equipping professionals
+                  not only with the procedural skills to administer Naloxone,
+                  but also with strategies to prevent overdoses in the first
+                  place.
                 </p>
+              </div>
+              <div>
+                <h2
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
+                >
+                  Audience and Context
+                </h2>
+                <p
+                  class="text-base md:text-lg text-gray-700 leading-relaxed mb-6"
+                >
+                  This training course built in Rise empowers professionals
+                  working in public settings with the vital knowledge and skills
+                  to recognize overdose symptoms and administer Naloxone
+                  effectively.
+                </p>
+                <!-- Elevated CTAs at Top -->
+                <div class="flex flex-wrap items-center gap-4">
+                  <a
+                    href="https://leon3525.github.io/Naloxone-Narcan-Training/"
+                    class="inline-block bg-black text-white px-7 py-3.5 text-base font-medium hover:bg-gray-800 transition-colors"
+                  >
+                    Go To Live Course
+                  </a>
+
+                  <a
+                    href="hitmeup.html"
+                    class="inline-block border border-black text-black px-7 py-3.5 text-base font-medium hover:bg-black hover:text-white transition-colors"
+                  >
+                    Hire Me for a Similar Project &rarr;
+                  </a>
+                </div>
+              </div>
             </div>
 
-            <!-- Future Enhancements Card -->
-            <div class="bg-white border border-gray-200 p-6 md:p-8 space-y-4 rounded-sm">
-                <h3 class="font-bold text-lg md:text-xl text-black border-b border-gray-200 pb-3">
-                    Future Enhancements
+            <!-- Metadata Panel -->
+            <div class="bg-gray-50 border border-gray-200 p-8 space-y-6">
+              <div>
+                <h3
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1"
+                >
+                  Client
                 </h3>
-                
-                <ul class="space-y-3 text-base md:text-lg text-gray-700 leading-relaxed">
-                    <li class="flex items-start space-x-2">
-                        <span class="text-black font-bold">&bull;</span>
-                        <span><strong>Branching Scenario:</strong> Learner makes decisions in a simulated overdose situation.</span>
-                    </li>
-                    <li class="flex items-start space-x-2">
-                        <span class="text-black font-bold">&bull;</span>
-                        <span>Post-training confidence survey to measure behavior change.</span>
-                    </li>
-                    <li class="flex items-start space-x-2">
-                        <span class="text-black font-bold">&bull;</span>
-                        <span>Follow-up microlearning "refreshers" at 3–month intervals.</span>
-                    </li>
+                <p class="text-sm md:text-base font-bold text-black">
+                  Independent Project
+                </p>
+              </div>
+              <div>
+                <h3
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1"
+                >
+                  Timeline
+                </h3>
+                <p class="text-sm md:text-base font-bold text-black">
+                  2-Week Sprint (Oct 2025)
+                </p>
+              </div>
+              <div>
+                <h3
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1"
+                >
+                  Tools
+                </h3>
+                <p
+                  class="text-xs md:text-sm font-mono text-gray-800 leading-relaxed"
+                >
+                  Articulate Rise 360<br />
+                  Synthesia<br />
+                  GitHub
+                </p>
+              </div>
+              <div>
+                <h3
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1"
+                >
+                  Skills
+                </h3>
+                <ul
+                  class="text-xs md:text-sm space-y-1.5 font-medium text-gray-700 leading-relaxed"
+                >
+                  <li>• eLearning Development</li>
+                  <li>• Content Strategy</li>
+                  <li>• Project Management</li>
                 </ul>
+              </div>
             </div>
-        </div>
+          </div>
+        </section>
 
-        <!-- Right Column: Project Strengths & Execution Card (7 cols) -->
-        <div class="md:col-span-7">
-            <div class="bg-gray-50 border border-gray-200 p-6 md:p-8 space-y-4 rounded-sm">
-                <div class="flex items-center justify-between border-b border-gray-200 pb-3">
-                    <h3 class="font-bold text-lg md:text-xl text-black">Project Strengths & Execution</h3>
-                </div>
-                
-                <ul class="space-y-4 text-base md:text-lg text-gray-700 leading-relaxed">
-                    <li class="flex items-start space-x-3">
-                        <span class="text-black font-bold mt-1">&rarr;</span>
-                        <span><strong>SME Integration:</strong> Expert ability to curate and integrate complex medical/CDC guidelines into clean, non-technical learning modules without client hand-holding.</span>
-                    </li>
-                    <li class="flex items-start space-x-3">
-                        <span class="text-black font-bold mt-1">&rarr;</span>
-                        <span><strong>Ruthless Prioritization:</strong> Focuses strictly on high-impact objectives to deliver rapid, production-ready modules under tight timelines.</span>
-                    </li>
-                    <li class="flex items-start space-x-3">
-                        <span class="text-black font-bold mt-1">&rarr;</span>
-                        <span><strong>Universal Design Architecture:</strong> Builds flexible, modular content templates that can easily be re-skinned or adapted for multiple client verticals.</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <!-- Identifying Critical Knowledge Gaps -->
+        <section class="space-y-8 border-t border-gray-200 pt-16">
+          <div class="max-w-3xl">
+            <h2 class="text-xl md:text-2xl font-bold tracking-tight mb-3">
+              Identifying Critical Knowledge Gaps
+            </h2>
+            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+              When it comes to saving lives, it is essential that this course
+              closes the right gap for learners. Critical knowledge gaps were
+              identified through a comprehensive needs assessment, guiding
+              targeted improvements in course content.
+            </p>
+          </div>
 
-    </div>
-</section>
-
-
-
-            <!-- Call to Action -->
-<section class="border-t border-gray-200 pt-16">
-    <div class="flex flex-col md:flex-row justify-between items-start md:items-center bg-gray-50 border border-gray-200 p-8 md:p-10 gap-6">
-        
-        <!-- Left Content Block -->
-        <div class="space-y-3 max-w-xl">
-            <!-- Availability Indicator -->
-            <div class="flex items-center space-x-2 pt-1">
-              <span
-                class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0"
-              ></span>
-              <p
-                class="text-xs md:text-sm font-mono text-gray-700 uppercase tracking-wider"
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="border border-gray-200 p-6 space-y-3 bg-gray-50">
+              <h3 class="font-bold text-lg md:text-xl text-black">
+                Research Activities
+              </h3>
+              <ul
+                class="text-sm md:text-base text-gray-600 space-y-2 leading-relaxed"
               >
-                Available for short-term contract work (1–6 weeks)
+                <li>• Interview with one SME</li>
+                <li>
+                  • Reviewed CDC, SAMHSA, and public health overdose prevention
+                  guidelines
+                </li>
+                <li>
+                  • Analyzed existing Naloxone training programs to identify
+                  content gaps
+                </li>
+              </ul>
+            </div>
+            <div class="border border-gray-200 p-6 space-y-3 bg-gray-50">
+              <h3 class="font-bold text-lg md:text-xl text-black">
+                Key Insights
+              </h3>
+              <ul
+                class="text-sm md:text-base text-gray-600 space-y-2 leading-relaxed"
+              >
+                <li>
+                  • Learners need both recognition skills and procedural
+                  knowledge
+                </li>
+                <li>• Crisis situations require clear, memorable protocols</li>
+                <li>
+                  • Identified need for universal (non-organization-specific)
+                  training
+                </li>
+              </ul>
+            </div>
+            <div class="border border-gray-200 p-6 space-y-3 bg-gray-50">
+              <h3 class="font-bold text-lg md:text-xl text-black">
+                Audience Characteristics
+              </h3>
+              <ul
+                class="text-sm md:text-base text-gray-600 space-y-2 leading-relaxed"
+              >
+                <li>• Wide range of comfort levels with medical content</li>
+                <li>• Limited professional development time</li>
+                <li>
+                  • Diverse learning preferences and technology proficiency
+                  levels
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Key Training Challenges and Solutions -->
+        <section
+          class="space-y-8 border-t border-gray-200 pt-16"
+          aria-labelledby="challenges-heading"
+        >
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start"
+          >
+            <!-- Left Column (50% Width, Sticky on Desktop) -->
+            <div class="space-y-3 md:sticky md:top-8">
+              <h2
+                id="challenges-heading"
+                class="text-xl md:text-2xl font-bold tracking-tight text-black"
+              >
+                Key Training Challenges and Solutions
+              </h2>
+              <h3 class="text-lg md:text-xl font-bold text-black pt-1">
+                Making Medical Content Accessible
+              </h3>
+              <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                Findings highlight the need to differentiate course content to
+                learners who have limited or no experience with opioid overdose
+                response, ensuring instruction is accessible and relevant for
+                all participants.
               </p>
             </div>
 
-            <h2 class="text-xl md:text-2xl font-bold tracking-tight text-black">
-                Need custom <span class="italic font-serif font-normal text-gray-700">multimedia</span> or web modules?
+            <!-- Right Accordion Column (50% Width) -->
+            <div class="border-t border-gray-200 divide-y divide-gray-200">
+              <details
+                class="group py-5 [&_summary::-webkit-details-marker]:hidden"
+              >
+                <summary
+                  class="flex items-center justify-between cursor-pointer font-bold text-lg md:text-xl text-black"
+                >
+                  <span>Balancing Medical Accuracy with Accessibility</span>
+                  <svg
+                    class="w-5 h-5 text-gray-500 transition-transform duration-200 group-open:rotate-180 shrink-0 ml-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </summary>
+                <p
+                  class="mt-4 text-base md:text-lg text-gray-700 leading-relaxed pr-6"
+                >
+                  I collaborated with public health resources (CDC, SAMHSA) to
+                  ensure accuracy while using plain language. Avoided medical
+                  jargon; when technical terms were necessary (e.g.,
+                  "respiratory depression"), provided immediate context. Key
+                  Consideration: Content must be clear enough for non-medical
+                  audiences while maintaining accuracy for emergency response.
+                </p>
+              </details>
+
+              <details
+                class="group py-5 [&_summary::-webkit-details-marker]:hidden"
+              >
+                <summary
+                  class="flex items-center justify-between cursor-pointer font-bold text-lg md:text-xl text-black"
+                >
+                  <span>Creating Engaging Content for Serious Topic</span>
+                  <svg
+                    class="w-5 h-5 text-gray-500 transition-transform duration-200 group-open:rotate-180 shrink-0 ml-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </summary>
+                <p
+                  class="mt-4 text-base md:text-lg text-gray-700 leading-relaxed pr-6"
+                >
+                  Accessible, non-medical training that enables staff across
+                  multiple sectors (education, corporate, nonprofit) to respond
+                  effectively to opioid emergencies.
+                </p>
+              </details>
+
+              <details
+                class="group py-5 [&_summary::-webkit-details-marker]:hidden"
+              >
+                <summary
+                  class="flex items-center justify-between cursor-pointer font-bold text-lg md:text-xl text-black"
+                >
+                  <span>Limited Time for Comprehensive Training</span>
+                  <svg
+                    class="w-5 h-5 text-gray-500 transition-transform duration-200 group-open:rotate-180 shrink-0 ml-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </summary>
+                <p
+                  class="mt-4 text-base md:text-lg text-gray-700 leading-relaxed pr-6"
+                >
+                  This course focuses on critical skills (recognize, call 911,
+                  administer) while providing resources for deeper learning.
+                  Prioritized "need to know" over "nice to know" to respect
+                  learners' time.
+                </p>
+              </details>
+            </div>
+          </div>
+        </section>
+
+        <!-- Approach to Content Strategy -->
+        <section
+          class="space-y-10 border-t border-gray-200 pt-16"
+          aria-labelledby="strategy-heading"
+        >
+          <!-- Top Header & Subheading -->
+          <div class="max-w-3xl space-y-2">
+            <h2
+              id="strategy-heading"
+              class="text-xl md:text-2xl font-bold tracking-tight text-black"
+            >
+              Approach to Content Strategy
             </h2>
             <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                I specialize in quick-turnaround production. I build high-fidelity video scripts, interactive scenario elements, and brand-aligned assets built native for your system.
+              A structured learning progression designed to move users
+              seamlessly from foundational knowledge to critical decision-making
+              and procedural execution.
             </p>
-        </div>
+          </div>
 
-        <!-- Right Button Block -->
-        <div class="shrink-0 w-full md:w-auto">
-            <a href="hitmeup.html" class="inline-block w-full md:w-auto text-center bg-black text-white px-7 py-3.5 text-base font-medium hover:bg-gray-800 transition-colors">
+          <!-- Vertical Timeline Track -->
+          <div class="relative pl-6 md:pl-10 space-y-10 max-w-3xl">
+            <!-- Continuous Vertical Line -->
+            <div
+              class="absolute top-3 bottom-3 left-2.5 md:left-3.5 w-0.5 bg-gray-200"
+              aria-hidden="true"
+            ></div>
+
+            <!-- Timeline Step 1: Awareness -->
+            <div class="relative pl-6 md:pl-8 space-y-3 group">
+              <!-- Node Dot -->
+              <div
+                class="absolute -left-[19px] md:-left-[23px] top-1 w-4 h-4 rounded-full bg-white border-2 border-black group-hover:bg-black transition-colors"
+                aria-hidden="true"
+              ></div>
+
+              <div class="flex flex-wrap items-center gap-2">
+                <span
+                  class="font-mono text-xs md:text-sm font-bold text-black uppercase tracking-wider bg-gray-100 border border-gray-200 px-2.5 py-0.5 rounded-sm"
+                >
+                  Phase 01
+                </span>
+                <span
+                  class="text-xs font-mono text-gray-500 uppercase tracking-wider"
+                  >Foundational Context</span
+                >
+              </div>
+
+              <h3 class="text-lg md:text-xl font-bold text-black">Awareness</h3>
+              <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                The course builds context by defining what Naloxone is and
+                describing risk factors associated with opioid abuse. It also
+                provides users with information about who can administer, legal
+                protection and additional resources.
+              </p>
+            </div>
+
+            <!-- Timeline Step 2: Recognition -->
+            <div class="relative pl-6 md:pl-8 space-y-3 group">
+              <!-- Node Dot -->
+              <div
+                class="absolute -left-[19px] md:-left-[23px] top-1 w-4 h-4 rounded-full bg-white border-2 border-black group-hover:bg-black transition-colors"
+                aria-hidden="true"
+              ></div>
+
+              <div class="flex flex-wrap items-center gap-2">
+                <span
+                  class="font-mono text-xs md:text-sm font-bold text-black uppercase tracking-wider bg-gray-100 border border-gray-200 px-2.5 py-0.5 rounded-sm"
+                >
+                  Phase 02
+                </span>
+                <span
+                  class="text-xs font-mono text-gray-500 uppercase tracking-wider"
+                  >Critical Decision Point</span
+                >
+              </div>
+
+              <h3 class="text-lg md:text-xl font-bold text-black">
+                Recognition
+              </h3>
+              <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                The course teaches learners how to identify the signs of
+                overdose (critical decision point) through interactive blocks
+                including flash cards.
+              </p>
+            </div>
+
+            <!-- Timeline Step 3: Procedure -->
+            <div class="relative pl-6 md:pl-8 space-y-3 group">
+              <!-- Node Dot -->
+              <div
+                class="absolute -left-[19px] md:-left-[23px] top-1 w-4 h-4 rounded-full bg-white border-2 border-black group-hover:bg-black transition-colors"
+                aria-hidden="true"
+              ></div>
+
+              <div class="flex flex-wrap items-center gap-2">
+                <span
+                  class="font-mono text-xs md:text-sm font-bold text-black uppercase tracking-wider bg-gray-100 border border-gray-200 px-2.5 py-0.5 rounded-sm"
+                >
+                  Phase 03
+                </span>
+                <span
+                  class="text-xs font-mono text-gray-500 uppercase tracking-wider"
+                  >Practical Execution</span
+                >
+              </div>
+
+              <h3 class="text-lg md:text-xl font-bold text-black">Procedure</h3>
+              <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                Finally, the course provides learners with procedural steps
+                outlining how to administer Naloxone effectively.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION: Core Features -->
+        <section
+          class="space-y-8 border-t border-gray-200 pt-16"
+          aria-labelledby="features-heading"
+        >
+          <div class="max-w-3xl">
+            <h2
+              id="features-heading"
+              class="text-xl md:text-2xl font-bold tracking-tight text-black mb-2"
+            >
+              Core Features
+            </h2>
+            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+              Modular, scenario-driven architecture designed for rapid
+              deployment across diverse learning environments.
+            </p>
+          </div>
+
+          <!-- 4-Column Feature Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Feature 1 -->
+            <div
+              class="border border-gray-200 p-6 space-y-4 bg-gray-50 flex flex-col justify-between rounded-sm"
+            >
+              <div class="space-y-2">
+                <h3 class="font-bold text-lg md:text-xl text-black">
+                  Universal Design
+                </h3>
+                <p class="text-sm md:text-base text-gray-700 leading-relaxed">
+                  Flexible training framework customizable for K–12 districts,
+                  corporate offices, public libraries, and higher-ed campuses.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-gray-200/60">
+                <span
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1"
+                  >Adaptability</span
+                >
+                <span class="text-xs md:text-sm font-medium text-gray-800"
+                  >Multi-Setting Support</span
+                >
+              </div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div
+              class="border border-gray-200 p-6 space-y-4 bg-gray-50 flex flex-col justify-between rounded-sm"
+            >
+              <div class="space-y-2">
+                <h3 class="font-bold text-lg md:text-xl text-black">
+                  Microlearning Modules
+                </h3>
+                <p class="text-sm md:text-base text-gray-700 leading-relaxed">
+                  Time-agnostic, asynchronous structure allowing learners to
+                  complete short units or revisit specific topics on demand.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-gray-200/60">
+                <span
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1"
+                  >Pacing</span
+                >
+                <span class="text-xs md:text-sm font-medium text-gray-800"
+                  >Self-Paced & Asynchronous</span
+                >
+              </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div
+              class="border border-gray-200 p-6 space-y-4 bg-gray-50 flex flex-col justify-between rounded-sm"
+            >
+              <div class="space-y-2">
+                <h3 class="font-bold text-lg md:text-xl text-black">
+                  SME Resource Library
+                </h3>
+                <p class="text-sm md:text-base text-gray-700 leading-relaxed">
+                  Embedded post-training references including SAMHSA toolkits,
+                  harm reduction guides, and video walk-throughs.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-gray-200/60">
+                <span
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1"
+                  >Reference</span
+                >
+                <span class="text-xs md:text-sm font-medium text-gray-800"
+                  >Curated Toolkits</span
+                >
+              </div>
+            </div>
+
+            <!-- Feature 4 -->
+            <div
+              class="border border-gray-200 p-6 space-y-4 bg-gray-50 flex flex-col justify-between rounded-sm"
+            >
+              <div class="space-y-2">
+                <h3 class="font-bold text-lg md:text-xl text-black">
+                  Scenario Practice
+                </h3>
+                <p class="text-sm md:text-base text-gray-700 leading-relaxed">
+                  Low-stakes decision-making scenarios that assess practical
+                  real-world application rather than simple rote memorization.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-gray-200/60">
+                <span
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1"
+                  >Assessment</span
+                >
+                <span class="text-xs md:text-sm font-medium text-gray-800"
+                  >Authentic Simulation</span
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Creating Opioid Safety Experts Section -->
+        <section
+          class="space-y-16 border-t border-gray-200 pt-16"
+          aria-labelledby="safety-experts-heading"
+        >
+          <div>
+            <h2
+              id="safety-experts-heading"
+              class="text-xl md:text-2xl font-bold tracking-tight text-black mb-8"
+            >
+              Creating Opioid Safety Experts in the Community
+            </h2>
+
+            <!-- Subsection 1: Development Phase (Image Left / Copy Right) -->
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mb-16"
+            >
+              <!-- Left Column: Image -->
+              <div class="w-full">
+                <img
+                  src="Images/naloxone-training-ui.jpg"
+                  alt="Laboratory setting illustrating opioid safety and Naloxone development preparation"
+                  class="aspect-square w-full object-cover object-right border border-gray-200 rounded-sm"
+                />
+              </div>
+
+              <!-- Right Column: Content -->
+              <div class="space-y-4">
+                <h3 class="text-lg md:text-xl font-bold text-black">
+                  Development Phase
+                </h3>
+                <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                  Strategic use of Rise's interactive blocks (tabs, flashcards,
+                  process) maintain engagement without trivializing the content.
+                </p>
+                <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                  All content is written using a conversational and empathetic
+                  tone in alignment with course goals. This course balances
+                  narrative realism through character dialogue to support
+                  learner immersion. While building I kept the following goals
+                  as my North Star:
+                </p>
+                <ul
+                  class="text-sm md:text-base text-gray-700 space-y-2 leading-relaxed pl-2"
+                >
+                  <li>
+                    • Intentional use of Rise interactive blocks to enhance
+                    engagement while maintaining pedagogical integrity.
+                  </li>
+                  <li>
+                    • Continuous assessment and self-evaluation happens within
+                    embedded reflection cards, scenario decisions, and rating
+                    scales.
+                  </li>
+                  <li>
+                    • Purposeful use of Storyline blocks for branching
+                    simulations.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Subsection 2: Storyboarding & Video (Copy Left / Image Right) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+              <!-- Left Column: Content -->
+              <div class="space-y-6">
+                <div>
+                  <h3 class="text-lg md:text-xl font-bold text-black mb-2">
+                    Storyboarding & Video
+                  </h3>
+                  <p
+                    class="text-base md:text-lg text-gray-700 leading-relaxed mb-3"
+                  >
+                    Initially, I created a short training video using Synthesia,
+                    an AI-powered video creation tool. While the tool was
+                    effective for rapid development, my content lacked the depth
+                    of clinical research needed to ensure accuracy and
+                    credibility.
+                  </p>
+                  <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                    I decided instead to incorporate a video developed by SMEs
+                    at the Johns Hopkins Bloomberg School of Public Health. This
+                    decision not only improved the reliability of my training
+                    materials but also modeled the importance of integrating
+                    expert-verified content into instructional design projects.
+                  </p>
+                </div>
+                <div>
+                  <h3 class="text-lg md:text-xl font-bold text-black mb-2">
+                    Accessibility Considerations
+                  </h3>
+                  <ul
+                    class="text-sm md:text-base text-gray-600 space-y-1.5 leading-relaxed"
+                  >
+                    <li>
+                      • Clear, jargon-free language (8th–grade reading level)
+                    </li>
+                    <li>• Multiple content formats (text, visual, audio)</li>
+                    <li>• High contrast for readability</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Right Column: Image -->
+              <div class="w-full">
+                <img
+                  src="Images/naloxone-glove-lab.jpeg"
+                  alt="Laboratory setting illustrating opioid safety and Naloxone development preparation"
+                  class="aspect-square w-full object-cover object-right border border-gray-200 rounded-sm"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Design Decisions & Rationale -->
+        <section class="space-y-8 border-t border-gray-200 pt-16">
+          <h2 class="text-xl md:text-2xl font-bold tracking-tight mb-8">
+            Design Decisions & Rationale
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+            <div class="w-full">
+              <img
+                src="Images/naloxone-training-ui.jpg"
+                alt="Naloxone training course visual slide and user interface mockup"
+                class="aspect-square w-full object-cover border border-gray-200 rounded-sm"
+              />
+            </div>
+
+            <div class="space-y-6">
+              <h3 class="text-lg md:text-xl font-bold text-black">
+                Visual Design
+              </h3>
+
+              <div>
+                <h4 class="text-base md:text-lg font-bold text-black mb-1">
+                  Color Palette
+                </h4>
+                <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                  Primary color used is professional blue (#1E6BA8) conveying
+                  trust, calm authority, and medical professionalism without
+                  creating anxiety.
+                </p>
+              </div>
+
+              <div>
+                <h4 class="text-base md:text-lg font-bold text-black mb-1">
+                  Typography & Layout
+                </h4>
+                <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                  Emergency training must be easy to reference under stress.
+                  Formatting includes ample white space and key terms are bold
+                  and for scanning during review/crisis reference.
+                </p>
+              </div>
+
+              <div>
+                <h4 class="text-base md:text-lg font-bold text-black mb-1">
+                  Assessment Design
+                </h4>
+                <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                  Compliance training requires demonstrated competency. The
+                  final assessment prioritizes and emergency protocol, not just
+                  knowledge recall and includes 5 questions and an 80% passing
+                  threshold (4/5 correct). The 80% threshold ensures learners
+                  can apply critical skills while accounting for test anxiety.
+                  Variety in questions and question types (multiple choice,
+                  true/false, scenario-based) test critical actions, not trivial
+                  details.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION: Results & Impact -->
+        <section
+          class="space-y-8 border-t border-gray-200 pt-16"
+          aria-labelledby="results-heading"
+        >
+          <div class="max-w-3xl">
+            <h2
+              id="results-heading"
+              class="text-xl md:text-2xl font-bold tracking-tight text-black mb-2"
+            >
+              Results & Impact
+            </h2>
+            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+              Equipping learners with the power to save lives when every second
+              counts.
+            </p>
+          </div>
+
+          <!-- 3-Column Impact Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Impact Card 1 -->
+            <div
+              class="border border-gray-200 p-6 space-y-4 bg-gray-50 flex flex-col justify-between rounded-sm"
+            >
+              <div class="space-y-2">
+                <span
+                  class="text-2xl md:text-3xl font-bold font-mono text-black block"
+                  >01</span
+                >
+                <h3 class="font-bold text-lg md:text-xl text-black">
+                  Symptom Recognition
+                </h3>
+                <p class="text-sm md:text-base text-gray-700 leading-relaxed">
+                  Increased staff confidence in rapidly recognizing critical
+                  opioid overdose symptoms and taking decisive action.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-gray-200/60">
+                <span
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1"
+                  >Key Outcome</span
+                >
+                <span class="text-xs md:text-sm font-medium text-gray-800"
+                  >Enhanced Readiness</span
+                >
+              </div>
+            </div>
+
+            <!-- Impact Card 2 -->
+            <div
+              class="border border-gray-200 p-6 space-y-4 bg-gray-50 flex flex-col justify-between rounded-sm"
+            >
+              <div class="space-y-2">
+                <span
+                  class="text-2xl md:text-3xl font-bold font-mono text-black block"
+                  >02</span
+                >
+                <h3 class="font-bold text-lg md:text-xl text-black">
+                  Response Speed
+                </h3>
+                <p class="text-sm md:text-base text-gray-700 leading-relaxed">
+                  Faster emergency response times achieved by significantly
+                  reducing hesitation to administer Naloxone nasal spray.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-gray-200/60">
+                <span
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1"
+                  >Key Outcome</span
+                >
+                <span class="text-xs md:text-sm font-medium text-gray-800"
+                  >Reduced Hesitation</span
+                >
+              </div>
+            </div>
+
+            <!-- Impact Card 3 -->
+            <div
+              class="border border-gray-200 p-6 space-y-4 bg-gray-50 flex flex-col justify-between rounded-sm"
+            >
+              <div class="space-y-2">
+                <span
+                  class="text-2xl md:text-3xl font-bold font-mono text-black block"
+                  >03</span
+                >
+                <h3 class="font-bold text-lg md:text-xl text-black">
+                  Harm Reduction
+                </h3>
+                <p class="text-sm md:text-base text-gray-700 leading-relaxed">
+                  Fostered a broader, empathy-first organizational culture
+                  grounded in active harm reduction and peer support.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-gray-200/60">
+                <span
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1"
+                  >Key Outcome</span
+                >
+                <span class="text-xs md:text-sm font-medium text-gray-800"
+                  >Cultural Alignment</span
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Summary Section (Balanced 2-Column Layout) -->
+        <section
+          class="border-t border-gray-200 pt-16"
+          aria-labelledby="summary-heading"
+        >
+          <div
+            class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start"
+          >
+            <!-- Left Column: Summary & Future Enhancements (5 cols) -->
+            <div class="md:col-span-5 space-y-8">
+              <!-- Header & Overview Text -->
+              <div class="space-y-3">
+                <h2
+                  id="summary-heading"
+                  class="text-xl md:text-2xl font-bold tracking-tight text-black"
+                >
+                  Summary
+                </h2>
+                <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                  This project demonstrates my ability to design accessible,
+                  engaging eLearning for high-stakes topics while applying
+                  instructional design principles and leveraging authoring tool
+                  capabilities strategically.
+                </p>
+              </div>
+
+              <!-- Future Enhancements Card -->
+              <div
+                class="bg-white border border-gray-200 p-6 md:p-8 space-y-4 rounded-sm"
+              >
+                <h3
+                  class="font-bold text-lg md:text-xl text-black border-b border-gray-200 pb-3"
+                >
+                  Future Enhancements
+                </h3>
+
+                <ul
+                  class="space-y-3 text-base md:text-lg text-gray-700 leading-relaxed"
+                >
+                  <li class="flex items-start space-x-2">
+                    <span class="text-black font-bold">&bull;</span>
+                    <span
+                      ><strong>Branching Scenario:</strong> Learner makes
+                      decisions in a simulated overdose situation.</span
+                    >
+                  </li>
+                  <li class="flex items-start space-x-2">
+                    <span class="text-black font-bold">&bull;</span>
+                    <span
+                      >Post-training confidence survey to measure behavior
+                      change.</span
+                    >
+                  </li>
+                  <li class="flex items-start space-x-2">
+                    <span class="text-black font-bold">&bull;</span>
+                    <span
+                      >Follow-up microlearning "refreshers" at 3–month
+                      intervals.</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Right Column: Project Strengths & Execution Card (7 cols) -->
+            <div class="md:col-span-7">
+              <div
+                class="bg-gray-50 border border-gray-200 p-6 md:p-8 space-y-4 rounded-sm"
+              >
+                <div
+                  class="flex items-center justify-between border-b border-gray-200 pb-3"
+                >
+                  <h3 class="font-bold text-lg md:text-xl text-black">
+                    Project Strengths & Execution
+                  </h3>
+                </div>
+
+                <ul
+                  class="space-y-4 text-base md:text-lg text-gray-700 leading-relaxed"
+                >
+                  <li class="flex items-start space-x-3">
+                    <span class="text-black font-bold mt-1">&rarr;</span>
+                    <span
+                      ><strong>SME Integration:</strong> Expert ability to
+                      curate and integrate complex medical/CDC guidelines into
+                      clean, non-technical learning modules without client
+                      hand-holding.</span
+                    >
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <span class="text-black font-bold mt-1">&rarr;</span>
+                    <span
+                      ><strong>Ruthless Prioritization:</strong> Focuses
+                      strictly on high-impact objectives to deliver rapid,
+                      production-ready modules under tight timelines.</span
+                    >
+                  </li>
+                  <li class="flex items-start space-x-3">
+                    <span class="text-black font-bold mt-1">&rarr;</span>
+                    <span
+                      ><strong>Universal Design Architecture:</strong> Builds
+                      flexible, modular content templates that can easily be
+                      re-skinned or adapted for multiple client verticals.</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="border-t border-gray-200 pt-16">
+          <div
+            class="flex flex-col md:flex-row justify-between items-start md:items-center bg-gray-50 border border-gray-200 p-8 md:p-10 gap-6"
+          >
+            <!-- Left Content Block -->
+            <div class="space-y-3 max-w-xl">
+              <!-- Availability Indicator -->
+              <div class="flex items-center space-x-2 pt-1">
+                <span
+                  class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0"
+                ></span>
+                <p
+                  class="text-xs md:text-sm font-mono text-gray-700 uppercase tracking-wider"
+                >
+                  Available for short-term contract work (1–6 weeks)
+                </p>
+              </div>
+
+              <h2
+                class="text-xl md:text-2xl font-bold tracking-tight text-black"
+              >
+                Need custom
+                <span class="italic font-serif font-normal text-gray-700"
+                  >multimedia</span
+                >
+                or web modules?
+              </h2>
+              <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                I specialize in quick-turnaround production. I build
+                high-fidelity video scripts, interactive scenario elements, and
+                brand-aligned assets built native for your system.
+              </p>
+            </div>
+
+            <!-- Right Button Block -->
+            <div class="shrink-0 w-full md:w-auto">
+              <a
+                href="hitmeup.html"
+                class="inline-block w-full md:w-auto text-center bg-black text-white px-7 py-3.5 text-base font-medium hover:bg-gray-800 transition-colors"
+              >
                 Hit Me Up
-            </a>
-        </div>
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
 
-    </div>
-</section>
-
-
-        </main>
-
-        <!-- Footer -->
-        <footer class="mt-24 pt-8 border-t border-gray-200 text-xs md:text-sm flex justify-between items-center">
-            <p>&copy; 2026 Leon Hayes. All rights reserved.</p>
-            <a href="#" class="border border-black px-3 py-1 font-medium hover:bg-black hover:text-white transition-all">
-                Back to Top &uarr;
-            </a>
-        </footer>
-
+      <!-- Footer -->
+      <footer
+        class="mt-24 pt-8 border-t border-gray-200 text-xs md:text-sm flex justify-between items-center"
+      >
+        <p>&copy; 2026 Leon Hayes. All rights reserved.</p>
+        <a
+          href="#"
+          class="border border-black px-3 py-1 font-medium hover:bg-black hover:text-white transition-all"
+        >
+          Back to Top &uarr;
+        </a>
+      </footer>
     </div>
 
     <!-- Mobile Menu Accessible Toggle Script -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const toggleBtn = document.getElementById('menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const openIcon = document.getElementById('menu-open-icon');
-            const closeIcon = document.getElementById('menu-close-icon');
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggleBtn = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const openIcon = document.getElementById("menu-open-icon");
+        const closeIcon = document.getElementById("menu-close-icon");
 
-            if (toggleBtn && mobileMenu) {
-                toggleBtn.addEventListener('click', () => {
-                    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-                    toggleBtn.setAttribute('aria-expanded', !isExpanded);
-                    mobileMenu.classList.toggle('hidden');
-                    openIcon.classList.toggle('hidden');
-                    closeIcon.classList.toggle('hidden');
-                });
+        if (toggleBtn && mobileMenu) {
+          toggleBtn.addEventListener("click", () => {
+            const isExpanded =
+              toggleBtn.getAttribute("aria-expanded") === "true";
+            toggleBtn.setAttribute("aria-expanded", !isExpanded);
+            mobileMenu.classList.toggle("hidden");
+            openIcon.classList.toggle("hidden");
+            closeIcon.classList.toggle("hidden");
+          });
 
-                // Close menu on ESC key press
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape' && toggleBtn.getAttribute('aria-expanded') === 'true') {
-                        toggleBtn.setAttribute('aria-expanded', 'false');
-                        mobileMenu.classList.add('hidden');
-                        openIcon.classList.remove('hidden');
-                        closeIcon.classList.add('hidden');
-                        toggleBtn.focus();
-                    }
-                });
+          // Close menu on ESC key press
+          document.addEventListener("keydown", (e) => {
+            if (
+              e.key === "Escape" &&
+              toggleBtn.getAttribute("aria-expanded") === "true"
+            ) {
+              toggleBtn.setAttribute("aria-expanded", "false");
+              mobileMenu.classList.add("hidden");
+              openIcon.classList.remove("hidden");
+              closeIcon.classList.add("hidden");
+              toggleBtn.focus();
             }
-        });
+          });
+        }
+      });
     </script>
-
-</body>
+  </body>
 </html>

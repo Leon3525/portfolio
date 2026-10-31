@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Leon Hayes — Instructional Developer & Interactive Designer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-      <!-- Load the navigation Web Component -->
+    <!-- Load the navigation Web Component -->
     <script src="components/main-nav.js" defer></script>
 
     <style>
@@ -21,14 +21,12 @@
   </head>
   <body class="bg-white text-black min-h-screen">
     <!-- Centrally Managed Web Component Navigation -->
-  <main-nav></main-nav>
+    <main-nav></main-nav>
+
     <!-- Main Container Constrained to Max 1200px -->
     <div class="max-w-[1200px] mx-auto px-4 md:px-8 py-4 md:py-8">
-      </header>
-
       <!-- Primary Main Content Region -->
       <main class="space-y-20">
-
         <!-- Hero Section -->
         <section class="max-w-2xl space-y-6">
           <h1
@@ -78,8 +76,8 @@
               Real Projects
             </h2>
             <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-              Measurable outcomes. See how I turn complex problems into intuitive
-              experiences that drive results.
+              Measurable outcomes. See how I turn complex problems into
+              intuitive experiences that drive results.
             </p>
           </div>
 
@@ -455,7 +453,6 @@
           class="border-t border-gray-200 pt-16"
         >
           <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            
             <!-- Project Card 1: Motion Graphic Template Design -->
             <article>
               <a
@@ -569,10 +566,10 @@
                   <p
                     class="text-base md:text-lg text-gray-700 leading-relaxed mb-8"
                   >
-                    Practical <strong>eLearning course</strong> preparing learners
-                    for real emergency situations where timely intervention can
-                    save lives. Built in Articulate Rise with integrated Storyline
-                    blocks.
+                    Practical <strong>eLearning course</strong> preparing
+                    learners for real emergency situations where timely
+                    intervention can save lives. Built in Articulate Rise with
+                    integrated Storyline blocks.
                   </p>
                 </div>
 
@@ -600,7 +597,6 @@
                 </div>
               </a>
             </article>
-
           </div>
         </section>
 
@@ -751,7 +747,6 @@
             </a>
           </div>
         </section>
-
       </main>
 
       <!-- Footer -->
@@ -795,41 +790,6 @@
           }
         }
       }
-    </script>
-
-    <!-- Mobile Menu Accessible Toggle Script -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const toggleBtn = document.getElementById("menu-toggle");
-        const mobileMenu = document.getElementById("mobile-menu");
-        const openIcon = document.getElementById("menu-open-icon");
-        const closeIcon = document.getElementById("menu-close-icon");
-
-        if (toggleBtn && mobileMenu) {
-          toggleBtn.addEventListener("click", () => {
-            const isExpanded =
-              toggleBtn.getAttribute("aria-expanded") === "true";
-            toggleBtn.setAttribute("aria-expanded", !isExpanded);
-            mobileMenu.classList.toggle("hidden");
-            openIcon.classList.toggle("hidden");
-            closeIcon.classList.toggle("hidden");
-          });
-
-          // Close menu on ESC key press
-          document.addEventListener("keydown", (e) => {
-            if (
-              e.key === "Escape" &&
-              toggleBtn.getAttribute("aria-expanded") === "true"
-            ) {
-              toggleBtn.setAttribute("aria-expanded", "false");
-              mobileMenu.classList.add("hidden");
-              openIcon.classList.remove("hidden");
-              closeIcon.classList.add("hidden");
-              toggleBtn.focus();
-            }
-          });
-        }
-      });
     </script>
   </body>
 </html>

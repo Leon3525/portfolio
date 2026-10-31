@@ -1,644 +1,1084 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modular Course Component System — Leon Hayes</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="components/main-nav.js" defer></script>
     <style>
-        /* Modern, clean typography setup and smooth scroll behavior */
-        html { scroll-behavior: smooth; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+      /* Modern, clean typography setup and smooth scroll behavior */
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      }
     </style>
-</head>
-<body class="bg-white text-black min-h-screen">
- <!-- Centrally Managed Web Component Navigation -->
-  <main-nav></main-nav>
+  </head>
+  <body class="bg-white text-black min-h-screen">
+    <!-- Centrally Managed Web Component Navigation -->
+    <main-nav></main-nav>
 
     <!-- Main Container Constrained to Max 1200px -->
     <div class="max-w-[1200px] mx-auto px-4 md:px-8 py-4 md:py-8">
+      <main class="w-full space-y-20">
+        <!-- Hero Interactive Comparison Slider Section -->
+        <section aria-label="Interactive Project Preview Slider" class="mb-16">
+          <!-- Locked 16:9 Aspect Ratio Container -->
+          <div
+            class="relative w-full aspect-[16/9] bg-gray-100 border border-gray-200 rounded-sm overflow-hidden select-none group shadow-sm"
+          >
+            <!-- LAYER 2: AFTER IMAGE (Base / Underneath - Transformed State) -->
+            <div
+              class="absolute inset-0 w-full h-full bg-gray-50 flex items-center justify-center"
+            >
+              <img
+                src="Images/ZaraIntro1@5x.png"
+                alt="Zara welcoming the reader in her transformed interdisciplinary state: 'I will be your companion as you explore this case study. Let's get started!'"
+                class="w-full h-full object-contain"
+              />
+            </div>
 
-        <main class="w-full space-y-20">
+            <!-- LAYER 1: BEFORE IMAGE (Clipped Overlay - Initial State) -->
+            <div
+              id="before-layer"
+              class="absolute inset-0 w-full h-full bg-white flex items-center justify-center border-r border-black/20"
+              style="clip-path: inset(0 100% 0 0)"
+            >
+              <img
+                src="Images/ZaraIntro2@5x.png"
+                alt="Zara introducing herself in her initial single-discipline state: 'Hi, I'm Zara.'"
+                class="w-full h-full object-contain"
+              />
+            </div>
 
-           <!-- Hero Interactive Comparison Slider Section -->
-<section aria-label="Interactive Project Preview Slider" class="mb-16">
-    
-    <!-- Locked 16:9 Aspect Ratio Container -->
-    <div class="relative w-full aspect-[16/9] bg-gray-100 border border-gray-200 rounded-sm overflow-hidden select-none group shadow-sm">
-
-        <!-- LAYER 2: AFTER IMAGE (Base / Underneath - Transformed State) -->
-        <div class="absolute inset-0 w-full h-full bg-gray-50 flex items-center justify-center">
-            <img 
-                src="Images/ZaraIntro1@5x.png" 
-                alt="Zara welcoming the reader in her transformed interdisciplinary state: 'I will be your companion as you explore this case study. Let's get started!'" 
-                class="w-full h-full object-contain" 
-            />
-        </div>
-
-        <!-- LAYER 1: BEFORE IMAGE (Clipped Overlay - Initial State) -->
-        <div id="before-layer" class="absolute inset-0 w-full h-full bg-white flex items-center justify-center border-r border-black/20" style="clip-path: inset(0 100% 0 0);">
-            <img 
-                src="Images/ZaraIntro2@5x.png" 
-                alt="Zara introducing herself in her initial single-discipline state: 'Hi, I'm Zara.'" 
-                class="w-full h-full object-contain" 
-            />
-        </div>
-
-        <!-- SLIDER DIVIDER LINE & DRAG HANDLE (Starts at 0% - Far Left) -->
-        <div id="slider-handle" class="absolute top-0 bottom-0 w-0.5 bg-black pointer-events-none z-10" style="left: 0%;">
-            <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-7 h-7 bg-black text-white rounded-full flex items-center justify-center shadow-md border-2 border-white text-[9px] font-mono">
+            <!-- SLIDER DIVIDER LINE & DRAG HANDLE (Starts at 0% - Far Left) -->
+            <div
+              id="slider-handle"
+              class="absolute top-0 bottom-0 w-0.5 bg-black pointer-events-none z-10"
+              style="left: 0%"
+            >
+              <div
+                class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-7 h-7 bg-black text-white rounded-full flex items-center justify-center shadow-md border-2 border-white text-[9px] font-mono"
+              >
                 &#10094;&#10095;
+              </div>
             </div>
-        </div>
 
-        <!-- ACCESSIBLE RANGE INPUT CONTROL -->
-        <input 
-            type="range" 
-            min="0" 
-            max="100" 
-            value="0" 
-            id="hero-juxtapose-slider"
-            aria-label="Interactive Zara introductory comparison slider"
-            aria-describedby="hero-slider-instructions"
-            class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
-            oninput="updateJuxtaposeSlider(this.value)"
-        />
+            <!-- ACCESSIBLE RANGE INPUT CONTROL -->
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value="0"
+              id="hero-juxtapose-slider"
+              aria-label="Interactive Zara introductory comparison slider"
+              aria-describedby="hero-slider-instructions"
+              class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+              oninput="updateJuxtaposeSlider(this.value)"
+            />
+          </div>
 
-    </div>
-
-    <!-- BOTTOM UTILITY ROW: INSTRUCTIONS (LEFT) & PAGINATED DOT INDICATOR (CENTERED) -->
-    <div class="grid grid-cols-3 items-center mt-3 px-1 text-xs md:text-sm text-gray-500 font-mono">
-        
-        <!-- Left Column: Keyboard & Mouse Instructions -->
-        <div class="text-left">
-            <span>Drag slider or use <kbd class="px-1.5 py-0.5 bg-gray-100 border border-gray-300 rounded text-[10px] md:text-xs text-gray-800 font-mono">&larr;</kbd> <kbd class="px-1.5 py-0.5 bg-gray-100 border border-gray-300 rounded text-[10px] md:text-xs text-gray-800 font-mono">&rarr;</kbd> keys</span>
-        </div>
-
-        <!-- Center Column: Centered Paginated Dot Indicator -->
-        <div class="flex justify-center">
-            <div class="bg-gray-50 border border-gray-200 px-3 py-1 rounded-full flex items-center space-x-2" aria-hidden="true">
-                <span id="dot-left" class="w-2 h-2 rounded-full bg-gray-300 transition-colors duration-150"></span>
-                <span class="text-[9px] md:text-xs font-mono text-gray-400">/</span>
-                <span id="dot-right" class="w-2 h-2 rounded-full bg-black transition-colors duration-150"></span>
+          <!-- BOTTOM UTILITY ROW: INSTRUCTIONS (LEFT) & PAGINATED DOT INDICATOR (CENTERED) -->
+          <div
+            class="grid grid-cols-3 items-center mt-3 px-1 text-xs md:text-sm text-gray-500 font-mono"
+          >
+            <!-- Left Column: Keyboard & Mouse Instructions -->
+            <div class="text-left">
+              <span
+                >Drag slider or use
+                <kbd
+                  class="px-1.5 py-0.5 bg-gray-100 border border-gray-300 rounded text-[10px] md:text-xs text-gray-800 font-mono"
+                  >&larr;</kbd
+                >
+                <kbd
+                  class="px-1.5 py-0.5 bg-gray-100 border border-gray-300 rounded text-[10px] md:text-xs text-gray-800 font-mono"
+                  >&rarr;</kbd
+                >
+                keys</span
+              >
             </div>
-        </div>
 
-        <!-- Right Column: Empty Spacer for Balanced Grid Alignment -->
-        <div></div>
+            <!-- Center Column: Centered Paginated Dot Indicator -->
+            <div class="flex justify-center">
+              <div
+                class="bg-gray-50 border border-gray-200 px-3 py-1 rounded-full flex items-center space-x-2"
+                aria-hidden="true"
+              >
+                <span
+                  id="dot-left"
+                  class="w-2 h-2 rounded-full bg-gray-300 transition-colors duration-150"
+                ></span>
+                <span class="text-[9px] md:text-xs font-mono text-gray-400"
+                  >/</span
+                >
+                <span
+                  id="dot-right"
+                  class="w-2 h-2 rounded-full bg-black transition-colors duration-150"
+                ></span>
+              </div>
+            </div>
 
-    </div>
+            <!-- Right Column: Empty Spacer for Balanced Grid Alignment -->
+            <div></div>
+          </div>
 
-    <!-- SCREEN READER INSTRUCTIONS & DYNAMIC STATUS -->
-    <div id="hero-slider-instructions" class="sr-only">
-        Use left and right arrow keys to slide between Zara's initial state and transformed state.
-    </div>
-    <div id="hero-slider-status" class="sr-only" aria-live="polite" role="status">
-        Comparison slider set to 0 percent reveal.
-    </div>
+          <!-- SCREEN READER INSTRUCTIONS & DYNAMIC STATUS -->
+          <div id="hero-slider-instructions" class="sr-only">
+            Use left and right arrow keys to slide between Zara's initial state
+            and transformed state.
+          </div>
+          <div
+            id="hero-slider-status"
+            class="sr-only"
+            aria-live="polite"
+            role="status"
+          >
+            Comparison slider set to 0 percent reveal.
+          </div>
+        </section>
 
-</section>
+        <!-- JUXTAPOSE SLIDER SCRIPT -->
+        <script>
+          function updateJuxtaposeSlider(val) {
+            const beforeLayer = document.getElementById("before-layer");
+            const handle = document.getElementById("slider-handle");
+            const dotLeft = document.getElementById("dot-left");
+            const dotRight = document.getElementById("dot-right");
+            const statusAnnouncer =
+              document.getElementById("hero-slider-status");
 
-<!-- JUXTAPOSE SLIDER SCRIPT -->
-<script>
-    function updateJuxtaposeSlider(val) {
-        const beforeLayer = document.getElementById('before-layer');
-        const handle = document.getElementById('slider-handle');
-        const dotLeft = document.getElementById('dot-left');
-        const dotRight = document.getElementById('dot-right');
-        const statusAnnouncer = document.getElementById('hero-slider-status');
-        
-        // Update clip path (reveals background layer from right to left)
-        const insetRight = 100 - val;
-        beforeLayer.style.clipPath = `inset(0 ${insetRight}% 0 0)`;
-        handle.style.left = `${val}%`;
+            // Update clip path (reveals background layer from right to left)
+            const insetRight = 100 - val;
+            beforeLayer.style.clipPath = `inset(0 ${insetRight}% 0 0)`;
+            handle.style.left = `${val}%`;
 
-        // Active State Dot Toggle logic (Shifts focus indicator at halfway threshold)
-        if (val > 50) {
-            dotLeft.classList.remove('bg-black');
-            dotLeft.classList.add('bg-gray-300');
-            dotRight.classList.remove('bg-gray-300');
-            dotRight.classList.add('bg-black');
-        } else {
-            dotLeft.classList.remove('bg-gray-300');
-            dotLeft.classList.add('bg-black');
-            dotRight.classList.remove('bg-black');
-            dotRight.classList.add('bg-gray-300');
-        }
+            // Active State Dot Toggle logic (Shifts focus indicator at halfway threshold)
+            if (val > 50) {
+              dotLeft.classList.remove("bg-black");
+              dotLeft.classList.add("bg-gray-300");
+              dotRight.classList.remove("bg-gray-300");
+              dotRight.classList.add("bg-black");
+            } else {
+              dotLeft.classList.remove("bg-gray-300");
+              dotLeft.classList.add("bg-black");
+              dotRight.classList.remove("bg-black");
+              dotRight.classList.add("bg-gray-300");
+            }
 
-        // Screen reader announcer update
-        if (statusAnnouncer) {
-            statusAnnouncer.textContent = `Comparison slider set to ${val} percent reveal.`;
-        }
-    }
-</script>
+            // Screen reader announcer update
+            if (statusAnnouncer) {
+              statusAnnouncer.textContent = `Comparison slider set to ${val} percent reveal.`;
+            }
+          }
+        </script>
 
-
-
-
-            <!-- Hero Video / Screen Recording Placeholder -->
-            <section aria-label="Project Preview Video">
-
-                <!-- Hero Title & Overview -->
-                <div class="mb-12 max-w-3xl">
-                    <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-3">Modular Course Component System</h1>
-                    <p class="text-lg md:text-xl font-serif text-gray-700 tracking-tight italic">Enterprise LMS Component Architecture & Accessibility Framework</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start mb-12">
-                    <!-- Context Overview -->
-                    <div class="md:col-span-2 space-y-8 border border-gray-200 p-8">
-                        <div>
-                            <h2 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2">Overview</h2>
-                            <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-4">
-The Interdisciplinary Studies Department at RMCAD needed an accessible, unified component system to standardize interactive course assets across its 6-course curriculum. To move beyond one-off, disposable asset creation, I engineered a scalable frontend architecture that aligned interactive learning activities directly with core program outcomes—fostering cross-functional, interdisciplinary mindsets while establishing rigorous Web Content Accessibility Guidelines (WCAG 2.1 AA) across every module.
-                            </p>
-                        </div>
-                        <div>
-                            <!-- Elevated CTAs -->
-                            <div class="flex flex-wrap items-center gap-4">
-                                <a href="hit-me-up.html" class="inline-block bg-black text-white px-7 py-3.5 text-base font-medium hover:bg-gray-800 transition-colors">
-                                    Hit Me Up &rarr;
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Metadata Panel -->
-                    <div class="bg-gray-50 border border-gray-200 p-8 space-y-6">
-                        <div>
-                            <h3 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1">Organization</h3>
-                            <p class="text-sm md:text-base font-bold text-black">Rocky Mountain College of Art + Design</p>
-                        </div>
-                        <div>
-                            <h3 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1">Role</h3>
-                            <p class="text-sm md:text-base font-bold text-black">Instructional Content Developer</p>
-                        </div>
-                        <div>
-                            <h3 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1">Tools & Tech</h3>
-                            <p class="text-xs md:text-sm font-mono text-gray-800 leading-relaxed">
-                                HTML5 / H5P / Bootstrap<br>
-                                Adobe Suite / <br>
-                                Screen Reader Testing (NVDA/JAWS)
-                            </p>
-                        </div>
-                        <div>
-                            <h3 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1">Timeline</h3>
-                            <ul class="text-xs md:text-sm space-y-1.5 font-medium text-gray-700 leading-relaxed">
-                                <p class="text-sm md:text-base font-bold text-black">1 Month 2026</p>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-<!-- Discovery & Research Phase -->
-<section class="space-y-8 border-t border-gray-200 pt-16" aria-labelledby="discovery-heading">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
-        
-        <!-- Left Column: SME & Student Insights -->
-        <div class="space-y-4">
-            <h2 id="discovery-heading" class="text-xl md:text-2xl font-bold tracking-tight text-black">Discovery</h2>
-            <h3 class="text-lg md:text-xl font-bold text-black">SME Interviews & Student Experience Audit</h3>
-            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                Collaborated in ongoing sprint cycles with the Lead Course Subject Matter Expert (SME) to diagnose student engagement barriers across online modules:
+        <!-- Hero Video / Screen Recording Placeholder -->
+        <section aria-label="Project Preview Video">
+          <!-- Hero Title & Overview -->
+          <div class="mb-12 max-w-3xl">
+            <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-3">
+              Modular Course Component System
+            </h1>
+            <p
+              class="text-lg md:text-xl font-serif text-gray-700 tracking-tight italic"
+            >
+              Enterprise LMS Component Architecture & Accessibility Framework
             </p>
+          </div>
 
-            <!-- Accordion Group for Audit Points (Matched to Homepage Styling) -->
-            <div class="space-y-2 pt-2">
-                
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start mb-12">
+            <!-- Context Overview -->
+            <div class="md:col-span-2 space-y-8 border border-gray-200 p-8">
+              <div>
+                <h2
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
+                >
+                  Overview
+                </h2>
+                <p
+                  class="text-base md:text-lg text-gray-700 leading-relaxed mb-4"
+                >
+                  The Interdisciplinary Studies Department at RMCAD needed an
+                  accessible, unified component system to standardize
+                  interactive course assets across its 6-course curriculum. To
+                  move beyond one-off, disposable asset creation, I engineered a
+                  scalable frontend architecture that aligned interactive
+                  learning activities directly with core program
+                  outcomes—fostering cross-functional, interdisciplinary
+                  mindsets while establishing rigorous Web Content Accessibility
+                  Guidelines (WCAG 2.1 AA) across every module.
+                </p>
+              </div>
+              <div>
+                <!-- Elevated CTAs -->
+                <div class="flex flex-wrap items-center gap-4">
+                  <a
+                    href="hit-me-up.html"
+                    class="inline-block bg-black text-white px-7 py-3.5 text-base font-medium hover:bg-gray-800 transition-colors"
+                  >
+                    Hit Me Up &rarr;
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Metadata Panel -->
+            <div class="bg-gray-50 border border-gray-200 p-8 space-y-6">
+              <div>
+                <h3
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1"
+                >
+                  Organization
+                </h3>
+                <p class="text-sm md:text-base font-bold text-black">
+                  Rocky Mountain College of Art + Design
+                </p>
+              </div>
+              <div>
+                <h3
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1"
+                >
+                  Role
+                </h3>
+                <p class="text-sm md:text-base font-bold text-black">
+                  Instructional Content Developer
+                </p>
+              </div>
+              <div>
+                <h3
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1"
+                >
+                  Tools & Tech
+                </h3>
+                <p
+                  class="text-xs md:text-sm font-mono text-gray-800 leading-relaxed"
+                >
+                  HTML5 / H5P / Bootstrap<br />
+                  Adobe Suite / <br />
+                  Screen Reader Testing (NVDA/JAWS)
+                </p>
+              </div>
+              <div>
+                <h3
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1"
+                >
+                  Timeline
+                </h3>
+                <p class="text-sm md:text-base font-bold text-black">
+                  1 Month 2026
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Discovery & Research Phase -->
+        <section
+          class="space-y-8 border-t border-gray-200 pt-16"
+          aria-labelledby="discovery-heading"
+        >
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+            <!-- Left Column: SME & Student Insights -->
+            <div class="space-y-4">
+              <h2
+                id="discovery-heading"
+                class="text-xl md:text-2xl font-bold tracking-tight text-black"
+              >
+                Discovery
+              </h2>
+              <h3 class="text-lg md:text-xl font-bold text-black">
+                SME Interviews & Student Experience Audit
+              </h3>
+              <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                Collaborated in ongoing sprint cycles with the Lead Course
+                Subject Matter Expert (SME) to diagnose student engagement
+                barriers across online modules:
+              </p>
+
+              <!-- Accordion Group for Audit Points (Matched to Homepage Styling) -->
+              <div class="space-y-2 pt-2">
                 <!-- Item 1 -->
                 <details class="group border-b border-gray-200 pb-4">
-                    <summary class="flex justify-between items-center cursor-pointer list-none select-none py-2">
-                        <h4 class="text-base md:text-lg font-bold text-black group-hover:text-gray-600 transition-colors">
-                            Passive Pre-Assessments
-                        </h4>
-                        <span class="text-gray-400 transition-transform duration-200 group-open:rotate-180">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </span>
-                    </summary>
-                    <p class="text-base md:text-lg text-gray-700 mt-2 leading-relaxed">
-                        Legacy diagnostics relied on text-heavy quizzes that failed to inspire active curiosity or demonstrate practical course value.
-                    </p>
+                  <summary
+                    class="flex justify-between items-center cursor-pointer list-none select-none py-2"
+                  >
+                    <h4
+                      class="text-base md:text-lg font-bold text-black group-hover:text-gray-600 transition-colors"
+                    >
+                      Passive Pre-Assessments
+                    </h4>
+                    <span
+                      class="text-gray-400 transition-transform duration-200 group-open:rotate-180"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </span>
+                  </summary>
+                  <p
+                    class="text-base md:text-lg text-gray-700 mt-2 leading-relaxed"
+                  >
+                    Legacy diagnostics relied on text-heavy quizzes that failed
+                    to inspire active curiosity or demonstrate practical course
+                    value.
+                  </p>
                 </details>
 
                 <!-- Item 2 -->
                 <details class="group border-b border-gray-200 pb-4">
-                    <summary class="flex justify-between items-center cursor-pointer list-none select-none py-2">
-                        <h4 class="text-base md:text-lg font-bold text-black group-hover:text-gray-600 transition-colors">
-                            Static Visual Barriers
-                        </h4>
-                        <span class="text-gray-400 transition-transform duration-200 group-open:rotate-180">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </span>
-                    </summary>
-                    <p class="text-base md:text-lg text-gray-700 mt-2 leading-relaxed">
-                        Complex interdisciplinary concepts were presented as flat graphics rather than interactive, manipulatable models.
-                    </p>
+                  <summary
+                    class="flex justify-between items-center cursor-pointer list-none select-none py-2"
+                  >
+                    <h4
+                      class="text-base md:text-lg font-bold text-black group-hover:text-gray-600 transition-colors"
+                    >
+                      Static Visual Barriers
+                    </h4>
+                    <span
+                      class="text-gray-400 transition-transform duration-200 group-open:rotate-180"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </span>
+                  </summary>
+                  <p
+                    class="text-base md:text-lg text-gray-700 mt-2 leading-relaxed"
+                  >
+                    Complex interdisciplinary concepts were presented as flat
+                    graphics rather than interactive, manipulatable models.
+                  </p>
                 </details>
 
                 <!-- Item 3 -->
                 <details class="group border-b border-gray-200 pb-4">
-                    <summary class="flex justify-between items-center cursor-pointer list-none select-none py-2">
-                        <h4 class="text-base md:text-lg font-bold text-black group-hover:text-gray-600 transition-colors">
-                            Asynchronous Friction
-                        </h4>
-                        <span class="text-gray-400 transition-transform duration-200 group-open:rotate-180">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </span>
-                    </summary>
-                    <p class="text-base md:text-lg text-gray-700 mt-2 leading-relaxed">
-                        Students lacked clear, self-paced progress indicators to guide independent navigation through multi-step assignments.
-                    </p>
+                  <summary
+                    class="flex justify-between items-center cursor-pointer list-none select-none py-2"
+                  >
+                    <h4
+                      class="text-base md:text-lg font-bold text-black group-hover:text-gray-600 transition-colors"
+                    >
+                      Asynchronous Friction
+                    </h4>
+                    <span
+                      class="text-gray-400 transition-transform duration-200 group-open:rotate-180"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </span>
+                  </summary>
+                  <p
+                    class="text-base md:text-lg text-gray-700 mt-2 leading-relaxed"
+                  >
+                    Students lacked clear, self-paced progress indicators to
+                    guide independent navigation through multi-step assignments.
+                  </p>
                 </details>
 
                 <!-- Item 4 -->
                 <details class="group border-b border-gray-200 pb-4">
-                    <summary class="flex justify-between items-center cursor-pointer list-none select-none py-2">
-                        <h4 class="text-base md:text-lg font-bold text-black group-hover:text-gray-600 transition-colors">
-                            Disconnected Workflows
-                        </h4>
-                        <span class="text-gray-400 transition-transform duration-200 group-open:rotate-180">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </span>
-                    </summary>
-                    <p class="text-base md:text-lg text-gray-700 mt-2 leading-relaxed">
-                        Course activities felt isolated, missing an overarching narrative that connected individual artistic majors to cross-functional industry teamwork.
-                    </p>
+                  <summary
+                    class="flex justify-between items-center cursor-pointer list-none select-none py-2"
+                  >
+                    <h4
+                      class="text-base md:text-lg font-bold text-black group-hover:text-gray-600 transition-colors"
+                    >
+                      Disconnected Workflows
+                    </h4>
+                    <span
+                      class="text-gray-400 transition-transform duration-200 group-open:rotate-180"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </span>
+                  </summary>
+                  <p
+                    class="text-base md:text-lg text-gray-700 mt-2 leading-relaxed"
+                  >
+                    Course activities felt isolated, missing an overarching
+                    narrative that connected individual artistic majors to
+                    cross-functional industry teamwork.
+                  </p>
                 </details>
-
+              </div>
             </div>
-        </div>
 
-        <!-- Right Column: Findings & Strategic Direction -->
-        <div class="md:col-span-2 bg-gray-50 border border-gray-200 p-8 space-y-6">
-            <div>
-                <h3 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2">Core Finding</h3>
-                <blockquote class="text-base md:text-lg font-serif italic text-gray-800 border-l-2 border-black pl-4 py-1">
-                    "The Interdisciplinary Studies Department was not fully realizing student engagement or course learning outcomes due to a lack of aligned, accessible multimedia and self-guided opportunities for authentic practice."
+            <!-- Right Column: Findings & Strategic Direction -->
+            <div
+              class="md:col-span-2 bg-gray-50 border border-gray-200 p-8 space-y-6"
+            >
+              <div>
+                <h3
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
+                >
+                  Core Finding
+                </h3>
+                <blockquote
+                  class="text-base md:text-lg font-serif italic text-gray-800 border-l-2 border-black pl-4 py-1"
+                >
+                  "The Interdisciplinary Studies Department was not fully
+                  realizing student engagement or course learning outcomes due
+                  to a lack of aligned, accessible multimedia and self-guided
+                  opportunities for authentic practice."
                 </blockquote>
-            </div>
+              </div>
 
-            <div class="pt-4 border-t border-gray-200 space-y-3">
-                <h4 class="text-lg md:text-xl font-bold text-black">Strategic Opportunity</h4>
+              <div class="pt-4 border-t border-gray-200 space-y-3">
+                <h4 class="text-lg md:text-xl font-bold text-black">
+                  Strategic Opportunity
+                </h4>
                 <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                    To build genuine interdisciplinary mindsets, course content needed to evolve from passive reading to active, self-guided exploration. The SME's primary goal was to establish an intuitive, highly engaging multimedia environment that empowers students to navigate coursework independently while building real-world problem-solving muscle memory.
+                  To build genuine interdisciplinary mindsets, course content
+                  needed to evolve from passive reading to active, self-guided
+                  exploration. The SME's primary goal was to establish an
+                  intuitive, highly engaging multimedia environment that
+                  empowers students to navigate coursework independently while
+                  building real-world problem-solving muscle memory.
                 </p>
+              </div>
             </div>
-        </div>
+          </div>
+        </section>
 
-    </div>
-</section>
+        <!-- Core Problem & Transformation Grid -->
+        <section
+          class="space-y-8 border-t border-gray-200 pt-16"
+          aria-labelledby="transformation-heading"
+        >
+          <div class="max-w-3xl">
+            <h2
+              id="transformation-heading"
+              class="text-xl md:text-2xl font-bold tracking-tight mb-3"
+            >
+              Core Problem & Transformation
+            </h2>
+            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+              Transitioning students from passive, siloed learning to active,
+              cross-functional practice that builds real-world professional
+              muscle memory.
+            </p>
+          </div>
 
-
-
-            
-            <!-- Core Problem & Transformation Grid -->
-<section class="space-y-8 border-t border-gray-200 pt-16" aria-labelledby="transformation-heading">
-    <div class="max-w-3xl">
-        <h2 id="transformation-heading" class="text-xl md:text-2xl font-bold tracking-tight mb-3">Core Problem & Transformation</h2>
-        <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-            Transitioning students from passive, siloed learning to active, cross-functional practice that builds real-world professional muscle memory.
-        </p>
-    </div>
-
-    <!-- Centered Image Wrapper Spanning Above the 3 Cards -->
-    <div class="w-full flex justify-center my-8">
-        <figure class="flex flex-col items-center space-y-3">
-            <img 
-                src="Images/ZaraTransformation@5x.png" 
-                alt="Vector diagram illustrating Zara's transformation from a single-discipline artist to a multi-layered interdisciplinary professional." 
+          <!-- Centered Image Wrapper Spanning Above the 3 Cards -->
+          <div class="w-full flex justify-center my-8">
+            <figure class="flex flex-col items-center space-y-3">
+              <img
+                src="Images/ZaraTransformation@5x.png"
+                alt="Vector diagram illustrating Zara's transformation from a single-discipline artist to a multi-layered interdisciplinary professional."
                 aria-describedby="zara-transformation-desc"
                 class="mx-auto block max-w-xl h-auto"
-            />
-            
-            <figcaption id="zara-transformation-desc" class="sr-only">
-                A two-part visual diagram showing a character transformation from left to right: 
-                On the left, Zara is depicted as a single solid teal square with a neutral facial expression, representing a siloed discipline mindset. 
-                A black arrow points to the right, showing her evolved state: a multi-layered, semi-transparent square combining neutral beige, light red, and cyan tones, featuring a smiling facial expression and surrounded by glowing yellow stars, symbolizing her transformation into a capstone-ready interdisciplinary professional.
-            </figcaption>
-        </figure>
-    </div>
+              />
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <!-- Problem Card -->
-        <div class="border border-gray-200 p-6 space-y-3 bg-gray-50 flex flex-col justify-between">
-            <div>
-                <h3 class="font-bold text-lg md:text-xl text-black mb-2">The Problem</h3>
+              <figcaption id="zara-transformation-desc" class="sr-only">
+                A two-part visual diagram showing a character transformation
+                from left to right: On the left, Zara is depicted as a single
+                solid teal square with a neutral facial expression, representing
+                a siloed discipline mindset. A black arrow points to the right,
+                showing her evolved state: a multi-layered, semi-transparent
+                square combining neutral beige, light red, and cyan tones,
+                featuring a smiling facial expression and surrounded by glowing
+                yellow stars, symbolizing her transformation into a
+                capstone-ready interdisciplinary professional.
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Problem Card -->
+            <div
+              class="border border-gray-200 p-6 space-y-3 bg-gray-50 flex flex-col justify-between"
+            >
+              <div>
+                <h3 class="font-bold text-lg md:text-xl text-black mb-2">
+                  The Problem
+                </h3>
                 <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                    Art and design students often develop skills in a vacuum—focusing solely on their specialized major (e.g., fashion or graphic design). Legacy course materials exacerbated this isolation through static, non-responsive layouts that lacked engagement and failed WCAG 2.1 AA accessibility standards.
+                  Art and design students often develop skills in a
+                  vacuum—focusing solely on their specialized major (e.g.,
+                  fashion or graphic design). Legacy course materials
+                  exacerbated this isolation through static, non-responsive
+                  layouts that lacked engagement and failed WCAG 2.1 AA
+                  accessibility standards.
                 </p>
+              </div>
+              <div class="pt-3 border-t border-gray-200/60">
+                <span
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block"
+                  >Core Barrier</span
+                >
+                <span class="text-xs md:text-sm font-medium text-gray-800"
+                  >Siloed Mindsets + Passive Media</span
+                >
+              </div>
             </div>
-            <div class="pt-3 border-t border-gray-200/60">
-                <span class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block">Core Barrier</span>
-                <span class="text-xs md:text-sm font-medium text-gray-800">Siloed Mindsets + Passive Media</span>
-            </div>
-        </div>
 
-        <!-- Solution Card -->
-        <div class="border border-gray-200 p-6 space-y-3 bg-gray-50 flex flex-col justify-between">
-            <div>
-                <h3 class="font-bold text-lg md:text-xl text-black mb-2">The Solution</h3>
+            <!-- Solution Card -->
+            <div
+              class="border border-gray-200 p-6 space-y-3 bg-gray-50 flex flex-col justify-between"
+            >
+              <div>
+                <h3 class="font-bold text-lg md:text-xl text-black mb-2">
+                  The Solution
+                </h3>
                 <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                    An interactive, gamified content framework paired with embedded Module Reflection Planners. This approach empowers students to step into multi-faceted roles—collaborating across creative production, business strategy, and marketing within real-world project simulations.
+                  An interactive, gamified content framework paired with
+                  embedded Module Reflection Planners. This approach empowers
+                  students to step into multi-faceted roles—collaborating across
+                  creative production, business strategy, and marketing within
+                  real-world project simulations.
                 </p>
+              </div>
+              <div class="pt-3 border-t border-gray-200/60">
+                <span
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block"
+                  >Strategic Focus</span
+                >
+                <span class="text-xs md:text-sm font-medium text-gray-800"
+                  >Gamified Active Learning</span
+                >
+              </div>
             </div>
-            <div class="pt-3 border-t border-gray-200/60">
-                <span class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block">Strategic Focus</span>
-                <span class="text-xs md:text-sm font-medium text-gray-800">Gamified Active Learning</span>
-            </div>
-        </div>
 
-        <!-- Result Card -->
-        <div class="border border-gray-200 p-6 space-y-3 bg-gray-50 flex flex-col justify-between">
-            <div>
-                <h3 class="font-bold text-lg md:text-xl text-black mb-2">The Result</h3>
+            <!-- Result Card -->
+            <div
+              class="border border-gray-200 p-6 space-y-3 bg-gray-50 flex flex-col justify-between"
+            >
+              <div>
+                <h3 class="font-bold text-lg md:text-xl text-black mb-2">
+                  The Result
+                </h3>
                 <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                    A responsive, scaffolded component system utilizing semantic HTML5 and custom ARIA landmarks. This delivered a seamless, 100% WCAG-compliant LMS integration that increased student engagement through meaningful interactive activities while simultaneously improving student independence.
+                  A responsive, scaffolded component system utilizing semantic
+                  HTML5 and custom ARIA landmarks. This delivered a seamless,
+                  100% WCAG-compliant LMS integration that increased student
+                  engagement through meaningful interactive activities while
+                  simultaneously improving student independence.
                 </p>
+              </div>
+              <div class="pt-3 border-t border-gray-200/60">
+                <span
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block"
+                  >Outcome</span
+                >
+                <span class="text-xs md:text-sm font-medium text-gray-800"
+                  >Accessible LMS Architecture</span
+                >
+              </div>
             </div>
-            <div class="pt-3 border-t border-gray-200/60">
-                <span class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block">Outcome</span>
-                <span class="text-xs md:text-sm font-medium text-gray-800">Accessible LMS Architecture</span>
+          </div>
+        </section>
+
+        <!-- Component Architecture & Technical Execution Section -->
+        <section
+          class="space-y-8 border-t border-gray-200 pt-16"
+          aria-labelledby="visuals-heading"
+        >
+          <div class="max-w-3xl">
+            <h2
+              id="visuals-heading"
+              class="text-xl md:text-2xl font-bold tracking-tight mb-2"
+            >
+              Component Architecture & Technical Execution
+            </h2>
+            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+              <strong>Try it out!</strong> This inline widget is fully
+              interactive. Test keyboard navigation by expanding the sections
+              (<kbd
+                class="px-1.5 py-0.5 bg-gray-200 text-gray-800 rounded text-xs font-mono"
+                >Tab</kbd
+              >
+              /
+              <kbd
+                class="px-1.5 py-0.5 bg-gray-200 text-gray-800 rounded text-xs font-mono"
+                >Space</kbd
+              >) inside the canvas below. Shifting layouts and multi-tab context
+              switching are eliminated through a unified, WCAG-compliant LMS
+              component structure.
+            </p>
+          </div>
+
+          <!-- Window-Style Header Bar -->
+          <div
+            class="border border-gray-200 rounded-sm overflow-hidden bg-white"
+          >
+            <!-- Dark Header Bar -->
+            <div
+              class="bg-black text-white px-4 py-2.5 flex justify-between items-center text-xs md:text-sm font-mono"
+            >
+              <div class="flex items-center space-x-2">
+                <span
+                  class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"
+                ></span>
+                <span
+                  class="font-bold tracking-wider uppercase text-xs md:text-sm"
+                  >Live Interactive Component Embed</span
+                >
+              </div>
+              <span class="text-gray-400 text-xs">LMS Canvas Viewport</span>
             </div>
-        </div>
+            <!-- Unified Component & Code Card -->
+            <div
+              class="border border-gray-200 bg-gray-50 p-6 md:p-8 space-y-6 rounded-sm"
+            >
+              <!-- Live LMS Component Viewport -->
+              <div
+                class="bg-white border border-gray-200 p-6 md:p-8 rounded-sm shadow-inner space-y-6"
+              >
+                <!-- Screen Reader Live Status Region -->
+                <div
+                  id="status-announcer"
+                  class="sr-only"
+                  aria-live="polite"
+                  role="status"
+                ></div>
 
-    </div>
-</section>
+                <!-- Action Bar -->
+                <header
+                  class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-gray-200"
+                >
+                  <div>
+                    <span
+                      class="text-xs font-mono text-gray-500 uppercase tracking-wider bg-gray-100 border border-gray-200 px-2 py-0.5 rounded-sm"
+                    >
+                      IS2000 Module 1 Reflection Planner
+                    </span>
+                    <p class="text-xs md:text-sm text-gray-500 mt-1">
+                      Organize your thinking before writing your final
+                      reflection.
+                    </p>
+                  </div>
 
+                  <div class="flex items-center space-x-3 no-print">
+                    <button
+                      type="button"
+                      onclick="exportPDF()"
+                      class="bg-black text-white px-4 py-2 text-xs md:text-sm font-mono hover:bg-gray-800 transition-colors rounded-sm focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+                    >
+                      Export PDF
+                    </button>
 
-          <!-- Component Architecture & Technical Execution Section -->
-<section class="space-y-8 border-t border-gray-200 pt-16" aria-labelledby="visuals-heading">
-    <div class="max-w-3xl">
-        <h2 id="visuals-heading" class="text-xl md:text-2xl font-bold tracking-tight mb-2">Component Architecture & Technical Execution</h2>
-        <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-    <strong>Try it out!</strong> This inline widget is fully interactive. Test keyboard navigation by expanding the sections (<kbd class="px-1.5 py-0.5 bg-gray-200 text-gray-800 rounded text-xs font-mono">Tab</kbd> / <kbd class="px-1.5 py-0.5 bg-gray-200 text-gray-800 rounded text-xs font-mono">Space</kbd>) inside the canvas below. Shifting layouts and multi-tab context switching are eliminated through a unified, WCAG-compliant LMS component structure. 
-</p>
+                    <button
+                      type="button"
+                      onclick="resetPlanner()"
+                      class="border border-gray-300 text-gray-700 bg-white px-4 py-2 text-xs md:text-sm font-mono hover:bg-gray-100 transition-colors rounded-sm focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+                    >
+                      Reset
+                    </button>
+                  </div>
+                </header>
 
-    </div>
+                <!-- Main Title & Instructions -->
+                <section class="space-y-2">
+                  <h1
+                    class="text-xl md:text-2xl font-bold tracking-tight text-black"
+                  >
+                    Build Your Reflection Outline
+                  </h1>
+                  <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                    Expand each section, organize your ideas, collect evidence,
+                    and generate an exportable reflection outline that supports
+                    your final written submission.
+                  </p>
+                </section>
 
-    
-<!-- Window-Style Header Bar -->
-<div class="border border-gray-200 rounded-sm overflow-hidden bg-white">
-    <!-- Dark Header Bar -->
-    <div class="bg-black text-white px-4 py-2.5 flex justify-between items-center text-xs md:text-sm font-mono">
-        <div class="flex items-center space-x-2">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span class="font-bold tracking-wider uppercase text-xs md:text-sm">Live Interactive Component Embed</span>
-        </div>
-        <span class="text-gray-400 text-xs">LMS Canvas Viewport</span>
-    </div>
-    <!-- Unified Component & Code Card -->
-    <div class="border border-gray-200 bg-gray-50 p-6 md:p-8 space-y-6 rounded-sm">
+                <!-- Assignment Context Panel -->
+                <section
+                  class="bg-gray-50 border border-gray-200 p-5 space-y-2 rounded-sm"
+                  aria-labelledby="context-heading"
+                >
+                  <h2
+                    id="context-heading"
+                    class="text-sm md:text-base font-bold text-black font-mono"
+                  >
+                    Assignment Context
+                  </h2>
+                  <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
+                    In your previous studies, you explored the internal
+                    "mindset" of interdisciplinary inquiry. In IS 2000, we shift
+                    from how you think to how you act as a professional. This
+                    activity asks you to look back at the complex problem you
+                    focused on in your introductory course and decide if you
+                    want to continue in that territory or pivot to a new social
+                    landscape that aligns with your current career goals in Art
+                    & Design.
+                  </p>
+                </section>
 
-       <!-- Live LMS Component Viewport -->
-<div class="bg-white border border-gray-200 p-6 md:p-8 rounded-sm shadow-inner space-y-6">
+                <!-- Accordion Sections Container -->
+                <div class="space-y-4">
+                  <!-- PART 1 -->
+                  <details
+                    class="border border-gray-200 bg-gray-50 rounded-sm group focus-within:border-black focus-within:ring-1 focus-within:ring-black"
+                  >
+                    <summary
+                      class="flex justify-between items-center p-4 cursor-pointer select-none font-mono text-sm md:text-base font-bold text-black group-open:border-b group-open:border-gray-200 focus:outline-none"
+                    >
+                      <div>
+                        <span
+                          class="text-xs text-gray-500 uppercase tracking-wider block font-normal"
+                          >Part 1</span
+                        >
+                        <span>The Retrospective</span>
+                      </div>
+                      <span
+                        class="text-xs text-gray-400 group-open:rotate-180 transition-transform"
+                        aria-hidden="true"
+                        >&#9660;</span
+                      >
+                    </summary>
 
-    <!-- Screen Reader Live Status Region -->
-    <div id="status-announcer" class="sr-only" aria-live="polite" role="status"></div>
+                    <div
+                      class="p-5 space-y-4 bg-white text-xs md:text-sm text-gray-600 leading-relaxed"
+                    >
+                      <p>
+                        <strong class="text-black">The Reflection:</strong>
+                        Summarize the complex problem you focused on in IS 1000.
+                        If you no longer have access to that work or wish to
+                        change direction, explain why a new chosen topic is more
+                        relevant to your professional identity today.
+                      </p>
 
-    <!-- Action Bar -->
-    <header class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-gray-200">
-      <div>
-        <span class="text-xs font-mono text-gray-500 uppercase tracking-wider bg-gray-100 border border-gray-200 px-2 py-0.5 rounded-sm">
-          IS2000 Module 1 Reflection Planner
-        </span>
-        <p class="text-xs md:text-sm text-gray-500 mt-1">
-          Organize your thinking before writing your final reflection.
-        </p>
-      </div>
+                      <p>
+                        <strong class="text-black">The Critique:</strong> Based
+                        on the MacLeod (2011) reading, identify one
+                        "communication barrier" or "epistemic gap" you believe
+                        exists between your specific design discipline (e.g.,
+                        Graphic Design, Illustration, UX, Animation) and the
+                        stakeholders or social groups impacted by your topic.
+                      </p>
 
-      <div class="flex items-center space-x-3 no-print">
-        <button 
-          type="button" 
-          onclick="exportPDF()" 
-          class="bg-black text-white px-4 py-2 text-xs md:text-sm font-mono hover:bg-gray-800 transition-colors rounded-sm focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2">
-          Export PDF
-        </button>
+                      <div class="space-y-1">
+                        <label for="part1-input" class="sr-only"
+                          >Part 1 Draft Response</label
+                        >
+                        <textarea
+                          id="part1-input"
+                          class="w-full h-28 p-3 border border-gray-200 bg-gray-50 text-xs md:text-sm font-sans text-black focus:bg-white focus:outline-none focus:border-black rounded-sm"
+                          placeholder="Use this space to write a draft..."
+                        ></textarea>
+                      </div>
+                    </div>
+                  </details>
 
-        <button 
-          type="button" 
-          onclick="resetPlanner()" 
-          class="border border-gray-300 text-gray-700 bg-white px-4 py-2 text-xs md:text-sm font-mono hover:bg-gray-100 transition-colors rounded-sm focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2">
-          Reset
-        </button>
-      </div>
-    </header>
+                  <!-- PART 2 -->
+                  <details
+                    class="border border-gray-200 bg-gray-50 rounded-sm group focus-within:border-black focus-within:ring-1 focus-within:ring-black"
+                  >
+                    <summary
+                      class="flex justify-between items-center p-4 cursor-pointer select-none font-mono text-sm md:text-base font-bold text-black group-open:border-b group-open:border-gray-200 focus:outline-none"
+                    >
+                      <div>
+                        <span
+                          class="text-xs text-gray-500 uppercase tracking-wider block font-normal"
+                          >Part 2</span
+                        >
+                        <span>Defining the "Professional Collision"</span>
+                      </div>
+                      <span
+                        class="text-xs text-gray-400 group-open:rotate-180 transition-transform"
+                        aria-hidden="true"
+                        >&#9660;</span
+                      >
+                    </summary>
 
-    <!-- Main Title & Instructions -->
-    <section class="space-y-2">
-      <h1 class="text-xl md:text-2xl font-bold tracking-tight text-black">Build Your Reflection Outline</h1>
-      <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-        Expand each section, organize your ideas, collect evidence, and generate an exportable reflection outline that supports your final written submission.
-      </p>
-    </section>
+                    <div
+                      class="p-5 space-y-4 bg-white text-xs md:text-sm text-gray-600 leading-relaxed"
+                    >
+                      <p>
+                        Identify the specific area of the Social World where
+                        your professional work intersects with a broader system.
+                      </p>
 
-    <!-- Assignment Context Panel -->
-    <section class="bg-gray-50 border border-gray-200 p-5 space-y-2 rounded-sm" aria-labelledby="context-heading">
-      <h2 id="context-heading" class="text-sm md:text-base font-bold text-black font-mono">Assignment Context</h2>
-      <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
-        In your previous studies, you explored the internal "mindset" of interdisciplinary inquiry. In IS 2000, we shift from how you think to how you act as a professional. This activity asks you to look back at the complex problem you focused on in your introductory course and decide if you want to continue in that territory or pivot to a new social landscape that aligns with your current career goals in Art & Design.
-      </p>
-    </section>
+                      <p>
+                        <strong class="text-black">The Silo:</strong> Define
+                        your primary discipline (e.g., "I am an Interior
+                        Designer").
+                      </p>
 
-    <!-- Accordion Sections Container -->
-    <div class="space-y-4">
+                      <p>
+                        <strong class="text-black">The Collision:</strong>
+                        Identify a social, ethical, or environmental system
+                        where your discipline is needed (e.g., "I am examining
+                        how the visual branding of healthcare facilities affects
+                        patient trust").
+                      </p>
 
-      <!-- PART 1 -->
-      <details class="border border-gray-200 bg-gray-50 rounded-sm group focus-within:border-black focus-within:ring-1 focus-within:ring-black">
-        <summary class="flex justify-between items-center p-4 cursor-pointer select-none font-mono text-sm md:text-base font-bold text-black group-open:border-b group-open:border-gray-200 focus:outline-none">
-          <div>
-            <span class="text-xs text-gray-500 uppercase tracking-wider block font-normal">Part 1</span>
-            <span>The Retrospective</span>
-          </div>
-          <span class="text-xs text-gray-400 group-open:rotate-180 transition-transform" aria-hidden="true">&#9660;</span>
-        </summary>
+                      <p>
+                        <strong class="text-black">The Ethical Anchor:</strong>
+                        Using the Medical Sciences Council Guidelines, list one
+                        "Professional Responsibility" you have to the public
+                        when working within this specific collision.
+                      </p>
 
-        <div class="p-5 space-y-4 bg-white text-xs md:text-sm text-gray-600 leading-relaxed">
-          <p>
-            <strong class="text-black">The Reflection:</strong> Summarize the complex problem you focused on in IS 1000. If you no longer have access to that work or wish to change direction, explain why a new chosen topic is more relevant to your professional identity today.
-          </p>
+                      <div class="space-y-1">
+                        <label for="part2-input" class="sr-only"
+                          >Part 2 Draft Response</label
+                        >
+                        <textarea
+                          id="part2-input"
+                          class="w-full h-28 p-3 border border-gray-200 bg-gray-50 text-xs md:text-sm font-sans text-black focus:bg-white focus:outline-none focus:border-black rounded-sm"
+                          placeholder="Use this space to write a draft..."
+                        ></textarea>
+                      </div>
+                    </div>
+                  </details>
 
-          <p>
-            <strong class="text-black">The Critique:</strong> Based on the MacLeod (2011) reading, identify one "communication barrier" or "epistemic gap" you believe exists between your specific design discipline (e.g., Graphic Design, Illustration, UX, Animation) and the stakeholders or social groups impacted by your topic.
-          </p>
+                  <!-- PART 3 -->
+                  <details
+                    class="border border-gray-200 bg-gray-50 rounded-sm group focus-within:border-black focus-within:ring-1 focus-within:ring-black"
+                  >
+                    <summary
+                      class="flex justify-between items-center p-4 cursor-pointer select-none font-mono text-sm md:text-base font-bold text-black group-open:border-b group-open:border-gray-200 focus:outline-none"
+                    >
+                      <div>
+                        <span
+                          class="text-xs text-gray-500 uppercase tracking-wider block font-normal"
+                          >Part 3</span
+                        >
+                        <span>The Impact Formula</span>
+                      </div>
+                      <span
+                        class="text-xs text-gray-400 group-open:rotate-180 transition-transform"
+                        aria-hidden="true"
+                        >&#9660;</span
+                      >
+                    </summary>
 
-          <div class="space-y-1">
-            <label for="part1-input" class="sr-only">Part 1 Draft Response</label>
-            <textarea 
-              id="part1-input" 
-              class="w-full h-28 p-3 border border-gray-200 bg-gray-50 text-xs md:text-sm font-sans text-black focus:bg-white focus:outline-none focus:border-black rounded-sm" 
-              placeholder="Use this space to write a draft..."></textarea>
-          </div>
-        </div>
-      </details>
+                    <div
+                      class="p-5 space-y-4 bg-white text-xs md:text-sm text-gray-600 leading-relaxed"
+                    >
+                      <p>
+                        Develop a driving inquiry for your work this term using
+                        this simple formula:
+                      </p>
 
-      <!-- PART 2 -->
-      <details class="border border-gray-200 bg-gray-50 rounded-sm group focus-within:border-black focus-within:ring-1 focus-within:ring-black">
-        <summary class="flex justify-between items-center p-4 cursor-pointer select-none font-mono text-sm md:text-base font-bold text-black group-open:border-b group-open:border-gray-200 focus:outline-none">
-          <div>
-            <span class="text-xs text-gray-500 uppercase tracking-wider block font-normal">Part 2</span>
-            <span>Defining the "Professional Collision"</span>
-          </div>
-          <span class="text-xs text-gray-400 group-open:rotate-180 transition-transform" aria-hidden="true">&#9660;</span>
-        </summary>
+                      <blockquote
+                        class="italic text-gray-800 border-l-2 border-black pl-3 py-1 bg-gray-50"
+                      >
+                        "How does my work as a [Your Discipline] impact
+                        [Specific Social Group] when it comes to [Ethical/Social
+                        Issue]?"
+                      </blockquote>
 
-        <div class="p-5 space-y-4 bg-white text-xs md:text-sm text-gray-600 leading-relaxed">
-          <p>
-            Identify the specific area of the Social World where your professional work intersects with a broader system.
-          </p>
-          
-          <p>
-            <strong class="text-black">The Silo:</strong> Define your primary discipline (e.g., "I am an Interior Designer").
-          </p>
+                      <div class="space-y-1">
+                        <label for="part3-input" class="sr-only"
+                          >Part 3 Formula Draft Response</label
+                        >
+                        <textarea
+                          id="part3-input"
+                          class="w-full h-24 p-3 border border-gray-200 bg-gray-50 text-xs md:text-sm font-sans text-black focus:bg-white focus:outline-none focus:border-black rounded-sm"
+                          placeholder="Use this space to write a draft..."
+                        ></textarea>
+                      </div>
+                    </div>
+                  </details>
 
-          <p>
-            <strong class="text-black">The Collision:</strong> Identify a social, ethical, or environmental system where your discipline is needed (e.g., "I am examining how the visual branding of healthcare facilities affects patient trust").
-          </p>
+                  <!-- PART 4 -->
+                  <details
+                    class="border border-gray-200 bg-gray-50 rounded-sm group focus-within:border-black focus-within:ring-1 focus-within:ring-black"
+                  >
+                    <summary
+                      class="flex justify-between items-center p-4 cursor-pointer select-none font-mono text-sm md:text-base font-bold text-black group-open:border-b group-open:border-gray-200 focus:outline-none"
+                    >
+                      <div>
+                        <span
+                          class="text-xs text-gray-500 uppercase tracking-wider block font-normal"
+                          >Part 4</span
+                        >
+                        <span
+                          >The Social Impact Brief (Visual/Textual
+                          Artifact)</span
+                        >
+                      </div>
+                      <span
+                        class="text-xs text-gray-400 group-open:rotate-180 transition-transform"
+                        aria-hidden="true"
+                        >&#9660;</span
+                      >
+                    </summary>
 
-          <p>
-            <strong class="text-black">The Ethical Anchor:</strong> Using the Medical Sciences Council Guidelines, list one "Professional Responsibility" you have to the public when working within this specific collision.
-          </p>
+                    <div
+                      class="p-5 space-y-4 bg-white text-xs md:text-sm text-gray-600 leading-relaxed"
+                    >
+                      <p>
+                        Create a 2-page "Brief" (using a tool like Canva, Adobe,
+                        or a professional document layout) that represents your
+                        professional "Stance" for this course.
+                      </p>
 
-          <div class="space-y-1">
-            <label for="part2-input" class="sr-only">Part 2 Draft Response</label>
-            <textarea 
-              id="part2-input" 
-              class="w-full h-28 p-3 border border-gray-200 bg-gray-50 text-xs md:text-sm font-sans text-black focus:bg-white focus:outline-none focus:border-black rounded-sm" 
-              placeholder="Use this space to write a draft..."></textarea>
-          </div>
-        </div>
-      </details>
+                      <p>
+                        <strong class="text-black"
+                          >Page 1 (Visual Identity):</strong
+                        >
+                        An image, collage, or original graphic that represents
+                        the "Social World" you are entering. Your Impact Formula
+                        should serve as the prominent headline.
+                      </p>
 
-      <!-- PART 3 -->
-      <details class="border border-gray-200 bg-gray-50 rounded-sm group focus-within:border-black focus-within:ring-1 focus-within:ring-black">
-        <summary class="flex justify-between items-center p-4 cursor-pointer select-none font-mono text-sm md:text-base font-bold text-black group-open:border-b group-open:border-gray-200 focus:outline-none">
-          <div>
-            <span class="text-xs text-gray-500 uppercase tracking-wider block font-normal">Part 3</span>
-            <span>The Impact Formula</span>
-          </div>
-          <span class="text-xs text-gray-400 group-open:rotate-180 transition-transform" aria-hidden="true">&#9660;</span>
-        </summary>
+                      <div class="space-y-1">
+                        <label for="part4-page1-input" class="sr-only"
+                          >Part 4 Page 1 Draft Response</label
+                        >
+                        <textarea
+                          id="part4-page1-input"
+                          class="w-full h-24 p-3 border border-gray-200 bg-gray-50 text-xs md:text-sm font-sans text-black focus:bg-white focus:outline-none focus:border-black rounded-sm"
+                          placeholder="Draft page 1 here..."
+                        ></textarea>
+                      </div>
 
-        <div class="p-5 space-y-4 bg-white text-xs md:text-sm text-gray-600 leading-relaxed">
-          <p>
-            Develop a driving inquiry for your work this term using this simple formula:
-          </p>
-          
-          <blockquote class="italic text-gray-800 border-l-2 border-black pl-3 py-1 bg-gray-50">
-            "How does my work as a [Your Discipline] impact [Specific Social Group] when it comes to [Ethical/Social Issue]?"
-          </blockquote>
+                      <p>
+                        <strong class="text-black"
+                          >Page 2 (Systemic Strategy):</strong
+                        >
+                        Using Newell’s (2007) decision-making framework,
+                        identify 3 other professional "experts" from outside of
+                        Art & Design (e.g., a sociologist, a city planner, an
+                        ecologist) that you would need to collaborate with to
+                        address this problem.
+                      </p>
 
-          <div class="space-y-1">
-            <label for="part3-input" class="sr-only">Part 3 Formula Draft Response</label>
-            <textarea 
-              id="part3-input" 
-              class="w-full h-24 p-3 border border-gray-200 bg-gray-50 text-xs md:text-sm font-sans text-black focus:bg-white focus:outline-none focus:border-black rounded-sm" 
-              placeholder="Use this space to write a draft..."></textarea>
-          </div>
-        </div>
-      </details>
+                      <div class="space-y-1">
+                        <label for="part4-page2-input" class="sr-only"
+                          >Part 4 Page 2 Draft Response</label
+                        >
+                        <textarea
+                          id="part4-page2-input"
+                          class="w-full h-24 p-3 border border-gray-200 bg-gray-50 text-xs md:text-sm font-sans text-black focus:bg-white focus:outline-none focus:border-black rounded-sm"
+                          placeholder="Draft page 2 here..."
+                        ></textarea>
+                      </div>
+                    </div>
+                  </details>
+                </div>
 
-      <!-- PART 4 -->
-      <details class="border border-gray-200 bg-gray-50 rounded-sm group focus-within:border-black focus-within:ring-1 focus-within:ring-black">
-        <summary class="flex justify-between items-center p-4 cursor-pointer select-none font-mono text-sm md:text-base font-bold text-black group-open:border-b group-open:border-gray-200 focus:outline-none">
-          <div>
-            <span class="text-xs text-gray-500 uppercase tracking-wider block font-normal">Part 4</span>
-            <span>The Social Impact Brief (Visual/Textual Artifact)</span>
-          </div>
-          <span class="text-xs text-gray-400 group-open:rotate-180 transition-transform" aria-hidden="true">&#9660;</span>
-        </summary>
+                <!-- BIBLIOGRAPHY PANEL -->
+                <section
+                  class="border border-gray-200 bg-gray-50 p-5 space-y-3 rounded-sm"
+                  aria-labelledby="bib-heading"
+                >
+                  <h2
+                    id="bib-heading"
+                    class="text-sm md:text-base font-bold text-black font-mono"
+                  >
+                    Bibliography / Citations
+                  </h2>
+                  <div class="space-y-1">
+                    <label for="bib-input" class="sr-only"
+                      >Bibliography Entries</label
+                    >
+                    <textarea
+                      id="bib-input"
+                      class="w-full h-24 p-3 border border-gray-200 bg-white text-xs md:text-sm font-sans text-black focus:outline-none focus:border-black rounded-sm"
+                      placeholder="Add citations, chapter references, or bibliography entries here..."
+                    ></textarea>
+                  </div>
+                </section>
+              </div>
 
-        <div class="p-5 space-y-4 bg-white text-xs md:text-sm text-gray-600 leading-relaxed">
-          <p>
-            Create a 2-page "Brief" (using a tool like Canva, Adobe, or a professional document layout) that represents your professional "Stance" for this course.
-          </p>
-          
-          <p>
-            <strong class="text-black">Page 1 (Visual Identity):</strong> An image, collage, or original graphic that represents the "Social World" you are entering. Your Impact Formula should serve as the prominent headline.
-          </p>
+              <!-- Widget JS Logic -->
+              <script>
+                function announceStatus(message) {
+                  const announcer = document.getElementById("status-announcer");
+                  if (announcer) {
+                    announcer.textContent = "";
+                    setTimeout(() => {
+                      announcer.textContent = message;
+                    }, 50);
+                  }
+                }
 
-          <div class="space-y-1">
-            <label for="part4-page1-input" class="sr-only">Part 4 Page 1 Draft Response</label>
-            <textarea 
-              id="part4-page1-input" 
-              class="w-full h-24 p-3 border border-gray-200 bg-gray-50 text-xs md:text-sm font-sans text-black focus:bg-white focus:outline-none focus:border-black rounded-sm" 
-              placeholder="Draft page 1 here..."></textarea>
-          </div>
+                function exportPDF() {
+                  document
+                    .querySelectorAll("details")
+                    .forEach((el) => el.setAttribute("open", "true"));
+                  announceStatus(
+                    "Preparing module reflection outline for export.",
+                  );
+                  window.print();
+                }
 
-          <p>
-            <strong class="text-black">Page 2 (Systemic Strategy):</strong> Using Newell’s (2007) decision-making framework, identify 3 other professional "experts" from outside of Art & Design (e.g., a sociologist, a city planner, an ecologist) that you would need to collaborate with to address this problem.
-          </p>
+                function resetPlanner() {
+                  if (
+                    confirm(
+                      "Are you sure you want to reset all draft responses in this reflection planner?",
+                    )
+                  ) {
+                    document
+                      .querySelectorAll("textarea")
+                      .forEach((textarea) => {
+                        textarea.value = "";
+                      });
+                    announceStatus(
+                      "Module reflection planner responses have been reset.",
+                    );
+                  }
+                }
+              </script>
 
-          <div class="space-y-1">
-            <label for="part4-page2-input" class="sr-only">Part 4 Page 2 Draft Response</label>
-            <textarea 
-              id="part4-page2-input" 
-              class="w-full h-24 p-3 border border-gray-200 bg-gray-50 text-xs md:text-sm font-sans text-black focus:bg-white focus:outline-none focus:border-black rounded-sm" 
-              placeholder="Draft page 2 here..."></textarea>
-          </div>
-        </div>
-      </details>
+              <!-- 2. Integrated Scrollable Code Snippet Block -->
+              <div class="space-y-2">
+                <div
+                  class="flex justify-between items-center text-xs md:text-sm font-mono text-gray-500"
+                >
+                  <span class="font-bold text-black"
+                    >Accessible HTML Markup</span
+                  >
+                  <span>Scroll code to inspect &darr;</span>
+                </div>
 
-    </div>
-
-    <!-- BIBLIOGRAPHY PANEL -->
-    <section class="border border-gray-200 bg-gray-50 p-5 space-y-3 rounded-sm" aria-labelledby="bib-heading">
-      <h2 id="bib-heading" class="text-sm md:text-base font-bold text-black font-mono">Bibliography / Citations</h2>
-      <div class="space-y-1">
-        <label for="bib-input" class="sr-only">Bibliography Entries</label>
-        <textarea 
-          id="bib-input" 
-          class="w-full h-24 p-3 border border-gray-200 bg-white text-xs md:text-sm font-sans text-black focus:outline-none focus:border-black rounded-sm" 
-          placeholder="Add citations, chapter references, or bibliography entries here..."></textarea>
-      </div>
-    </section>
-
-</div>
-
-<!-- Widget JS Logic -->
-<script>
-  function announceStatus(message) {
-    const announcer = document.getElementById('status-announcer');
-    if (announcer) {
-      announcer.textContent = '';
-      setTimeout(() => { announcer.textContent = message; }, 50);
-    }
-  }
-
-  function exportPDF() {
-    document.querySelectorAll('details').forEach(el => el.setAttribute('open', 'true'));
-    announceStatus('Preparing module reflection outline for export.');
-    window.print();
-  }
-
-  function resetPlanner() {
-    if (confirm('Are you sure you want to reset all draft responses in this reflection planner?')) {
-      document.querySelectorAll('textarea').forEach(textarea => { textarea.value = ''; });
-      announceStatus('Module reflection planner responses have been reset.');
-    }
-  }
-</script>
-
-
-        <!-- 2. Integrated Scrollable Code Snippet Block -->
-        <div class="space-y-2">
-            <div class="flex justify-between items-center text-xs md:text-sm font-mono text-gray-500">
-                <span class="font-bold text-black">Accessible HTML Markup</span>
-                <span>Scroll code to inspect &darr;</span>
-            </div>
-
-            <div class="bg-black text-emerald-200 p-4 md:p-5 rounded-sm font-mono text-xs md:text-sm leading-relaxed overflow-y-auto max-h-[220px]">
-<pre><code>&lt;!-- Screen Reader Live Status Region --&gt;
+                <div
+                  class="bg-black text-emerald-200 p-4 md:p-5 rounded-sm font-mono text-xs md:text-sm leading-relaxed overflow-y-auto max-h-[220px]"
+                >
+                  <pre><code>&lt;!-- Screen Reader Live Status Region --&gt;
 &lt;div id="status-announcer" class="sr-only" aria-live="polite" role="status"&gt;&lt;/div&gt;
 
 &lt;!-- Module Planner Container --&gt;
@@ -735,419 +1175,725 @@ The Interdisciplinary Studies Department at RMCAD needed an accessible, unified 
   &lt;/section&gt;
 
 &lt;/div&gt;</code></pre>
+                </div>
+              </div>
+
+              <!-- Card Footer Metadata -->
+              <div
+                class="flex flex-wrap justify-between items-center text-xs md:text-sm font-mono text-gray-500 pt-4 border-t border-gray-200"
+              >
+                <span>Viewport: Responsive</span>
+                <span>CLS: 0.00 Perfect Layout Shifts</span>
+                <span>Accessibility: WCAG 2.1 AA</span>
+              </div>
             </div>
-        </div>
+          </div>
+        </section>
 
-        <!-- Card Footer Metadata -->
-        <div class="flex flex-wrap justify-between items-center text-xs md:text-sm font-mono text-gray-500 pt-4 border-t border-gray-200">
-            <span>Viewport: Responsive</span>
-            <span>CLS: 0.00 Perfect Layout Shifts</span>
-            <span>Accessibility: WCAG 2.1 AA</span>
-        </div>
+        <!-- Systems Thinking & Scalability -->
+        <section
+          class="space-y-8 border-t border-gray-200 pt-16"
+          aria-labelledby="systems-heading"
+        >
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+            <!-- Left Column: Strategy & Scalability -->
+            <div>
+              <h2
+                id="systems-heading"
+                class="text-xl md:text-2xl font-bold tracking-tight mb-4 text-black"
+              >
+                Systems Thinking & Scalability
+              </h2>
+              <h3 class="text-lg md:text-xl font-bold text-black mb-2">
+                Built for Reusability
+              </h3>
+              <p
+                class="text-base md:text-lg text-gray-700 leading-relaxed mb-6"
+              >
+                Short-term projects require long-term adaptability. Rather than
+                creating isolated, disposable widgets, I engineered standardized
+                graphic & component libraries that scale across the entire
+                6-course suite, including graphic building blocks, interactive
+                content templates for recurring content structures like Module
+                Reflection Planners, Flip-cards etc.
+              </p>
 
-    </div>
-</section>
-
-
-<!-- Systems Thinking & Scalability -->
-<section class="space-y-8 border-t border-gray-200 pt-16" aria-labelledby="systems-heading">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
-        
-        <!-- Left Column: Strategy & Scalability -->
-        <div>
-            <h2 id="systems-heading" class="text-xl md:text-2xl font-bold tracking-tight mb-4 text-black">Systems Thinking & Scalability</h2>
-            <h3 class="text-lg md:text-xl font-bold text-black mb-2">Built for Reusability</h3>
-            <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-6">
-                Short-term projects require long-term adaptability. Rather than creating isolated, disposable widgets, I engineered standardized graphic & component libraries that scale across the entire 6-course suite, including graphic building blocks, interactive content templates for recurring content structures like Module Reflection Planners, Flip-cards etc.
-            </p>
-            
-            <div class="space-y-3 border-t border-gray-200 pt-4">
-                <span class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block">Key System Deliverables</span>
+              <div class="space-y-3 border-t border-gray-200 pt-4">
+                <span
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block"
+                  >Key System Deliverables</span
+                >
                 <div class="flex flex-wrap gap-2">
-                    <span class="text-xs font-mono text-black bg-gray-100 border border-gray-200 px-2.5 py-1 rounded-sm">Updateable Course Maps</span>
-                    <span class="text-xs font-mono text-black bg-gray-100 border border-gray-200 px-2.5 py-1 rounded-sm">Reusable Templates</span>
-                    <span class="text-xs font-mono text-black bg-gray-100 border border-gray-200 px-2.5 py-1 rounded-sm">Improved Storytelling</span>
+                  <span
+                    class="text-xs font-mono text-black bg-gray-100 border border-gray-200 px-2.5 py-1 rounded-sm"
+                    >Updateable Course Maps</span
+                  >
+                  <span
+                    class="text-xs font-mono text-black bg-gray-100 border border-gray-200 px-2.5 py-1 rounded-sm"
+                    >Reusable Templates</span
+                  >
+                  <span
+                    class="text-xs font-mono text-black bg-gray-100 border border-gray-200 px-2.5 py-1 rounded-sm"
+                    >Improved Storytelling</span
+                  >
                 </div>
+              </div>
             </div>
-        </div>
 
-        <!-- Right Column: Component Architecture Image & Refined Value Metric -->
-        <div class="md:col-span-2 bg-gray-50 border border-gray-200 p-8 space-y-6">
-            <figure class="space-y-3">
-                <img 
-                    src="Images/ZaraScale@5x.png" 
-                    alt="Vector illustration showing character expression variations and responsive scale testing for Zara across desktop and mobile viewports." 
-                    aria-describedby="zara-scale-desc"
-                    class="w-full h-auto"
+            <!-- Right Column: Component Architecture Image & Refined Value Metric -->
+            <div
+              class="md:col-span-2 bg-gray-50 border border-gray-200 p-8 space-y-6"
+            >
+              <figure class="space-y-3">
+                <img
+                  src="Images/ZaraScale@5x.png"
+                  alt="Vector illustration showing character expression variations and responsive scale testing for Zara across desktop and mobile viewports."
+                  aria-describedby="zara-scale-desc"
+                  class="w-full h-auto"
                 />
-                
+
                 <figcaption id="zara-scale-desc" class="sr-only">
-                    A visual component matrix displaying the character Zara as a cyan square with a magenta 'Z' logo in two rows to test visual legibility across viewports. The top row shows five desktop-sized squares transitioning through facial expressions from left to right: broad open smile, gentle smile, neutral mouth, slight frown, and an uncertain upward glance. The bottom row repeats the exact same five facial expressions scaled down to mobile viewport dimensions, verifying facial feature clarity and brand legibility at smaller break points.
+                  A visual component matrix displaying the character Zara as a
+                  cyan square with a magenta 'Z' logo in two rows to test visual
+                  legibility across viewports. The top row shows five
+                  desktop-sized squares transitioning through facial expressions
+                  from left to right: broad open smile, gentle smile, neutral
+                  mouth, slight frown, and an uncertain upward glance. The
+                  bottom row repeats the exact same five facial expressions
+                  scaled down to mobile viewport dimensions, verifying facial
+                  feature clarity and brand legibility at smaller break points.
                 </figcaption>
-            </figure>
+              </figure>
 
-            <!-- Integrated Value Metric -->
-            <div class="pt-6 border-t border-gray-200 space-y-1">
-                <span class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block">Production Efficiency</span>
+              <!-- Integrated Value Metric -->
+              <div class="pt-6 border-t border-gray-200 space-y-1">
+                <span
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block"
+                  >Production Efficiency</span
+                >
                 <p class="text-base md:text-lg text-gray-800 leading-relaxed">
-                    Modular component reuse drove a <strong class="text-black font-bold text-lg md:text-xl font-mono">40%</strong> reduction in overall course deployment timelines.
+                  Modular component reuse drove a
+                  <strong
+                    class="text-black font-bold text-lg md:text-xl font-mono"
+                    >40%</strong
+                  >
+                  reduction in overall course deployment timelines.
                 </p>
+              </div>
             </div>
-        </div>
+          </div>
+        </section>
 
-    </div>
-</section>
+        <!-- Inclusive Design & Accessibility Standard Section -->
+        <section
+          class="space-y-8 border-t border-gray-200 pt-16"
+          aria-labelledby="a11y-heading"
+        >
+          <div class="max-w-3xl">
+            <h2
+              id="a11y-heading"
+              class="text-xl md:text-2xl font-bold tracking-tight mb-3 text-black"
+            >
+              Inclusive Design & Accessibility Standard
+            </h2>
+            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+              Ensuring equitable access through rigorous Web Content
+              Accessibility Guidelines (WCAG 2.1 AA) integration and screen
+              reader verification.
+            </p>
+          </div>
 
-
-<!-- Inclusive Design & Accessibility Standard Section -->
-<section class="space-y-8 border-t border-gray-200 pt-16" aria-labelledby="a11y-heading">
-    <div class="max-w-3xl">
-        <h2 id="a11y-heading" class="text-xl md:text-2xl font-bold tracking-tight mb-3 text-black">Inclusive Design & Accessibility Standard</h2>
-        <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-            Ensuring equitable access through rigorous Web Content Accessibility Guidelines (WCAG 2.1 AA) integration and screen reader verification.
-        </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <!-- Card 1: Screen Reader -->
-        <div class="border border-gray-200 p-6 space-y-3 bg-gray-50 flex flex-col justify-between rounded-sm">
-            <div>
-                <h3 class="font-bold text-lg md:text-xl text-black mb-2">Screen Reader Verification</h3>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Card 1: Screen Reader -->
+            <div
+              class="border border-gray-200 p-6 space-y-3 bg-gray-50 flex flex-col justify-between rounded-sm"
+            >
+              <div>
+                <h3 class="font-bold text-lg md:text-xl text-black mb-2">
+                  Screen Reader Verification
+                </h3>
                 <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                    Engineered dynamic components with <code class="font-mono text-black">role="region"</code> and <code class="font-mono text-black">aria-live="polite"</code> attributes to announce state transitions without interrupting user focus.
+                  Engineered dynamic components with
+                  <code class="font-mono text-black">role="region"</code> and
+                  <code class="font-mono text-black">aria-live="polite"</code>
+                  attributes to announce state transitions without interrupting
+                  user focus.
                 </p>
+              </div>
+              <div class="pt-3 border-t border-gray-200/60">
+                <span
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1"
+                  >Methodology</span
+                >
+                <span class="text-xs md:text-sm font-medium text-gray-800"
+                  >ARIA Live & Screen Reader QA</span
+                >
+              </div>
             </div>
-            <div class="pt-3 border-t border-gray-200/60">
-                <span class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1">Methodology</span>
-                <span class="text-xs md:text-sm font-medium text-gray-800">ARIA Live & Screen Reader QA</span>
-            </div>
-        </div>
 
-        <!-- Card 2: Contextual Descriptors -->
-        <div class="border border-gray-200 p-6 space-y-3 bg-gray-50 flex flex-col justify-between rounded-sm">
-            <div>
-                <h3 class="font-bold text-lg md:text-xl text-black mb-2">Contextual Image Descriptors</h3>
+            <!-- Card 2: Contextual Descriptors -->
+            <div
+              class="border border-gray-200 p-6 space-y-3 bg-gray-50 flex flex-col justify-between rounded-sm"
+            >
+              <div>
+                <h3 class="font-bold text-lg md:text-xl text-black mb-2">
+                  Contextual Image Descriptors
+                </h3>
                 <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                    Crafted descriptive, curriculum aligned alt-text structures for complex educational graphics by replacing generic filenames with meaningful descriptions that convey real learning content.
+                  Crafted descriptive, curriculum aligned alt-text structures
+                  for complex educational graphics by replacing generic
+                  filenames with meaningful descriptions that convey real
+                  learning content.
                 </p>
+              </div>
+              <div class="pt-3 border-t border-gray-200/60">
+                <span
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1"
+                  >Methodology</span
+                >
+                <span class="text-xs md:text-sm font-medium text-gray-800"
+                  >Standardized Alt-Text Attributes</span
+                >
+              </div>
             </div>
-            <div class="pt-3 border-t border-gray-200/60">
-                <span class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1">Methodology</span>
-                <span class="text-xs md:text-sm font-medium text-gray-800">Standardized Alt-Text Attributes</span>
-            </div>
-        </div>
 
-        <!-- Card 3: Keyboard Nav -->
-        <div class="border border-gray-200 p-6 space-y-3 bg-gray-50 flex flex-col justify-between rounded-sm">
-            <div>
-                <h3 class="font-bold text-lg md:text-xl text-black mb-2">Keyboard Navigation & Focus</h3>
+            <!-- Card 3: Keyboard Nav -->
+            <div
+              class="border border-gray-200 p-6 space-y-3 bg-gray-50 flex flex-col justify-between rounded-sm"
+            >
+              <div>
+                <h3 class="font-bold text-lg md:text-xl text-black mb-2">
+                  Keyboard Navigation & Focus
+                </h3>
                 <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                    Guaranteed complete keyboard accessibility with high-contrast focus rings, logical tab sequencing, and explicit key handling (<kbd class="px-1.5 py-0.5 bg-gray-200 text-gray-800 rounded text-xs font-mono">Tab</kbd>, <kbd class="px-1.5 py-0.5 bg-gray-200 text-gray-800 rounded text-xs font-mono">Space</kbd>, <kbd class="px-1.5 py-0.5 bg-gray-200 text-gray-800 rounded text-xs font-mono">Enter</kbd>).
+                  Guaranteed complete keyboard accessibility with high-contrast
+                  focus rings, logical tab sequencing, and explicit key handling
+                  (<kbd
+                    class="px-1.5 py-0.5 bg-gray-200 text-gray-800 rounded text-xs font-mono"
+                    >Tab</kbd
+                  >,
+                  <kbd
+                    class="px-1.5 py-0.5 bg-gray-200 text-gray-800 rounded text-xs font-mono"
+                    >Space</kbd
+                  >,
+                  <kbd
+                    class="px-1.5 py-0.5 bg-gray-200 text-gray-800 rounded text-xs font-mono"
+                    >Enter</kbd
+                  >).
                 </p>
+              </div>
+              <div class="pt-3 border-t border-gray-200/60">
+                <span
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1"
+                  >Methodology</span
+                >
+                <span class="text-xs md:text-sm font-medium text-gray-800"
+                  >Focus Control</span
+                >
+              </div>
             </div>
-            <div class="pt-3 border-t border-gray-200/60">
-                <span class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1">Methodology</span>
-                <span class="text-xs md:text-sm font-medium text-gray-800">Focus Control</span>
-            </div>
-        </div>
+          </div>
+        </section>
 
-    </div>
-</section>
+        <!-- Journey through the IS Course Suite Section -->
+        <section
+          class="space-y-8 border-t border-gray-200 pt-16"
+          aria-labelledby="journey-heading"
+        >
+          <div class="max-w-3xl">
+            <h2
+              id="journey-heading"
+              class="text-xl md:text-2xl font-bold tracking-tight text-black mb-3"
+            >
+              Journey through the IS Course Suite
+            </h2>
+            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+              Mapping the 6-course developmental arc to ensure interactive
+              content and student support components scale consistently. As
+              student mindsets evolve and content knowledge deepen, so does
+              Zara's color.
+            </p>
+          </div>
 
-<!-- Journey through the IS Course Suite Section -->
-<section class="space-y-8 border-t border-gray-200 pt-16" aria-labelledby="journey-heading">
-    <div class="max-w-3xl">
-        <h2 id="journey-heading" class="text-xl md:text-2xl font-bold tracking-tight text-black mb-3">Journey through the IS Course Suite</h2>
-        <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-            Mapping the 6-course developmental arc to ensure interactive content and student support components scale consistently. As student mindsets evolve and content knowledge deepen, so does Zara's color.
-        </p>
-    </div>
-
-    <!-- Structured 6-Step Visual Flowchart -->
-    <ol class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 list-none p-0 m-0" aria-label="Course progression steps">
-        
-        <!-- Step 1: IS1000 -->
-        <li class="bg-gray-50 border border-gray-200 p-6 flex flex-col justify-between space-y-4 rounded-sm relative">
-            <div>
+          <!-- Structured 6-Step Visual Flowchart -->
+          <ol
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 list-none p-0 m-0"
+            aria-label="Course progression steps"
+          >
+            <!-- Step 1: IS1000 -->
+            <li
+              class="bg-gray-50 border border-gray-200 p-6 flex flex-col justify-between space-y-4 rounded-sm relative"
+            >
+              <div>
                 <div class="flex items-center justify-between mb-3">
-                    <div class="flex items-center space-x-2">
-                        <span class="w-3.5 h-3.5 inline-block rounded-xs shrink-0" style="background-color: #5fdada;" aria-hidden="true"></span>
-                        <span class="font-mono text-xs md:text-sm font-bold text-black uppercase tracking-wider">IS1000</span>
-                    </div>
+                  <div class="flex items-center space-x-2">
+                    <span
+                      class="w-3.5 h-3.5 inline-block rounded-sm shrink-0"
+                      style="background-color: #5fdada"
+                      aria-hidden="true"
+                    ></span>
+                    <span
+                      class="font-mono text-xs md:text-sm font-bold text-black uppercase tracking-wider"
+                      >IS1000</span
+                    >
+                  </div>
                 </div>
-                <h3 class="text-lg md:text-xl font-bold text-black mb-2">Foundation & Collaboration</h3>
+                <h3 class="text-lg md:text-xl font-bold text-black mb-2">
+                  Foundation & Collaboration
+                </h3>
                 <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                    Shift mindset from thinking strictly about a single specialization to engaging in collaborative interdisciplinary work.
+                  Shift mindset from thinking strictly about a single
+                  specialization to engaging in collaborative interdisciplinary
+                  work.
                 </p>
-            </div>
-            <div class="pt-3 border-t border-gray-200/60">
-                <span class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1">Mindset Shift</span>
-                <span class="text-xs md:text-sm font-medium text-gray-800">Specialization &rarr; Collaboration</span>
-            </div>
-        </li>
+              </div>
+              <div class="pt-3 border-t border-gray-200/60">
+                <span
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1"
+                  >Mindset Shift</span
+                >
+                <span class="text-xs md:text-sm font-medium text-gray-800"
+                  >Specialization &rarr; Collaboration</span
+                >
+              </div>
+            </li>
 
-        <!-- Step 2: IS2000 -->
-        <li class="bg-gray-50 border border-gray-200 p-6 flex flex-col justify-between space-y-4 rounded-sm relative">
-            <div>
+            <!-- Step 2: IS2000 -->
+            <li
+              class="bg-gray-50 border border-gray-200 p-6 flex flex-col justify-between space-y-4 rounded-sm relative"
+            >
+              <div>
                 <div class="flex items-center justify-between mb-3">
-                    <div class="flex items-center space-x-2">
-                        <span class="w-3.5 h-3.5 inline-block rounded-xs shrink-0" style="background-color: #5fb9da;" aria-hidden="true"></span>
-                        <span class="font-mono text-xs md:text-sm font-bold text-black uppercase tracking-wider">IS2000</span>
-                    </div>
+                  <div class="flex items-center space-x-2">
+                    <span
+                      class="w-3.5 h-3.5 inline-block rounded-sm shrink-0"
+                      style="background-color: #5fb9da"
+                      aria-hidden="true"
+                    ></span>
+                    <span
+                      class="font-mono text-xs md:text-sm font-bold text-black uppercase tracking-wider"
+                      >IS2000</span
+                    >
+                  </div>
                 </div>
-                <h3 class="text-lg md:text-xl font-bold text-black mb-2">Real-World Application</h3>
+                <h3 class="text-lg md:text-xl font-bold text-black mb-2">
+                  Real-World Application
+                </h3>
                 <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                    Explore practical application beyond academic theory: <em>"What would this look like outside of my classroom?"</em>
+                  Explore practical application beyond academic theory:
+                  <em>"What would this look like outside of my classroom?"</em>
                 </p>
-            </div>
-            <div class="pt-3 border-t border-gray-200/60">
-                <span class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1">Mindset Shift</span>
-                <span class="text-xs md:text-sm font-medium text-gray-800">Theory &rarr; Real-World Context</span>
-            </div>
-        </li>
+              </div>
+              <div class="pt-3 border-t border-gray-200/60">
+                <span
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1"
+                  >Mindset Shift</span
+                >
+                <span class="text-xs md:text-sm font-medium text-gray-800"
+                  >Theory &rarr; Real-World Context</span
+                >
+              </div>
+            </li>
 
-        <!-- Step 3: IS3000 -->
-        <li class="bg-gray-50 border border-gray-200 p-6 flex flex-col justify-between space-y-4 rounded-sm relative">
-            <div>
+            <!-- Step 3: IS3000 -->
+            <li
+              class="bg-gray-50 border border-gray-200 p-6 flex flex-col justify-between space-y-4 rounded-sm relative"
+            >
+              <div>
                 <div class="flex items-center justify-between mb-3">
-                    <div class="flex items-center space-x-2">
-                        <span class="w-3.5 h-3.5 inline-block rounded-xs shrink-0" style="background-color: #529ee0;" aria-hidden="true"></span>
-                        <span class="font-mono text-xs md:text-sm font-bold text-black uppercase tracking-wider">IS3000</span>
-                    </div>
+                  <div class="flex items-center space-x-2">
+                    <span
+                      class="w-3.5 h-3.5 inline-block rounded-sm shrink-0"
+                      style="background-color: #529ee0"
+                      aria-hidden="true"
+                    ></span>
+                    <span
+                      class="font-mono text-xs md:text-sm font-bold text-black uppercase tracking-wider"
+                      >IS3000</span
+                    >
+                  </div>
                 </div>
-                <h3 class="text-lg md:text-xl font-bold text-black mb-2">Problem-Centered Research</h3>
+                <h3 class="text-lg md:text-xl font-bold text-black mb-2">
+                  Problem-Centered Research
+                </h3>
                 <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                    To do real work we must solve a problem—formulating actionable research questions and methodology.
+                  To do real work we must solve a problem—formulating actionable
+                  research questions and methodology.
                 </p>
-            </div>
-            <div class="pt-3 border-t border-gray-200/60">
-                <span class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1">Mindset Shift</span>
-                <span class="text-xs md:text-sm font-medium text-gray-800">Observation &rarr; Active Research</span>
-            </div>
-        </li>
+              </div>
+              <div class="pt-3 border-t border-gray-200/60">
+                <span
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1"
+                  >Mindset Shift</span
+                >
+                <span class="text-xs md:text-sm font-medium text-gray-800"
+                  >Observation &rarr; Active Research</span
+                >
+              </div>
+            </li>
 
-        <!-- Step 4: IS3010 -->
-        <li class="bg-gray-50 border border-gray-200 p-6 flex flex-col justify-between space-y-4 rounded-sm relative">
-            <div>
+            <!-- Step 4: IS3010 -->
+            <li
+              class="bg-gray-50 border border-gray-200 p-6 flex flex-col justify-between space-y-4 rounded-sm relative"
+            >
+              <div>
                 <div class="flex items-center justify-between mb-3">
-                    <div class="flex items-center space-x-2">
-                        <span class="w-3.5 h-3.5 inline-block rounded-xs shrink-0" style="background-color: #566fe2;" aria-hidden="true"></span>
-                        <span class="font-mono text-xs md:text-sm font-bold text-black uppercase tracking-wider">IS3010</span>
-                    </div>
+                  <div class="flex items-center space-x-2">
+                    <span
+                      class="w-3.5 h-3.5 inline-block rounded-sm shrink-0"
+                      style="background-color: #566fe2"
+                      aria-hidden="true"
+                    ></span>
+                    <span
+                      class="font-mono text-xs md:text-sm font-bold text-black uppercase tracking-wider"
+                      >IS3010</span
+                    >
+                  </div>
                 </div>
-                <h3 class="text-lg md:text-xl font-bold text-black mb-2">Fieldwork Execution</h3>
+                <h3 class="text-lg md:text-xl font-bold text-black mb-2">
+                  Fieldwork Execution
+                </h3>
                 <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                    Transitioning from proposal to active field study: <em>"I completed my research proposal, now what does my fieldwork look like?"</em>
+                  Transitioning from proposal to active field study:
+                  <em
+                    >"I completed my research proposal, now what does my
+                    fieldwork look like?"</em
+                  >
                 </p>
-            </div>
-            <div class="pt-3 border-t border-gray-200/60">
-                <span class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1">Mindset Shift</span>
-                <span class="text-xs md:text-sm font-medium text-gray-800">Proposal &rarr; Fieldwork Execution</span>
-            </div>
-        </li>
+              </div>
+              <div class="pt-3 border-t border-gray-200/60">
+                <span
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1"
+                  >Mindset Shift</span
+                >
+                <span class="text-xs md:text-sm font-medium text-gray-800"
+                  >Proposal &rarr; Fieldwork Execution</span
+                >
+              </div>
+            </li>
 
-        <!-- Step 5: IS4000 -->
-        <li class="bg-gray-50 border border-gray-200 p-6 flex flex-col justify-between space-y-4 rounded-sm relative">
-            <div>
+            <!-- Step 5: IS4000 -->
+            <li
+              class="bg-gray-50 border border-gray-200 p-6 flex flex-col justify-between space-y-4 rounded-sm relative"
+            >
+              <div>
                 <div class="flex items-center justify-between mb-3">
-                    <div class="flex items-center space-x-2">
-                        <span class="w-3.5 h-3.5 inline-block rounded-xs shrink-0" style="background-color: #566fe2;" aria-hidden="true"></span>
-                        <span class="font-mono text-xs md:text-sm font-bold text-black uppercase tracking-wider">IS4000</span>
-                    </div>
+                  <div class="flex items-center space-x-2">
+                    <span
+                      class="w-3.5 h-3.5 inline-block rounded-sm shrink-0"
+                      style="background-color: #566fe2"
+                      aria-hidden="true"
+                    ></span>
+                    <span
+                      class="font-mono text-xs md:text-sm font-bold text-black uppercase tracking-wider"
+                      >IS4000</span
+                    >
+                  </div>
                 </div>
-                <h3 class="text-lg md:text-xl font-bold text-black mb-2">Intervention Design</h3>
+                <h3 class="text-lg md:text-xl font-bold text-black mb-2">
+                  Intervention Design
+                </h3>
                 <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                    Synthesizing field data into tangible solutions: <em>"Now what am I going to do with this info? I’m going to come up with an intervention."</em>
+                  Synthesizing field data into tangible solutions:
+                  <em
+                    >"Now what am I going to do with this info? I’m going to
+                    come up with an intervention."</em
+                  >
                 </p>
-            </div>
-            <div class="pt-3 border-t border-gray-200/60">
-                <span class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1">Mindset Shift</span>
-                <span class="text-xs md:text-sm font-medium text-gray-800">Data &rarr; Actionable Intervention</span>
-            </div>
-        </li>
+              </div>
+              <div class="pt-3 border-t border-gray-200/60">
+                <span
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1"
+                  >Mindset Shift</span
+                >
+                <span class="text-xs md:text-sm font-medium text-gray-800"
+                  >Data &rarr; Actionable Intervention</span
+                >
+              </div>
+            </li>
 
-        <!-- Step 6: IS4010 -->
-        <li class="bg-gray-50 border border-gray-200 p-6 flex flex-col justify-between space-y-4 rounded-sm relative">
-            <div>
+            <!-- Step 6: IS4010 -->
+            <li
+              class="bg-gray-50 border border-gray-200 p-6 flex flex-col justify-between space-y-4 rounded-sm relative"
+            >
+              <div>
                 <div class="flex items-center justify-between mb-3">
-                    <div class="flex items-center space-x-2">
-                        <span class="w-3.5 h-3.5 inline-block rounded-xs border border-gray-300 shrink-0" style="background-color: #ffffff;" aria-hidden="true"></span>
-                        <span class="font-mono text-xs md:text-sm font-bold text-black uppercase tracking-wider">IS4010</span>
-                    </div>
-                    <span class="text-xs font-mono font-bold text-black bg-white border border-gray-200 px-2 py-0.5 rounded-sm" aria-hidden="true">CAPSTONE</span>
+                  <div class="flex items-center space-x-2">
+                    <span
+                      class="w-3.5 h-3.5 inline-block rounded-sm border border-gray-300 shrink-0"
+                      style="background-color: #ffffff"
+                      aria-hidden="true"
+                    ></span>
+                    <span
+                      class="font-mono text-xs md:text-sm font-bold text-black uppercase tracking-wider"
+                      >IS4010</span
+                    >
+                  </div>
+                  <span
+                    class="text-xs font-mono font-bold text-black bg-white border border-gray-200 px-2 py-0.5 rounded-sm"
+                    aria-hidden="true"
+                    >CAPSTONE</span
+                  >
                 </div>
-                <h3 class="text-lg md:text-xl font-bold text-black mb-2">Professional Presentation</h3>
+                <h3 class="text-lg md:text-xl font-bold text-black mb-2">
+                  Professional Presentation
+                </h3>
                 <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                    Evolving into a full interdisciplinary professional, presenting validated solutions and findings to the world.
+                  Evolving into a full interdisciplinary professional,
+                  presenting validated solutions and findings to the world.
                 </p>
-            </div>
-            <div class="pt-3 border-t border-gray-200/60">
-                <span class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1">Mindset Shift</span>
-                <span class="text-xs md:text-sm font-medium text-gray-800">Student &rarr; Interdisciplinary Professional</span>
-            </div>
-        </li>
+              </div>
+              <div class="pt-3 border-t border-gray-200/60">
+                <span
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1"
+                  >Mindset Shift</span
+                >
+                <span class="text-xs md:text-sm font-medium text-gray-800"
+                  >Student &rarr; Interdisciplinary Professional</span
+                >
+              </div>
+            </li>
+          </ol>
+        </section>
 
-    </ol>
-</section>
-
-
-
-<!-- Interactive Components Bridge Banner -->
-<section class="space-y-6 border-t border-gray-200 pt-16" aria-labelledby="lab-bridge-heading">
-    <div class="bg-gray-50 border border-gray-200 p-8 md:p-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 rounded-sm">
-        <div class="space-y-2 max-w-xl">
-            <div class="flex items-center space-x-2">
-                <span class="text-xs font-mono text-gray-500 uppercase tracking-wider bg-white border border-gray-200 px-2 py-0.5">Interactive Sandbox</span>
-                <span class="text-xs md:text-sm font-mono text-gray-400">lab.html</span>
-            </div>
-            <h2 id="lab-bridge-heading" class="text-xl md:text-2xl font-bold tracking-tight text-black">
+        <!-- Interactive Components Bridge Banner -->
+        <section
+          class="space-y-6 border-t border-gray-200 pt-16"
+          aria-labelledby="lab-bridge-heading"
+        >
+          <div
+            class="bg-gray-50 border border-gray-200 p-8 md:p-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 rounded-sm"
+          >
+            <div class="space-y-2 max-w-xl">
+              <div class="flex items-center space-x-2">
+                <span
+                  class="text-xs font-mono text-gray-500 uppercase tracking-wider bg-white border border-gray-200 px-2 py-0.5"
+                  >Interactive Sandbox</span
+                >
+                <span class="text-xs md:text-sm font-mono text-gray-400"
+                  >lab.html</span
+                >
+              </div>
+              <h2
+                id="lab-bridge-heading"
+                class="text-xl md:text-2xl font-bold tracking-tight text-black"
+              >
                 Explore Standalone Components in the Lab
-            </h2>
-            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                Want to test isolated builds of the <strong>Interdisciplinary Blender Widget</strong> or the <strong>Accessible Toggle Switch</strong>? Interact with functional, screen-reader-verified component sandboxes in my interactive lab.
-            </p>
-        </div>
-        
-        <a href="lab.html#is-components" class="inline-flex items-center space-x-2 bg-black text-white px-6 py-3 text-sm md:text-base font-medium hover:bg-gray-800 transition-colors shrink-0">
-            <span>View Component Lab</span>
-            <span>&rarr;</span>
-        </a>
-    </div>
-</section>
-
-<!-- Project Strengths & Execution -->
-<section class="space-y-8 border-t border-gray-200 pt-16" aria-labelledby="execution-heading">
-    <div class="max-w-3xl">
-        <h2 id="execution-heading" class="text-xl md:text-2xl font-bold tracking-tight mb-3 text-black">Project Strengths & Execution</h2>
-        <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-            Combining cross-functional teamwork with streamlined technical workflows to deliver reliable, high-impact course assets.
-        </p>
-    </div>
-
-    <!-- 3-Column Summary Triad -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <!-- Column 1: Collaboration -->
-        <div class="border border-gray-200 p-6 space-y-4 bg-gray-50 flex flex-col justify-between rounded-sm">
-            <div>
-                <h3 class="font-bold text-lg md:text-xl text-black mb-3">Cross-Functional Collaboration</h3>
-                <ul class="text-sm md:text-base text-gray-600 space-y-2.5 leading-relaxed">
-                    <li><strong>Faculty & LXD Alignment:</strong> Co-designed component specs with SMEs and LXDs, reducing revision cycles.</li>
-                    <li><strong>Responsive LMS QA:</strong> Audited multi-device viewports across mobile, tablet, and desktop LMS environments to guarantee zero layout shifts (CLS).</li>
-                    <li><strong>Accessibility Auditing:</strong> Conducted hands-on screen reader and keyboard-nav QA testing to verify full WCAG 2.1 AA compliance.</li>
-                </ul>
+              </h2>
+              <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                Want to test isolated builds of the
+                <strong>Interdisciplinary Blender Widget</strong> or the
+                <strong>Accessible Toggle Switch</strong>? Interact with
+                functional, screen-reader-verified component sandboxes in my
+                interactive lab.
+              </p>
             </div>
-            <div class="pt-3 border-t border-gray-200/60">
-                <span class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1">Core Value</span>
-                <span class="text-xs md:text-sm font-medium text-gray-800">Team Alignment & Rigorous QA</span>
-            </div>
-        </div>
 
-        <!-- Column 2: Execution Strengths -->
-        <div class="border border-gray-200 p-6 space-y-4 bg-gray-50 flex flex-col justify-between rounded-sm">
-            <div>
-                <h3 class="font-bold text-lg md:text-xl text-black mb-3">Project Execution Strengths</h3>
-                <ul class="text-sm md:text-base text-gray-600 space-y-2.5 leading-relaxed">
-                    <li><strong>Rapid Deployment:</strong> Cut asset build timelines by ~40% through modular template structures.</li>
-                    <li><strong>Frictionless UX:</strong> Eliminated multi-tab context switching by embedding interactive scaffolds directly within the course canvas.</li>
-                    <li><strong>LMS Compatibility:</strong> Developed clean, dependency-conscious HTML5/CSS code compatible with enterprise LMS wrappers.</li>
-                </ul>
-            </div>
-            <div class="pt-3 border-t border-gray-200/60">
-                <span class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1">Core Value</span>
-                <span class="text-xs md:text-sm font-medium text-gray-800">Scalable Frontend Systems</span>
-            </div>
-        </div>
-
-        <!-- Column 3: Course & Student Impact -->
-        <div class="border border-gray-200 p-6 space-y-4 bg-gray-50 flex flex-col justify-between rounded-sm">
-            <div>
-                <h3 class="font-bold text-lg md:text-xl text-black mb-3">Course & Student Impact</h3>
-                <ul class="text-sm md:text-base text-gray-600 space-y-2.5 leading-relaxed">
-                    <li><strong>Active Engagement:</strong> Replaced static text and stock graphics with interactive virtual manipulatives, driving engagement and higher completion rates.</li>
-                    <li><strong>Self-Paced Independence:</strong> Enabled asynchronous student progression through scaffolded support structures, reducing the need for direct instructor support.</li>
-                    <li><strong>Reusable Asset Library:</strong> Delivered a modular framework that can be easily reused across future course iterations without custom code.</li>
-                </ul>
-            </div>
-            <div class="pt-3 border-t border-gray-200/60">
-                <span class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1">Core Value</span>
-                <span class="text-xs md:text-sm font-medium text-gray-800">Measurable Educational Outcomes</span>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- Final CTA Contact Banner -->
-<section class="space-y-6 border-t border-gray-200 pt-16 pb-12" aria-labelledby="cta-heading">
-    <div class="bg-gray-50 border border-gray-200 p-8 md:p-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 rounded-sm">
-        
-        <div class="space-y-3 max-w-xl">
-            <div class="flex items-center space-x-2">
-                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                <span class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider">Available for short-term projects</span>
-            </div>
-            <h2 id="cta-heading" class="text-xl md:text-2xl font-bold tracking-tight text-black">
-                Need a <span class="italic font-serif font-normal text-gray-700">scalable component system</span> built?
-            </h2>
-            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                Whether you need to modernize an entire course suite or build custom, WCAG-compliant web components from scratch, let’s collaborate to turn static content into engaging, interactive systems.
-            </p>
-        </div>
-        
-        <a href="hit-me-up.html" class="inline-flex items-center space-x-2 bg-black text-white px-6 py-3 text-sm md:text-base font-medium hover:bg-gray-800 transition-colors shrink-0 rounded-sm focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2">
-            <span>Hit Me Up</span>
-            <span aria-hidden="true">&rarr;</span>
-        </a>
-
-    </div>
-</section>
-
-
-
-        </main>
-
-        <!-- Footer -->
-        <footer class="mt-24 pt-8 border-t border-gray-200 text-xs md:text-sm flex justify-between items-center">
-            <p>&copy; 2026 Leon Hayes. All rights reserved.</p>
-            <a href="#" class="border border-black px-3 py-1 font-medium hover:bg-black hover:text-white transition-all">
-                Back to Top &uarr;
+            <a
+              href="lab.html#is-components"
+              class="inline-flex items-center space-x-2 bg-black text-white px-6 py-3 text-sm md:text-base font-medium hover:bg-gray-800 transition-colors shrink-0"
+            >
+              <span>View Component Lab</span>
+              <span>&rarr;</span>
             </a>
-        </footer>
+          </div>
+        </section>
 
+        <!-- Project Strengths & Execution -->
+        <section
+          class="space-y-8 border-t border-gray-200 pt-16"
+          aria-labelledby="execution-heading"
+        >
+          <div class="max-w-3xl">
+            <h2
+              id="execution-heading"
+              class="text-xl md:text-2xl font-bold tracking-tight mb-3 text-black"
+            >
+              Project Strengths & Execution
+            </h2>
+            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+              Combining cross-functional teamwork with streamlined technical
+              workflows to deliver reliable, high-impact course assets.
+            </p>
+          </div>
+
+          <!-- 3-Column Summary Triad -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Column 1: Collaboration -->
+            <div
+              class="border border-gray-200 p-6 space-y-4 bg-gray-50 flex flex-col justify-between rounded-sm"
+            >
+              <div>
+                <h3 class="font-bold text-lg md:text-xl text-black mb-3">
+                  Cross-Functional Collaboration
+                </h3>
+                <ul
+                  class="text-sm md:text-base text-gray-600 space-y-2.5 leading-relaxed"
+                >
+                  <li>
+                    <strong>Faculty & LXD Alignment:</strong> Co-designed
+                    component specs with SMEs and LXDs, reducing revision
+                    cycles.
+                  </li>
+                  <li>
+                    <strong>Responsive LMS QA:</strong> Audited multi-device
+                    viewports across mobile, tablet, and desktop LMS
+                    environments to guarantee zero layout shifts (CLS).
+                  </li>
+                  <li>
+                    <strong>Accessibility Auditing:</strong> Conducted hands-on
+                    screen reader and keyboard-nav QA testing to verify full
+                    WCAG 2.1 AA compliance.
+                  </li>
+                </ul>
+              </div>
+              <div class="pt-3 border-t border-gray-200/60">
+                <span
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1"
+                  >Core Value</span
+                >
+                <span class="text-xs md:text-sm font-medium text-gray-800"
+                  >Team Alignment & Rigorous QA</span
+                >
+              </div>
+            </div>
+
+            <!-- Column 2: Execution Strengths -->
+            <div
+              class="border border-gray-200 p-6 space-y-4 bg-gray-50 flex flex-col justify-between rounded-sm"
+            >
+              <div>
+                <h3 class="font-bold text-lg md:text-xl text-black mb-3">
+                  Project Execution Strengths
+                </h3>
+                <ul
+                  class="text-sm md:text-base text-gray-600 space-y-2.5 leading-relaxed"
+                >
+                  <li>
+                    <strong>Rapid Deployment:</strong> Cut asset build timelines
+                    by ~40% through modular template structures.
+                  </li>
+                  <li>
+                    <strong>Frictionless UX:</strong> Eliminated multi-tab
+                    context switching by embedding interactive scaffolds
+                    directly within the course canvas.
+                  </li>
+                  <li>
+                    <strong>LMS Compatibility:</strong> Developed clean,
+                    dependency-conscious HTML5/CSS code compatible with
+                    enterprise LMS wrappers.
+                  </li>
+                </ul>
+              </div>
+              <div class="pt-3 border-t border-gray-200/60">
+                <span
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1"
+                  >Core Value</span
+                >
+                <span class="text-xs md:text-sm font-medium text-gray-800"
+                  >Scalable Frontend Systems</span
+                >
+              </div>
+            </div>
+
+            <!-- Column 3: Course & Student Impact -->
+            <div
+              class="border border-gray-200 p-6 space-y-4 bg-gray-50 flex flex-col justify-between rounded-sm"
+            >
+              <div>
+                <h3 class="font-bold text-lg md:text-xl text-black mb-3">
+                  Course & Student Impact
+                </h3>
+                <ul
+                  class="text-sm md:text-base text-gray-600 space-y-2.5 leading-relaxed"
+                >
+                  <li>
+                    <strong>Active Engagement:</strong> Replaced static text and
+                    stock graphics with interactive virtual manipulatives,
+                    driving engagement and higher completion rates.
+                  </li>
+                  <li>
+                    <strong>Self-Paced Independence:</strong> Enabled
+                    asynchronous student progression through scaffolded support
+                    structures, reducing the need for direct instructor support.
+                  </li>
+                  <li>
+                    <strong>Reusable Asset Library:</strong> Delivered a modular
+                    framework that can be easily reused across future course
+                    iterations without custom code.
+                  </li>
+                </ul>
+              </div>
+              <div class="pt-3 border-t border-gray-200/60">
+                <span
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider block mb-1"
+                  >Core Value</span
+                >
+                <span class="text-xs md:text-sm font-medium text-gray-800"
+                  >Measurable Educational Outcomes</span
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Final CTA Contact Banner -->
+        <section
+          class="space-y-6 border-t border-gray-200 pt-16 pb-12"
+          aria-labelledby="cta-heading"
+        >
+          <div
+            class="bg-gray-50 border border-gray-200 p-8 md:p-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 rounded-sm"
+          >
+            <div class="space-y-3 max-w-xl">
+              <div class="flex items-center space-x-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider"
+                  >Available for short-term projects</span
+                >
+              </div>
+              <h2
+                id="cta-heading"
+                class="text-xl md:text-2xl font-bold tracking-tight text-black"
+              >
+                Need a
+                <span class="italic font-serif font-normal text-gray-700"
+                  >scalable component system</span
+                >
+                built?
+              </h2>
+              <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                Whether you need to modernize an entire course suite or build
+                custom, WCAG-compliant web components from scratch, let’s
+                collaborate to turn static content into engaging, interactive
+                systems.
+              </p>
+            </div>
+
+            <a
+              href="hit-me-up.html"
+              class="inline-flex items-center space-x-2 bg-black text-white px-6 py-3 text-sm md:text-base font-medium hover:bg-gray-800 transition-colors shrink-0 rounded-sm focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+            >
+              <span>Hit Me Up</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer
+        class="mt-24 pt-8 border-t border-gray-200 text-xs md:text-sm flex justify-between items-center"
+      >
+        <p>&copy; 2026 Leon Hayes. All rights reserved.</p>
+        <a
+          href="#"
+          class="border border-black px-3 py-1 font-medium hover:bg-black hover:text-white transition-all"
+        >
+          Back to Top &uarr;
+        </a>
+      </footer>
     </div>
-
-    <!-- Mobile Menu Accessible Toggle Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const toggleBtn = document.getElementById('menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const openIcon = document.getElementById('menu-open-icon');
-            const closeIcon = document.getElementById('menu-close-icon');
-
-            if (toggleBtn && mobileMenu) {
-                toggleBtn.addEventListener('click', () => {
-                    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-                    toggleBtn.setAttribute('aria-expanded', !isExpanded);
-                    mobileMenu.classList.toggle('hidden');
-                    openIcon.classList.toggle('hidden');
-                    closeIcon.classList.toggle('hidden');
-                });
-
-                // Close menu on ESC key press
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape' && toggleBtn.getAttribute('aria-expanded') === 'true') {
-                        toggleBtn.setAttribute('aria-expanded', 'false');
-                        mobileMenu.classList.add('hidden');
-                        openIcon.classList.remove('hidden');
-                        closeIcon.classList.add('hidden');
-                        toggleBtn.focus();
-                    }
-                });
-            }
-        });
-    </script>
-
-</body>
+  </body>
 </html>

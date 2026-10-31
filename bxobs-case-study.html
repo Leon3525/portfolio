@@ -1,575 +1,1014 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BxObs Case Study — Leon Hayes</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Modern, clean typography setup and smooth scroll behavior */
-        html { scroll-behavior: smooth; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+      /* Modern, clean typography setup and smooth scroll behavior */
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      }
     </style>
-</head>
-<body class="bg-white text-black min-h-screen">
-
+  </head>
+  <body class="bg-white text-black min-h-screen">
     <!-- Main Container Constrained to Max 1200px -->
     <div class="max-w-[1200px] mx-auto px-4 md:px-8 py-4 md:py-8">
+      <!-- Top Navigation Header -->
+      <header class="border-b border-gray-100 pb-4 mb-10 md:mb-16">
+        <div class="flex justify-between items-center">
+          <a
+            href="index.html"
+            class="text-base md:text-lg font-bold tracking-normal text-black hover:text-gray-600 transition-colors flex items-center space-x-2"
+          >
+            <span class="text-base font-normal">&larr;</span>
+            <span>Back to Portfolio</span>
+          </a>
 
-        <!-- Top Navigation Header -->
-        <header class="border-b border-gray-100 pb-4 mb-10 md:mb-16">
-            <div class="flex justify-between items-center">
-                <a href="index.html" class="text-base md:text-lg font-bold tracking-normal text-black hover:text-gray-600 transition-colors flex items-center space-x-2">
-                    <span class="text-base font-normal">&larr;</span>
-                    <span>Back to Portfolio</span>
-                </a>
+          <!-- Desktop Navigation Links -->
+          <nav
+            class="hidden md:flex space-x-8 text-xs md:text-sm font-medium items-center"
+            aria-label="Main Navigation"
+          >
+            <a
+              href="index.html#work"
+              class="hover:text-gray-600 transition-colors py-1"
+              >Work</a
+            >
+            <a
+              href="lab.html"
+              class="hover:text-gray-600 transition-colors py-1"
+              >Lab</a
+            >
+            <a
+              href="about.html"
+              class="hover:text-gray-600 transition-colors py-1"
+              >About</a
+            >
+          </nav>
 
-                <!-- Desktop Navigation Links -->
-                <nav class="hidden md:flex space-x-8 text-xs md:text-sm font-medium items-center" aria-label="Main Navigation">
-                    <a href="index.html#work" class="hover:text-gray-600 transition-colors py-1">Work</a>
-                    <a href="lab.html" class="hover:text-gray-600 transition-colors py-1">Lab</a>
-                    <a href="about.html" class="hover:text-gray-600 transition-colors py-1">About</a>
-                </nav>
+          <!-- Accessible Mobile Menu Toggle Button -->
+          <button
+            id="menu-toggle"
+            type="button"
+            class="md:hidden p-2 text-black hover:text-gray-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-black rounded transition-colors"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            aria-label="Toggle navigation menu"
+          >
+            <!-- Hamburger Icon -->
+            <svg
+              id="menu-open-icon"
+              class="w-6 h-6 block"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+            <!-- Close Icon (Hidden by Default) -->
+            <svg
+              id="menu-close-icon"
+              class="w-6 h-6 hidden"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
 
-                <!-- Accessible Mobile Menu Toggle Button -->
-                <button 
-                    id="menu-toggle" 
-                    type="button" 
-                    class="md:hidden p-2 text-black hover:text-gray-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-black rounded transition-colors" 
-                    aria-expanded="false" 
-                    aria-controls="mobile-menu" 
-                    aria-label="Toggle navigation menu"
+        <!-- Mobile Navigation Drawer -->
+        <nav
+          id="mobile-menu"
+          class="hidden md:hidden pt-4 pb-2 flex flex-col space-y-3 text-sm font-medium border-t border-gray-100 mt-3"
+          aria-label="Mobile Navigation"
+        >
+          <a
+            href="index.html#work"
+            class="hover:text-gray-600 transition-colors py-1"
+            >Work</a
+          >
+          <a href="lab.html" class="hover:text-gray-600 transition-colors py-1"
+            >Lab</a
+          >
+          <a
+            href="about.html"
+            class="hover:text-gray-600 transition-colors py-1"
+            >About</a
+          >
+        </nav>
+      </header>
+
+      <main class="w-full space-y-20">
+        <!-- Hero / Context Section -->
+        <section>
+          <div class="mb-12 max-w-2xl">
+            <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-3">
+              BxObs Assessment Assistant Applet
+            </h1>
+            <p
+              class="text-lg md:text-xl font-serif text-gray-700 tracking-tight italic"
+            >
+              Observation Tool for Psychologists
+            </p>
+          </div>
+
+          <!-- Hero Image -->
+          <div
+            class="aspect-[16/7] w-full border border-gray-200 mb-12 overflow-hidden bg-gray-50"
+          >
+            <img
+              src="Images/BxObsThumbnail@3x.png"
+              alt="Hero Mockup Collage"
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+            <!-- Context & Problem -->
+            <div class="md:col-span-2 space-y-8 border border-gray-200 p-8">
+              <div>
+                <h2
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
                 >
-                    <!-- Hamburger Icon -->
-                    <svg id="menu-open-icon" class="w-6 h-6 block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                    <!-- Close Icon (Hidden by Default) -->
-                    <svg id="menu-close-icon" class="w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
+                  Context
+                </h2>
+                <p
+                  class="text-base md:text-lg text-gray-700 leading-relaxed mb-4"
+                >
+                  BxObs (behavior observation) gives practicing psychologists
+                  the ability to collect observation data in real-time while
+                  streamlining the process for data analysis and reporting. The
+                  BxObs Applet is a companion to the Assessment Assistant Tool
+                  developed by Cerebral Code.
+                </p>
+                <!-- Elevated Top CTA -->
+                <div class="flex flex-wrap items-center gap-4">
+                  <a
+                    href="hitmeup.html"
+                    class="inline-block bg-black text-white px-7 py-3.5 text-base font-medium hover:bg-gray-800 transition-colors"
+                  >
+                    Hire Me for a Similar Prototype &rarr;
+                  </a>
+                </div>
+              </div>
+              <div>
+                <h2
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
+                >
+                  The Problem
+                </h2>
+                <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                  Collecting and analyzing behavior data is often slow and
+                  inefficient, especially with outdated methods like paper forms
+                  and spreadsheets. Existing digital tools are often not
+                  user-friendly or tailored to professional workflows, making it
+                  difficult for psychologists to efficiently track progress,
+                  share results, and validate interventions. This increases
+                  administrative burden and reduces time for student support.
+                </p>
+              </div>
+              <div>
+                <h2
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
+                >
+                  The Solution
+                </h2>
+                <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                  A streamlined, intuitive data collection resource built to
+                  empower psychologists to gather accurate, actionable data and
+                  enhance the overall effectiveness of their clinical services.
+                </p>
+              </div>
             </div>
 
-            <!-- Mobile Navigation Drawer -->
-            <nav id="mobile-menu" class="hidden md:hidden pt-4 pb-2 flex flex-col space-y-3 text-sm font-medium border-t border-gray-100 mt-3" aria-label="Mobile Navigation">
-                <a href="index.html#work" class="hover:text-gray-600 transition-colors py-1">Work</a>
-                <a href="lab.html" class="hover:text-gray-600 transition-colors py-1">Lab</a>
-                <a href="about.html" class="hover:text-gray-600 transition-colors py-1">About</a>
-            </nav>
-        </header>
+            <!-- Metadata Panel -->
+            <div class="bg-gray-50 border border-gray-200 p-8 space-y-6">
+              <div>
+                <h3
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1"
+                >
+                  Role
+                </h3>
+                <p class="text-sm md:text-base font-bold text-black">
+                  UX Design
+                </p>
+              </div>
+              <div>
+                <h3
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1"
+                >
+                  Timeline
+                </h3>
+                <p class="text-sm md:text-base font-bold text-black">
+                  1 Month Sprint (June 2025)
+                </p>
+              </div>
+              <div>
+                <h3
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1"
+                >
+                  Skills Demonstrated
+                </h3>
+                <ul
+                  class="text-xs md:text-sm space-y-1.5 font-medium text-gray-700 leading-relaxed"
+                >
+                  <li>• UX Research & Wireframing</li>
+                  <li>• Rapid Interactive Prototyping</li>
+                  <li>• Design System Management</li>
+                  <li>• Component & Interface Design</li>
+                </ul>
+              </div>
+              <div>
+                <h3
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1"
+                >
+                  Tools Stack
+                </h3>
+                <p class="text-xs md:text-sm font-mono text-gray-800">
+                  Figma / Google Material Design 3
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <main class="w-full space-y-20">
-            
-            <!-- Hero / Context Section -->
-            <section>
-                <div class="mb-12 max-w-2xl">
-                    <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-3">BxObs Assessment Assistant Applet</h1>
-                    <p class="text-lg md:text-xl font-serif text-gray-700 tracking-tight italic">Observation Tool for Psychologists</p>
+        <!-- Value Proposition & Applet Preview Block -->
+        <section class="border-t border-gray-200 pt-16">
+          <div
+            class="bg-gray-50 border border-gray-200 p-8 md:p-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-center"
+          >
+            <!-- Text Column -->
+            <div class="md:col-span-7 space-y-6">
+              <div>
+                <h2
+                  class="text-xl md:text-2xl font-bold text-black tracking-tight mb-3"
+                >
+                  BxObs (Behavior Observation Tool)
+                </h2>
+                <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                  Designed to meet or exceed the effectiveness of existing
+                  observation protocols, the BxObs Applet was developed using
+                  core tenets of sampling as outlined by American Clinical
+                  Psychologist Jerome Sattler, ensuring each feature derives
+                  from empirical research practices.
+                </p>
+              </div>
+              <div class="pt-4 border-t border-gray-200">
+                <h3 class="text-lg md:text-xl font-bold text-black mb-2">
+                  Trusted By Professional Practitioners
+                </h3>
+                <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                  The BxObs Applet uses AI to generate concise reports and
+                  visual charts that can be easily exported, making key insights
+                  easy to share and understand. These streamlined outputs
+                  support functional behavior assessments, intervention
+                  planning, and progress monitoring—saving time, improving
+                  accuracy, and enhancing collaboration for school
+                  psychologists.
+                </p>
+              </div>
+            </div>
+
+            <!-- Phone Mockup Column -->
+            <div
+              class="md:col-span-5 bg-gray-100 aspect-[3/4] border border-gray-200 flex items-center justify-center"
+            >
+              <span class="text-gray-400 font-mono text-sm md:text-base"
+                >[Applet Selection Screen UI]</span
+              >
+            </div>
+          </div>
+        </section>
+
+        <!-- What the Research Tells Us -->
+        <section class="space-y-10 border-t border-gray-200 pt-16">
+          <div class="max-w-2xl">
+            <h2
+              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
+            >
+              Research Phase
+            </h2>
+            <h3 class="text-xl md:text-2xl font-bold tracking-tight">
+              What the Research Tells Us
+            </h3>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+            <div class="bg-gray-50 border border-gray-200 p-8 space-y-4">
+              <h4
+                class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider"
+              >
+                Users Need Utility & Efficiency
+              </h4>
+              <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                Through interviews with clinical and school psychologists, I
+                identified key pain points disrupting accuracy, efficiency, and
+                ease of use in existing observation workflows:
+              </p>
+              <ul
+                class="text-sm md:text-base space-y-2 text-gray-600 leading-relaxed border-l border-gray-200 pl-4"
+              >
+                <li>
+                  • Difficult to accurately observe/record behaviors during
+                  interval sampling without a visible timer.
+                </li>
+                <li>
+                  • Sessions become stressful when unable to "nudge" or adjust
+                  timers for real situations, forcing manual corrections.
+                </li>
+                <li>
+                  • Lack of a pause button makes it hard to document unforeseen
+                  interruptions, causing incomplete data.
+                </li>
+                <li>
+                  • Without clear displays for elapsed/remaining time, pacing
+                  observations reliably is challenging.
+                </li>
+                <li>
+                  • Exporting graphs and summaries manually is repetitive and
+                  prone to errors.
+                </li>
+              </ul>
+            </div>
+
+            <div class="bg-gray-50 border border-gray-200 p-8 space-y-4">
+              <h4
+                class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider"
+              >
+                Psychometric Considerations
+              </h4>
+              <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                Collaborated with licensed experts to align with industry best
+                practices like the Revised Edition of the School Observation
+                Coding System (REDSOCS). Categories developed include:
+              </p>
+              <!-- Visual Tag Cloud -->
+              <div
+                class="flex flex-wrap gap-2 pt-2 text-xs md:text-sm font-mono"
+              >
+                <span
+                  class="border border-gray-200 bg-white px-3 py-1.5 text-gray-800 shadow-sm"
+                  >• Engaged in lesson</span
+                >
+                <span
+                  class="border border-gray-200 bg-white px-3 py-1.5 text-gray-800 shadow-sm"
+                  >• Working</span
+                >
+                <span
+                  class="border border-gray-200 bg-white px-3 py-1.5 text-gray-800 shadow-sm"
+                  >• Waiting</span
+                >
+                <span
+                  class="border border-gray-200 bg-white px-3 py-1.5 text-gray-800 shadow-sm"
+                  >• Following directions</span
+                >
+                <span
+                  class="border border-gray-200 bg-white px-3 py-1.5 text-gray-800 shadow-sm"
+                  >• Playing</span
+                >
+                <span
+                  class="border border-gray-200 bg-white px-3 py-1.5 text-gray-800 shadow-sm"
+                  >• Social Interaction</span
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Process & User Flows (Visual Pipeline) -->
+        <section class="space-y-8 border-t border-gray-200 pt-16">
+          <div class="max-w-2xl">
+            <h2
+              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
+            >
+              User Experience Architecture
+            </h2>
+            <h3 class="text-xl md:text-2xl font-bold tracking-tight">
+              Simple. Effective. Useful Flow.
+            </h3>
+            <p class="text-base md:text-lg text-gray-700 leading-relaxed mt-2">
+              Balancing simplicity and clinical utility by removing overwhelming
+              options while preserving robust data logging.
+            </p>
+          </div>
+
+          <div class="space-y-6">
+            <!-- Flow 1 -->
+            <div class="bg-gray-50 border border-gray-200 p-6">
+              <h4
+                class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-4"
+              >
+                Starting a New Observation
+              </h4>
+              <div
+                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs md:text-sm font-medium"
+              >
+                <div
+                  class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between"
+                >
+                  <span>1. Open a new observation</span>
+                  <span class="hidden md:inline text-gray-300 font-bold"
+                    >&rarr;</span
+                  >
                 </div>
-
-                <!-- Hero Image -->
-                <div class="aspect-[16/7] w-full border border-gray-200 mb-12 overflow-hidden bg-gray-50">
-                    <img 
-                        src="Images/BxObsThumbnail@3x.png" 
-                        alt="Hero Mockup Collage" 
-                        class="w-full h-full object-cover"
-                    >
+                <div
+                  class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between"
+                >
+                  <span>2. Choose a method</span>
+                  <span class="hidden md:inline text-gray-300 font-bold"
+                    >&rarr;</span
+                  >
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
-                    <!-- Context & Problem -->
-                    <div class="md:col-span-2 space-y-8 border border-gray-200 p-8">
-                        <div>
-                            <h2 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2">Context</h2>
-                            <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-4">
-                                BxObs (behavior observation) gives practicing psychologists the ability to collect observation data in real-time while streamlining the process for data analysis and reporting. The BxObs Applet is a companion to the Assessment Assistant Tool developed by Cerebral Code.
-                            </p>
-                            <!-- Elevated Top CTA -->
-                            <div class="flex flex-wrap items-center gap-4">
-                                <a href="hitmeup.html" class="inline-block bg-black text-white px-7 py-3.5 text-base font-medium hover:bg-gray-800 transition-colors">
-                                    Hire Me for a Similar Prototype &rarr;
-                                </a>
-                            </div>
-                        </div>
-                        <div>
-                            <h2 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2">The Problem</h2>
-                            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                                Collecting and analyzing behavior data is often slow and inefficient, especially with outdated methods like paper forms and spreadsheets. Existing digital tools are often not user-friendly or tailored to professional workflows, making it difficult for psychologists to efficiently track progress, share results, and validate interventions. This increases administrative burden and reduces time for student support.
-                            </p>
-                        </div>
-                        <div>
-                            <h2 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2">The Solution</h2>
-                            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                                A streamlined, intuitive data collection resource built to empower psychologists to gather accurate, actionable data and enhance the overall effectiveness of their clinical services.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Metadata Panel -->
-                    <div class="bg-gray-50 border border-gray-200 p-8 space-y-6">
-                        <div>
-                            <h3 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1">Role</h3>
-                            <p class="text-sm md:text-base font-bold text-black">UX Design</p>
-                        </div>
-                        <div>
-                            <h3 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1">Timeline</h3>
-                            <p class="text-sm md:text-base font-bold text-black">1 Month Sprint (June 2025)</p>
-                        </div>
-                        <div>
-                            <h3 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1">Skills Demonstrated</h3>
-                            <ul class="text-xs md:text-sm space-y-1.5 font-medium text-gray-700 leading-relaxed">
-                                <li>• UX Research & Wireframing</li>
-                                <li>• Rapid Interactive Prototyping</li>
-                                <li>• Design System Management</li>
-                                <li>• Component & Interface Design</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1">Tools Stack</h3>
-                            <p class="text-xs md:text-sm font-mono text-gray-800">Figma / Google Material Design 3</p>
-                        </div>
-                    </div>
+                <div
+                  class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between"
+                >
+                  <span>3. Define meta information</span>
+                  <span class="hidden md:inline text-gray-300 font-bold"
+                    >&rarr;</span
+                  >
                 </div>
-            </section>
-
-            <!-- Value Proposition & Applet Preview Block -->
-            <section class="border-t border-gray-200 pt-16">
-                <div class="bg-gray-50 border border-gray-200 p-8 md:p-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-                    <!-- Text Column -->
-                    <div class="md:col-span-7 space-y-6">
-                        <div>
-                            <h2 class="text-xl md:text-2xl font-bold text-black tracking-tight mb-3">BxObs (Behavior Observation Tool)</h2>
-                            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                                Designed to meet or exceed the effectiveness of existing observation protocols, the BxObs Applet was developed using core tenets of sampling as outlined by American Clinical Psychologist Jerome Sattler, ensuring each feature derives from empirical research practices.
-                            </p>
-                        </div>
-                        <div class="pt-4 border-t border-gray-200">
-                            <h3 class="text-lg md:text-xl font-bold text-black mb-2">Trusted By Professional Practitioners</h3>
-                            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                                The BxObs Applet uses AI to generate concise reports and visual charts that can be easily exported, making key insights easy to share and understand. These streamlined outputs support functional behavior assessments, intervention planning, and progress monitoring—saving time, improving accuracy, and enhancing collaboration for school psychologists.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Phone Mockup Column -->
-                    <div class="md:col-span-5 bg-gray-100 aspect-[3/4] border border-gray-200 flex items-center justify-center">
-                        <span class="text-gray-400 font-mono text-sm md:text-base">[Applet Selection Screen UI]</span>
-                    </div>
+                <div
+                  class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between"
+                >
+                  <span>4. Begin observation</span>
                 </div>
-            </section>
+              </div>
+            </div>
 
-            <!-- What the Research Tells Us -->
-            <section class="space-y-10 border-t border-gray-200 pt-16">
-                <div class="max-w-2xl">
-                    <h2 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2">Research Phase</h2>
-                    <h3 class="text-xl md:text-2xl font-bold tracking-tight">What the Research Tells Us</h3>
+            <!-- Flow 2 -->
+            <div class="bg-gray-50 border border-gray-200 p-6">
+              <h4
+                class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-4"
+              >
+                Exporting Observation Reports
+              </h4>
+              <div
+                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs md:text-sm font-medium"
+              >
+                <div
+                  class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between"
+                >
+                  <span>1. Finish observation</span>
+                  <span class="hidden md:inline text-gray-300 font-bold"
+                    >&rarr;</span
+                  >
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-                    <div class="bg-gray-50 border border-gray-200 p-8 space-y-4">
-                        <h4 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider">Users Need Utility & Efficiency</h4>
-                        <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                            Through interviews with clinical and school psychologists, I identified key pain points disrupting accuracy, efficiency, and ease of use in existing observation workflows:
-                        </p>
-                        <ul class="text-sm md:text-base space-y-2 text-gray-600 leading-relaxed border-l border-gray-200 pl-4">
-                            <li>• Difficult to accurately observe/record behaviors during interval sampling without a visible timer.</li>
-                            <li>• Sessions become stressful when unable to "nudge" or adjust timers for real situations, forcing manual corrections.</li>
-                            <li>• Lack of a pause button makes it hard to document unforeseen interruptions, causing incomplete data.</li>
-                            <li>• Without clear displays for elapsed/remaining time, pacing observations reliably is challenging.</li>
-                            <li>• Exporting graphs and summaries manually is repetitive and prone to errors.</li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-gray-50 border border-gray-200 p-8 space-y-4">
-                        <h4 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider">Psychometric Considerations</h4>
-                        <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                            Collaborated with licensed experts to align with industry best practices like the Revised Edition of the School Observation Coding System (REDSOCS). Categories developed include:
-                        </p>
-                        <!-- Visual Tag Cloud -->
-                        <div class="flex flex-wrap gap-2 pt-2 text-xs md:text-sm font-mono">
-                            <span class="border border-gray-200 bg-white px-3 py-1.5 text-gray-800 shadow-sm">• Engaged in lesson</span>
-                            <span class="border border-gray-200 bg-white px-3 py-1.5 text-gray-800 shadow-sm">• Working</span>
-                            <span class="border border-gray-200 bg-white px-3 py-1.5 text-gray-800 shadow-sm">• Waiting</span>
-                            <span class="border border-gray-200 bg-white px-3 py-1.5 text-gray-800 shadow-sm">• Following directions</span>
-                            <span class="border border-gray-200 bg-white px-3 py-1.5 text-gray-800 shadow-sm">• Playing</span>
-                            <span class="border border-gray-200 bg-white px-3 py-1.5 text-gray-800 shadow-sm">• Social Interaction</span>
-                        </div>
-                    </div>
+                <div
+                  class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between"
+                >
+                  <span>2. Review / export data at-a-glance</span>
+                  <span class="hidden md:inline text-gray-300 font-bold"
+                    >&rarr;</span
+                  >
                 </div>
-            </section>
+                <div
+                  class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between"
+                >
+                  <span>3. Generate AI report</span>
+                  <span class="hidden md:inline text-gray-300 font-bold"
+                    >&rarr;</span
+                  >
+                </div>
+                <div
+                  class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between"
+                >
+                  <span>4. Export to case report</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-            <!-- Process & User Flows (Visual Pipeline) -->
-            <section class="space-y-8 border-t border-gray-200 pt-16">
-                <div class="max-w-2xl">
-                    <h2 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2">User Experience Architecture</h2>
-                    <h3 class="text-xl md:text-2xl font-bold tracking-tight">Simple. Effective. Useful Flow.</h3>
-                    <p class="text-base md:text-lg text-gray-700 leading-relaxed mt-2">
-                        Balancing simplicity and clinical utility by removing overwhelming options while preserving robust data logging.
+        <!-- Design System / M3 -->
+        <section
+          class="border-t border-gray-200 pt-16 grid grid-cols-1 md:grid-cols-3 gap-12 items-center"
+        >
+          <div class="space-y-3">
+            <h2
+              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider"
+            >
+              Design System
+            </h2>
+            <h3 class="text-lg md:text-xl font-bold">
+              Google Material Design 3
+            </h3>
+            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+              Selected for its adaptable guidelines and flexible components,
+              ensuring product consistency with Cerebral Code's primary
+              Assessment Assistant Tool and adhering to accessibility standards.
+            </p>
+          </div>
+          <div
+            class="md:col-span-2 bg-gray-50 border border-gray-200 aspect-[16/8] flex items-center justify-center"
+          >
+            <span class="text-gray-400 font-mono text-sm md:text-base"
+              >[Material Design 3 Kit Preview]</span
+            >
+          </div>
+        </section>
+
+        <!-- Core Methodologies Section (Fixed Tab Logic) -->
+        <section class="space-y-10 border-t border-gray-200 pt-16">
+          <div class="max-w-2xl">
+            <h2
+              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
+            >
+              Prototyping & Tools
+            </h2>
+            <h3 class="text-xl md:text-2xl font-bold tracking-tight mb-3">
+              Breathing Life into Design
+            </h3>
+            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+              I utilized a strict modular system of component variants to map
+              out the application's core observation methodologies, making
+              complex data logging feel effortless.
+            </p>
+          </div>
+
+          <!-- Interactive Tab Switcher Navigation -->
+          <div class="border-b border-gray-200 flex flex-wrap gap-2">
+            <button
+              onclick="switchTab('abc')"
+              id="tab-abc"
+              class="method-tab border-b-2 border-black text-black px-4 py-3 text-xs md:text-sm font-mono font-bold transition-colors"
+            >
+              ABC Tool
+            </button>
+            <button
+              onclick="switchTab('frequency')"
+              id="tab-frequency"
+              class="method-tab border-b-2 border-transparent text-gray-400 hover:text-black px-4 py-3 text-xs md:text-sm font-mono font-bold transition-colors"
+            >
+              Frequency Tool
+            </button>
+            <button
+              onclick="switchTab('narrative')"
+              id="tab-narrative"
+              class="method-tab border-b-2 border-transparent text-gray-400 hover:text-black px-4 py-3 text-xs md:text-sm font-mono font-bold transition-colors"
+            >
+              Narrative Tool
+            </button>
+            <button
+              onclick="switchTab('interval')"
+              id="tab-interval"
+              class="method-tab border-b-2 border-transparent text-gray-400 hover:text-black px-4 py-3 text-xs md:text-sm font-mono font-bold transition-colors"
+            >
+              Interval Tool
+            </button>
+          </div>
+
+          <!-- Tab Panels Container -->
+          <div class="bg-gray-50 border border-gray-200 p-6 md:p-10">
+            <!-- Tool 1: ABC (Visible by Default) -->
+            <div
+              id="panel-abc"
+              class="tab-panel grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+            >
+              <div
+                class="bg-gray-100 aspect-[3/4] max-w-sm mx-auto w-full flex items-center justify-center border border-gray-200"
+              >
+                <span class="text-gray-400 font-mono text-sm md:text-base"
+                  >[ABC Tool Mockup]</span
+                >
+              </div>
+              <div class="space-y-4">
+                <h3 class="text-lg md:text-xl font-bold text-black">
+                  Antecedent Behavior Consequence (ABC) Tool
+                </h3>
+                <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                  Designed to allow users to quickly record the antecedents,
+                  behaviors, and consequences observed during student
+                  interactions with just a few intuitive taps.
+                </p>
+                <ul
+                  class="text-xs md:text-sm space-y-1.5 font-mono text-gray-600 pt-2 border-t border-gray-200"
+                >
+                  <li>→ Real-time modular data entry</li>
+                  <li>→ Customizable tracking categories</li>
+                  <li>→ Built-in background time-stamping</li>
+                  <li>→ Multi-student simultaneous tracking</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Tool 2: Frequency (Hidden by Default) -->
+            <div
+              id="panel-frequency"
+              class="tab-panel hidden grid-cols-1 md:grid-cols-2 gap-12 items-center"
+            >
+              <div
+                class="bg-gray-100 aspect-[3/4] max-w-sm mx-auto w-full flex items-center justify-center border border-gray-200"
+              >
+                <span class="text-gray-400 font-mono text-sm md:text-base"
+                  >[Frequency Tool Mockup]</span
+                >
+              </div>
+              <div class="space-y-4">
+                <h3 class="text-lg md:text-xl font-bold text-black">
+                  Frequency Observation Tool
+                </h3>
+                <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                  Allows specialist observers to track precisely how often
+                  explicit, targeted student behaviors manifest natively within
+                  class workflows.
+                </p>
+                <ul
+                  class="text-xs md:text-sm space-y-1.5 font-mono text-gray-600 pt-2 border-t border-gray-200"
+                >
+                  <li>→ Fast counter click-triggers</li>
+                  <li>→ Automatic time-stamped entries</li>
+                  <li>→ Synchronized multi-student logging</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Tool 3: Narrative (Hidden by Default) -->
+            <div
+              id="panel-narrative"
+              class="tab-panel hidden grid-cols-1 md:grid-cols-2 gap-12 items-center"
+            >
+              <div
+                class="bg-gray-100 aspect-[3/4] max-w-sm mx-auto w-full flex items-center justify-center border border-gray-200"
+              >
+                <span class="text-gray-400 font-mono text-sm md:text-base"
+                  >[Narrative Tool Mockup]</span
+                >
+              </div>
+              <div class="space-y-4">
+                <h3 class="text-lg md:text-xl font-bold text-black">
+                  Narrative Observation Tool
+                </h3>
+                <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                  Built for rapid, open-ended context input. Streamlines
+                  rigorous note-taking protocols while organizing raw data
+                  fields chronologically on the fly.
+                </p>
+                <ul
+                  class="text-xs md:text-sm space-y-1.5 font-mono text-gray-600 pt-2 border-t border-gray-200"
+                >
+                  <li>→ Clean text-editor hierarchy</li>
+                  <li>→ Organizes entries by student/session</li>
+                  <li>→ One-click session report exports</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Tool 4: Interval (Hidden by Default) -->
+            <div
+              id="panel-interval"
+              class="tab-panel hidden grid-cols-1 md:grid-cols-2 gap-12 items-center"
+            >
+              <div
+                class="bg-gray-100 aspect-[3/4] max-w-sm mx-auto w-full flex items-center justify-center border border-gray-200"
+              >
+                <span class="text-gray-400 font-mono text-sm md:text-base"
+                  >[Interval Tool Mockup]</span
+                >
+              </div>
+              <div class="space-y-4">
+                <h3 class="text-lg md:text-xl font-bold text-black">
+                  Interval Observation Tool
+                </h3>
+                <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                  Prompts specialists at pre-configured, structured intervals to
+                  instantly validate if targeted observation triggers are
+                  actively taking place.
+                </p>
+                <ul
+                  class="text-xs md:text-sm space-y-1.5 font-mono text-gray-600 pt-2 border-t border-gray-200"
+                >
+                  <li>→ Built-in real-time interval alerts</li>
+                  <li>→ High-fidelity macro entry panels</li>
+                  <li>→ Multi-behavior simultaneous tracking</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Overview Matrix: Uses, Limitations, Competition (Clean Accordion Trigger) -->
+        <section class="space-y-12 border-t border-gray-200 pt-16">
+          <div>
+            <h2
+              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
+            >
+              Analysis Overview
+            </h2>
+            <h3 class="text-xl md:text-2xl font-bold tracking-tight">
+              Overview & Market Fit
+            </h3>
+          </div>
+
+          <!-- Uses -->
+          <div>
+            <h4
+              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-4"
+            >
+              Core Uses
+            </h4>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+              <div class="bg-gray-50 border border-gray-200 p-4 text-center">
+                <p class="font-bold text-sm md:text-base mb-1">Data Analysis</p>
+                <p class="text-xs md:text-sm text-gray-600">
+                  Systematic observational analysis
+                </p>
+              </div>
+              <div class="bg-gray-50 border border-gray-200 p-4 text-center">
+                <p class="font-bold text-sm md:text-base mb-1">
+                  Quantify Behavior
+                </p>
+                <p class="text-xs md:text-sm text-gray-600">
+                  Track compliance and engagement
+                </p>
+              </div>
+              <div class="bg-gray-50 border border-gray-200 p-4 text-center">
+                <p class="font-bold text-sm md:text-base mb-1">
+                  Gather Evidence
+                </p>
+                <p class="text-xs md:text-sm text-gray-600">
+                  Identify disorder triggers
+                </p>
+              </div>
+              <div class="bg-gray-50 border border-gray-200 p-4 text-center">
+                <p class="font-bold text-sm md:text-base mb-1">
+                  Train Observers
+                </p>
+                <p class="text-xs md:text-sm text-gray-600">
+                  Familiarity with coding systems
+                </p>
+              </div>
+              <div class="bg-gray-50 border border-gray-200 p-4 text-center">
+                <p class="font-bold text-sm md:text-base mb-1">Norming</p>
+                <p class="text-xs md:text-sm text-gray-600">
+                  Develop local norms for districts
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Limitations & Competition (Unboxed Accordion Line Item) -->
+          <details
+            class="group border-t border-b border-gray-200 py-4 transition-all"
+          >
+            <summary
+              class="flex justify-between items-center cursor-pointer list-none text-black hover:text-gray-600"
+            >
+              <span
+                class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider"
+                >View Method Limitations & Competitive Benchmarking</span
+              >
+              <span
+                class="text-xs md:text-sm font-mono text-gray-400 group-open:rotate-180 transition-transform"
+                >&darr;</span
+              >
+            </summary>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6 mt-4">
+              <div class="space-y-4">
+                <h4
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider"
+                >
+                  Method Limitations
+                </h4>
+                <div class="space-y-3 text-sm md:text-base text-gray-600">
+                  <div>
+                    <p class="font-bold text-black">Observer Competency</p>
+                    <p>
+                      Requires proper training in coding systems to execute
+                      effectively.
                     </p>
-                </div>
-
-                <div class="space-y-6">
-                    <!-- Flow 1 -->
-                    <div class="bg-gray-50 border border-gray-200 p-6">
-                        <h4 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-4">Starting a New Observation</h4>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs md:text-sm font-medium">
-                            <div class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between">
-                                <span>1. Open a new observation</span>
-                                <span class="hidden md:inline text-gray-300 font-bold">&rarr;</span>
-                            </div>
-                            <div class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between">
-                                <span>2. Choose a method</span>
-                                <span class="hidden md:inline text-gray-300 font-bold">&rarr;</span>
-                            </div>
-                            <div class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between">
-                                <span>3. Define meta information</span>
-                                <span class="hidden md:inline text-gray-300 font-bold">&rarr;</span>
-                            </div>
-                            <div class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between">
-                                <span>4. Begin observation</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Flow 2 -->
-                    <div class="bg-gray-50 border border-gray-200 p-6">
-                        <h4 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-4">Exporting Observation Reports</h4>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs md:text-sm font-medium">
-                            <div class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between">
-                                <span>1. Finish observation</span>
-                                <span class="hidden md:inline text-gray-300 font-bold">&rarr;</span>
-                            </div>
-                            <div class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between">
-                                <span>2. Review / export data at-a-glance</span>
-                                <span class="hidden md:inline text-gray-300 font-bold">&rarr;</span>
-                            </div>
-                            <div class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between">
-                                <span>3. Generate AI report</span>
-                                <span class="hidden md:inline text-gray-300 font-bold">&rarr;</span>
-                            </div>
-                            <div class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between">
-                                <span>4. Export to case report</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Design System / M3 -->
-            <section class="border-t border-gray-200 pt-16 grid grid-cols-1 md:grid-cols-3 gap-12 items-center">
-                <div class="space-y-3">
-                    <h2 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider">Design System</h2>
-                    <h3 class="text-lg md:text-xl font-bold">Google Material Design 3</h3>
-                    <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                        Selected for its adaptable guidelines and flexible components, ensuring product consistency with Cerebral Code's primary Assessment Assistant Tool and adhering to accessibility standards.
+                  </div>
+                  <div>
+                    <p class="font-bold text-black">Limited Variables</p>
+                    <p>
+                      Impossible to capture every behavioral interaction
+                      variable simultaneously.
                     </p>
-                </div>
-                <div class="md:col-span-2 bg-gray-50 border border-gray-200 aspect-[16/8] flex items-center justify-center">
-                    <span class="text-gray-400 font-mono text-sm md:text-base">[Material Design 3 Kit Preview]</span>
-                </div>
-            </section>
-
-            <!-- Core Methodologies Section (Fixed Tab Logic) -->
-            <section class="space-y-10 border-t border-gray-200 pt-16">
-                <div class="max-w-2xl">
-                    <h2 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2">Prototyping & Tools</h2>
-                    <h3 class="text-xl md:text-2xl font-bold tracking-tight mb-3">Breathing Life into Design</h3>
-                    <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                        I utilized a strict modular system of component variants to map out the application's core observation methodologies, making complex data logging feel effortless.
+                  </div>
+                  <div>
+                    <p class="font-bold text-black">Limited Data Volume</p>
+                    <p>
+                      Short sample windows require cautious statistical analysis
+                      during conclusions.
                     </p>
+                  </div>
                 </div>
+              </div>
 
-                <!-- Interactive Tab Switcher Navigation -->
-                <div class="border-b border-gray-200 flex flex-wrap gap-2">
-                    <button onclick="switchTab('abc')" id="tab-abc" class="method-tab border-b-2 border-black text-black px-4 py-3 text-xs md:text-sm font-mono font-bold transition-colors">
-                        ABC Tool
-                    </button>
-                    <button onclick="switchTab('frequency')" id="tab-frequency" class="method-tab border-b-2 border-transparent text-gray-400 hover:text-black px-4 py-3 text-xs md:text-sm font-mono font-bold transition-colors">
-                        Frequency Tool
-                    </button>
-                    <button onclick="switchTab('narrative')" id="tab-narrative" class="method-tab border-b-2 border-transparent text-gray-400 hover:text-black px-4 py-3 text-xs md:text-sm font-mono font-bold transition-colors">
-                        Narrative Tool
-                    </button>
-                    <button onclick="switchTab('interval')" id="tab-interval" class="method-tab border-b-2 border-transparent text-gray-400 hover:text-black px-4 py-3 text-xs md:text-sm font-mono font-bold transition-colors">
-                        Interval Tool
-                    </button>
-                </div>
-
-                <!-- Tab Panels Container -->
-                <div class="bg-gray-50 border border-gray-200 p-6 md:p-10">
-                    <!-- Tool 1: ABC (Visible by Default) -->
-                    <div id="panel-abc" class="tab-panel grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                        <div class="bg-gray-100 aspect-[3/4] max-w-sm mx-auto w-full flex items-center justify-center border border-gray-200">
-                            <span class="text-gray-400 font-mono text-sm md:text-base">[ABC Tool Mockup]</span>
-                        </div>
-                        <div class="space-y-4">
-                            <h3 class="text-lg md:text-xl font-bold text-black">Antecedent Behavior Consequence (ABC) Tool</h3>
-                            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                                Designed to allow users to quickly record the antecedents, behaviors, and consequences observed during student interactions with just a few intuitive taps.
-                            </p>
-                            <ul class="text-xs md:text-sm space-y-1.5 font-mono text-gray-600 pt-2 border-t border-gray-200">
-                                <li>→ Real-time modular data entry</li>
-                                <li>→ Customizable tracking categories</li>
-                                <li>→ Built-in background time-stamping</li>
-                                <li>→ Multi-student simultaneous tracking</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Tool 2: Frequency (Hidden by Default) -->
-                    <div id="panel-frequency" class="tab-panel hidden grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                        <div class="bg-gray-100 aspect-[3/4] max-w-sm mx-auto w-full flex items-center justify-center border border-gray-200">
-                            <span class="text-gray-400 font-mono text-sm md:text-base">[Frequency Tool Mockup]</span>
-                        </div>
-                        <div class="space-y-4">
-                            <h3 class="text-lg md:text-xl font-bold text-black">Frequency Observation Tool</h3>
-                            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                                Allows specialist observers to track precisely how often explicit, targeted student behaviors manifest natively within class workflows.
-                            </p>
-                            <ul class="text-xs md:text-sm space-y-1.5 font-mono text-gray-600 pt-2 border-t border-gray-200">
-                                <li>→ Fast counter click-triggers</li>
-                                <li>→ Automatic time-stamped entries</li>
-                                <li>→ Synchronized multi-student logging</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Tool 3: Narrative (Hidden by Default) -->
-                    <div id="panel-narrative" class="tab-panel hidden grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                        <div class="bg-gray-100 aspect-[3/4] max-w-sm mx-auto w-full flex items-center justify-center border border-gray-200">
-                            <span class="text-gray-400 font-mono text-sm md:text-base">[Narrative Tool Mockup]</span>
-                        </div>
-                        <div class="space-y-4">
-                            <h3 class="text-lg md:text-xl font-bold text-black">Narrative Observation Tool</h3>
-                            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                                Built for rapid, open-ended context input. Streamlines rigorous note-taking protocols while organizing raw data fields chronologically on the fly.
-                            </p>
-                            <ul class="text-xs md:text-sm space-y-1.5 font-mono text-gray-600 pt-2 border-t border-gray-200">
-                                <li>→ Clean text-editor hierarchy</li>
-                                <li>→ Organizes entries by student/session</li>
-                                <li>→ One-click session report exports</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Tool 4: Interval (Hidden by Default) -->
-                    <div id="panel-interval" class="tab-panel hidden grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                        <div class="bg-gray-100 aspect-[3/4] max-w-sm mx-auto w-full flex items-center justify-center border border-gray-200">
-                            <span class="text-gray-400 font-mono text-sm md:text-base">[Interval Tool Mockup]</span>
-                        </div>
-                        <div class="space-y-4">
-                            <h3 class="text-lg md:text-xl font-bold text-black">Interval Observation Tool</h3>
-                            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                                Prompts specialists at pre-configured, structured intervals to instantly validate if targeted observation triggers are actively taking place.
-                            </p>
-                            <ul class="text-xs md:text-sm space-y-1.5 font-mono text-gray-600 pt-2 border-t border-gray-200">
-                                <li>→ Built-in real-time interval alerts</li>
-                                <li>→ High-fidelity macro entry panels</li>
-                                <li>→ Multi-behavior simultaneous tracking</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Overview Matrix: Uses, Limitations, Competition (Clean Accordion Trigger) -->
-            <section class="space-y-12 border-t border-gray-200 pt-16">
-                <div>
-                    <h2 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2">Analysis Overview</h2>
-                    <h3 class="text-xl md:text-2xl font-bold tracking-tight">Overview & Market Fit</h3>
-                </div>
-
-                <!-- Uses -->
-                <div>
-                    <h4 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-4">Core Uses</h4>
-                    <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-                        <div class="bg-gray-50 border border-gray-200 p-4 text-center">
-                            <p class="font-bold text-sm md:text-base mb-1">Data Analysis</p>
-                            <p class="text-xs md:text-sm text-gray-600">Systematic observational analysis</p>
-                        </div>
-                        <div class="bg-gray-50 border border-gray-200 p-4 text-center">
-                            <p class="font-bold text-sm md:text-base mb-1">Quantify Behavior</p>
-                            <p class="text-xs md:text-sm text-gray-600">Track compliance and engagement</p>
-                        </div>
-                        <div class="bg-gray-50 border border-gray-200 p-4 text-center">
-                            <p class="font-bold text-sm md:text-base mb-1">Gather Evidence</p>
-                            <p class="text-xs md:text-sm text-gray-600">Identify disorder triggers</p>
-                        </div>
-                        <div class="bg-gray-50 border border-gray-200 p-4 text-center">
-                            <p class="font-bold text-sm md:text-base mb-1">Train Observers</p>
-                            <p class="text-xs md:text-sm text-gray-600">Familiarity with coding systems</p>
-                        </div>
-                        <div class="bg-gray-50 border border-gray-200 p-4 text-center">
-                            <p class="font-bold text-sm md:text-base mb-1">Norming</p>
-                            <p class="text-xs md:text-sm text-gray-600">Develop local norms for districts</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Limitations & Competition (Unboxed Accordion Line Item) -->
-                <details class="group border-t border-b border-gray-200 py-4 transition-all">
-                    <summary class="flex justify-between items-center cursor-pointer list-none text-black hover:text-gray-600">
-                        <span class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider">View Method Limitations & Competitive Benchmarking</span>
-                        <span class="text-xs md:text-sm font-mono text-gray-400 group-open:rotate-180 transition-transform">&darr;</span>
-                    </summary>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6 mt-4">
-                        <div class="space-y-4">
-                            <h4 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider">Method Limitations</h4>
-                            <div class="space-y-3 text-sm md:text-base text-gray-600">
-                                <div>
-                                    <p class="font-bold text-black">Observer Competency</p>
-                                    <p>Requires proper training in coding systems to execute effectively.</p>
-                                </div>
-                                <div>
-                                    <p class="font-bold text-black">Limited Variables</p>
-                                    <p>Impossible to capture every behavioral interaction variable simultaneously.</p>
-                                </div>
-                                <div>
-                                    <p class="font-bold text-black">Limited Data Volume</p>
-                                    <p>Short sample windows require cautious statistical analysis during conclusions.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="space-y-4">
-                            <h4 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider">Competitive Benchmarking</h4>
-                            <div class="space-y-3 text-sm md:text-base text-gray-600">
-                                <div>
-                                    <p class="font-bold text-black">BehaviorSnap</p>
-                                    <p>Popular and long-standing iOS exclusive, but outdated with poor UX and no clear research base.</p>
-                                </div>
-                                <div>
-                                    <p class="font-bold text-black">Behavior Observation Made Easy</p>
-                                    <p>Multi-platform with comprehensive methods, but limited in advanced AI reporting features.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </details>
-            </section>
-
-            <!-- Measurable Impact Banner (Margins Cleared) -->
-            <section class="border-t border-b border-gray-200 py-12">
-                <div class="max-w-3xl">
-                    <h2 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-3">Measurable Impact</h2>
-                    <div class="border-l-2 border-black pl-4 py-1 mb-3">
-                        <p class="text-2xl md:text-4xl font-bold text-black tracking-tight">
-                            20% Efficiency Increase
-                        </p>
-                    </div>
-                    <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                        Achieved through streamlined, modern UI workflows and frictionless data discovery components.
+              <div class="space-y-4">
+                <h4
+                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider"
+                >
+                  Competitive Benchmarking
+                </h4>
+                <div class="space-y-3 text-sm md:text-base text-gray-600">
+                  <div>
+                    <p class="font-bold text-black">BehaviorSnap</p>
+                    <p>
+                      Popular and long-standing iOS exclusive, but outdated with
+                      poor UX and no clear research base.
                     </p>
+                  </div>
+                  <div>
+                    <p class="font-bold text-black">
+                      Behavior Observation Made Easy
+                    </p>
+                    <p>
+                      Multi-platform with comprehensive methods, but limited in
+                      advanced AI reporting features.
+                    </p>
+                  </div>
                 </div>
-            </section>
+              </div>
+            </div>
+          </details>
+        </section>
 
-            <!-- Key Takeaways, Future Development & Call to Action -->
-            <section class="border-t border-gray-200 pt-16 grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
-                <div class="space-y-6">
-                    <div>
-                        <h2 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2">Lessons Learned</h2>
-                        <h3 class="font-bold text-lg md:text-xl mb-1">Translating Complex Needs</h3>
-                        <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                            Sharpened micro-interaction design and technical component skills. Learned to translate complex behavioral workflows into usable interfaces while navigating real-time data entry challenges.
-                        </p>
-                    </div>
-                    <div>
-                        <h2 class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2">Future Development</h2>
-                        <h3 class="font-bold text-lg md:text-xl mb-1">Flexible Frameworks</h3>
-                        <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                            Future iterations will allow practitioners to toggle between custom coding systems, expanding observation scopes beyond simple quantification to deeper behavioral analysis.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="md:col-span-2 flex flex-col justify-between items-start bg-gray-50 border border-gray-200 p-8">
-                    <div>
-                        <h2 class="text-xl md:text-2xl font-bold tracking-tight mb-2">
-                            Need a <span class="italic font-serif font-normal text-gray-700">prototype</span> brought to life?
-                        </h2>
-                        <p class="text-base md:text-lg text-gray-700 leading-relaxed max-w-md">
-                            I build responsive design systems in Figma and write the clean, custom frontend code or H5P files required to run them perfectly inside your web ecosystem.
-                        </p>
-                    </div>
-                    <a href="hitmeup.html" class="inline-block bg-black text-white px-7 py-3.5 text-base font-medium hover:bg-gray-800 transition-colors mt-6">
-                        Hit Me Up
-                    </a>
-                </div>
-            </section>
+        <!-- Measurable Impact Banner (Margins Cleared) -->
+        <section class="border-t border-b border-gray-200 py-12">
+          <div class="max-w-3xl">
+            <h2
+              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-3"
+            >
+              Measurable Impact
+            </h2>
+            <div class="border-l-2 border-black pl-4 py-1 mb-3">
+              <p
+                class="text-2xl md:text-4xl font-bold text-black tracking-tight"
+              >
+                20% Efficiency Increase
+              </p>
+            </div>
+            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+              Achieved through streamlined, modern UI workflows and frictionless
+              data discovery components.
+            </p>
+          </div>
+        </section>
 
-        </main>
+        <!-- Key Takeaways, Future Development & Call to Action -->
+        <section
+          class="border-t border-gray-200 pt-16 grid grid-cols-1 md:grid-cols-3 gap-12 items-start"
+        >
+          <div class="space-y-6">
+            <div>
+              <h2
+                class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
+              >
+                Lessons Learned
+              </h2>
+              <h3 class="font-bold text-lg md:text-xl mb-1">
+                Translating Complex Needs
+              </h3>
+              <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                Sharpened micro-interaction design and technical component
+                skills. Learned to translate complex behavioral workflows into
+                usable interfaces while navigating real-time data entry
+                challenges.
+              </p>
+            </div>
+            <div>
+              <h2
+                class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
+              >
+                Future Development
+              </h2>
+              <h3 class="font-bold text-lg md:text-xl mb-1">
+                Flexible Frameworks
+              </h3>
+              <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                Future iterations will allow practitioners to toggle between
+                custom coding systems, expanding observation scopes beyond
+                simple quantification to deeper behavioral analysis.
+              </p>
+            </div>
+          </div>
 
-        <!-- Footer -->
-        <footer class="mt-24 pt-8 border-t border-gray-200 text-xs md:text-sm flex justify-between items-center">
-            <p>&copy; 2026 Leon Hayes. All rights reserved.</p>
-            <a href="#" class="border border-black px-3 py-1 font-medium hover:bg-black hover:text-white transition-all">
-                Back to Top &uarr;
+          <div
+            class="md:col-span-2 flex flex-col justify-between items-start bg-gray-50 border border-gray-200 p-8"
+          >
+            <div>
+              <h2 class="text-xl md:text-2xl font-bold tracking-tight mb-2">
+                Need a
+                <span class="italic font-serif font-normal text-gray-700"
+                  >prototype</span
+                >
+                brought to life?
+              </h2>
+              <p
+                class="text-base md:text-lg text-gray-700 leading-relaxed max-w-md"
+              >
+                I build responsive design systems in Figma and write the clean,
+                custom frontend code or H5P files required to run them perfectly
+                inside your web ecosystem.
+              </p>
+            </div>
+            <a
+              href="hitmeup.html"
+              class="inline-block bg-black text-white px-7 py-3.5 text-base font-medium hover:bg-gray-800 transition-colors mt-6"
+            >
+              Hit Me Up
             </a>
-        </footer>
+          </div>
+        </section>
+      </main>
 
+      <!-- Footer -->
+      <footer
+        class="mt-24 pt-8 border-t border-gray-200 text-xs md:text-sm flex justify-between items-center"
+      >
+        <p>&copy; 2026 Leon Hayes. All rights reserved.</p>
+        <a
+          href="#"
+          class="border border-black px-3 py-1 font-medium hover:bg-black hover:text-white transition-all"
+        >
+          Back to Top &uarr;
+        </a>
+      </footer>
     </div>
 
     <!-- Mobile Menu Accessible Toggle Script -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const toggleBtn = document.getElementById('menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const openIcon = document.getElementById('menu-open-icon');
-            const closeIcon = document.getElementById('menu-close-icon');
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggleBtn = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const openIcon = document.getElementById("menu-open-icon");
+        const closeIcon = document.getElementById("menu-close-icon");
 
-            if (toggleBtn && mobileMenu) {
-                toggleBtn.addEventListener('click', () => {
-                    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-                    toggleBtn.setAttribute('aria-expanded', !isExpanded);
-                    mobileMenu.classList.toggle('hidden');
-                    openIcon.classList.toggle('hidden');
-                    closeIcon.classList.toggle('hidden');
-                });
+        if (toggleBtn && mobileMenu) {
+          toggleBtn.addEventListener("click", () => {
+            const isExpanded =
+              toggleBtn.getAttribute("aria-expanded") === "true";
+            toggleBtn.setAttribute("aria-expanded", !isExpanded);
+            mobileMenu.classList.toggle("hidden");
+            openIcon.classList.toggle("hidden");
+            closeIcon.classList.toggle("hidden");
+          });
 
-                // Close menu on ESC key press
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape' && toggleBtn.getAttribute('aria-expanded') === 'true') {
-                        toggleBtn.setAttribute('aria-expanded', 'false');
-                        mobileMenu.classList.add('hidden');
-                        openIcon.classList.remove('hidden');
-                        closeIcon.classList.add('hidden');
-                        toggleBtn.focus();
-                    }
-                });
+          // Close menu on ESC key press
+          document.addEventListener("keydown", (e) => {
+            if (
+              e.key === "Escape" &&
+              toggleBtn.getAttribute("aria-expanded") === "true"
+            ) {
+              toggleBtn.setAttribute("aria-expanded", "false");
+              mobileMenu.classList.add("hidden");
+              openIcon.classList.remove("hidden");
+              closeIcon.classList.add("hidden");
+              toggleBtn.focus();
             }
-        });
+          });
+        }
+      });
     </script>
 
     <!-- Javascript for Methodology Tab Switcher -->
     <script>
-        function switchTab(tabId) {
-            // Hide all tab panels
-            const panels = document.querySelectorAll('.tab-panel');
-            panels.forEach(panel => {
-                panel.classList.add('hidden');
-                panel.classList.remove('grid');
-            });
+      function switchTab(tabId) {
+        // Hide all tab panels
+        const panels = document.querySelectorAll(".tab-panel");
+        panels.forEach((panel) => {
+          panel.classList.add("hidden");
+          panel.classList.remove("grid");
+        });
 
-            // Reset all tab button styles
-            const tabs = document.querySelectorAll('.method-tab');
-            tabs.forEach(tab => {
-                tab.classList.remove('border-black', 'text-black');
-                tab.classList.add('border-transparent', 'text-gray-400');
-            });
+        // Reset all tab button styles
+        const tabs = document.querySelectorAll(".method-tab");
+        tabs.forEach((tab) => {
+          tab.classList.remove("border-black", "text-black");
+          tab.classList.add("border-transparent", "text-gray-400");
+        });
 
-            // Show selected panel
-            const activePanel = document.getElementById(`panel-${tabId}`);
-            activePanel.classList.remove('hidden');
-            activePanel.classList.add('grid');
+        // Show selected panel
+        const activePanel = document.getElementById(`panel-${tabId}`);
+        activePanel.classList.remove("hidden");
+        activePanel.classList.add("grid");
 
-            // Highlight selected tab button
-            const activeTab = document.getElementById(`tab-${tabId}`);
-            activeTab.classList.add('border-black', 'text-black');
-            activeTab.classList.remove('border-transparent', 'text-gray-400');
-        }
+        // Highlight selected tab button
+        const activeTab = document.getElementById(`tab-${tabId}`);
+        activeTab.classList.add("border-black", "text-black");
+        activeTab.classList.remove("border-transparent", "text-gray-400");
+      }
     </script>
-
-</body>
+  </body>
 </html>

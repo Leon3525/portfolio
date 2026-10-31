@@ -1,173 +1,228 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UX Work — Leon Hayes</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Load the navigation Web Component -->
     <script src="components/main-nav.js" defer></script>
     <style>
-        /* Modern, clean typography setup and smooth scroll behavior */
-        html { scroll-behavior: smooth; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+      /* Modern, clean typography setup and smooth scroll behavior */
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      }
     </style>
-</head>
-<body class="bg-white text-black min-h-screen">
+  </head>
+  <body class="bg-white text-black min-h-screen">
     <!-- Centrally Managed Web Component Navigation -->
-  <main-nav></main-nav>
+    <main-nav></main-nav>
 
     <!-- Main Container Constrained to Max 1200px -->
     <div class="max-w-[1200px] mx-auto px-4 md:px-8 py-4 md:py-8">
+      <!-- Hero Section -->
+      <section class="mb-16 max-w-3xl">
+        <h1
+          class="text-3xl md:text-5xl font-bold tracking-tight mb-4 leading-tight"
+        >
+          I design and prototype
+          <span class="italic font-serif font-normal text-gray-700"
+            >inclusive</span
+          >
+          digital products
+        </h1>
 
+        <p class="text-base md:text-lg text-gray-700 mb-8 leading-relaxed">
+          User experiences that perform
+        </p>
 
-        <!-- Hero Section -->
-        <section class="mb-16 max-w-3xl">
-            <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-4 leading-tight">
-                I design and prototype <span class="italic font-serif font-normal text-gray-700">inclusive</span> digital products
-            </h1>
-            
-            <p class="text-base md:text-lg text-gray-700 mb-8 leading-relaxed">
-                User experiences that perform
-            </p>
-            
-            <div>
-                <a href="hit-me-up.html" class="inline-block bg-black text-white px-7 py-3.5 text-base font-medium hover:bg-gray-800 transition-colors rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2">
-    Hit Me Up &rarr;
-</a>
+        <div>
+          <a
+            href="hit-me-up.html"
+            class="inline-block bg-black text-white px-7 py-3.5 text-base font-medium hover:bg-gray-800 transition-colors rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
+          >
+            Hit Me Up &rarr;
+          </a>
+        </div>
+      </section>
 
-            </div>
-        </section>
-
-        <!-- Main Content Area -->
-        <main class="space-y-16 border-t border-gray-200 pt-16">
-
-            <!-- Project 1: BxObs Assessment Assistant -->
-            <div class="max-w-[850px] mx-auto">
-                <article class="space-y-6">
-                    <div class="space-y-2 text-center md:text-left">
-                        <div class="flex flex-wrap gap-2 justify-center md:justify-start">
-                            <span class="text-xs font-mono text-black border border-gray-200 px-2.5 py-0.5 rounded-sm uppercase tracking-wider">Figma Prototype</span>
-                            <span class="text-xs font-mono text-black border border-gray-200 px-2.5 py-0.5 rounded-sm uppercase tracking-wider">Material Design 3</span>
-                        </div>
-                    </div>
-
-                    <a href="bxobs-case-study.html" class="group block space-y-4 max-w-2xl mx-auto">
-                        <img
-                            src="Images/BxObsThumbnail@3x.png"
-                            alt="BxObs Assessment Assistant preview"
-                            class="aspect-[4/3] w-full object-cover border border-gray-200 rounded-sm transition-transform group-hover:scale-[0.99]"
-                        />
-                        
-                        <h2 class="text-xl md:text-2xl font-bold group-hover:text-gray-600 transition-colors text-black text-center md:text-left">
-                            BxObs Assessment Assistant
-                        </h2>
-                        
-                        <p class="text-base md:text-lg text-gray-700 leading-relaxed text-center md:text-left">
-                            <strong>Observation tool</strong> for psychologists. Designed in collaboration with <strong>Cerebral Code</strong>. Built in Figma using Material Design 3.
-                        </p>
-
-                        <div class="pt-2 space-y-6">
-                            <div class="border-l-2 border-black pl-3 py-0.5">
-                                <p class="text-xs md:text-sm font-semibold text-black tracking-tight leading-snug">
-                                    20% Efficiency Increase from Better Data Discovery
-                                </p>
-                            </div>
-
-                            <div class="text-center md:text-left">
-                                <span class="inline-block bg-black text-white px-6 py-2.5 text-sm md:text-base font-medium group-hover:bg-gray-800 transition-colors rounded-sm">
-                                    View Case Study &rarr;
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
+      <!-- Main Content Area -->
+      <main class="space-y-16 border-t border-gray-200 pt-16">
+        <!-- Project 1: BxObs Assessment Assistant -->
+        <div class="max-w-[850px] mx-auto">
+          <article class="space-y-6">
+            <div class="space-y-2 text-center md:text-left">
+              <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+                <span
+                  class="text-xs font-mono text-black border border-gray-200 px-2.5 py-0.5 rounded-sm uppercase tracking-wider"
+                  >Figma Prototype</span
+                >
+                <span
+                  class="text-xs font-mono text-black border border-gray-200 px-2.5 py-0.5 rounded-sm uppercase tracking-wider"
+                  >Material Design 3</span
+                >
+              </div>
             </div>
 
-            <hr class="border-gray-200 max-w-[850px] mx-auto">
+            <a
+              href="bxobs-case-study.html"
+              class="group block space-y-4 max-w-2xl mx-auto"
+            >
+              <img
+                src="Images/BxObsThumbnail@3x.png"
+                alt="BxObs Assessment Assistant preview"
+                class="aspect-[4/3] w-full object-cover border border-gray-200 rounded-sm transition-transform group-hover:scale-[0.99]"
+              />
 
-            <!-- Project 2: Tiny Translator Placeholder -->
-            <div class="max-w-[850px] mx-auto">
-                <article class="space-y-6">
-                    <div class="space-y-2 text-center md:text-left">
-                        <div class="flex flex-wrap gap-2 justify-center md:justify-start">
-                            <span class="text-xs font-mono text-black border border-gray-200 px-2.5 py-0.5 rounded-sm uppercase tracking-wider">Figma Prototype</span>
-                            <span class="text-xs font-mono text-black border border-gray-200 px-2.5 py-0.5 rounded-sm uppercase tracking-wider">EdTech Accessibility</span>
-                        </div>
-                    </div>
+              <h2
+                class="text-xl md:text-2xl font-bold group-hover:text-gray-600 transition-colors text-black text-center md:text-left"
+              >
+                BxObs Assessment Assistant
+              </h2>
 
-                    <a href="#" class="group block space-y-4 max-w-2xl mx-auto">
-                        <!-- Generic Image Placeholder -->
-                        <div class="aspect-[4/3] w-full bg-gray-100 border border-gray-200 rounded-sm flex items-center justify-center p-6 text-center transition-transform group-hover:scale-[0.99]">
-                            <span class="text-xs font-mono text-gray-400">[Tiny Translator Thumbnail Placeholder]</span>
-                        </div>
-                        
-                        <h2 class="text-xl md:text-2xl font-bold group-hover:text-gray-600 transition-colors text-black text-center md:text-left">
-                            Tiny Translator
-                        </h2>
-                        
-                        <p class="text-base md:text-lg text-gray-700 leading-relaxed text-center md:text-left">
-                            Translation tool for students, families, and teachers. Designed in Figma.
-                        </p>
+              <p
+                class="text-base md:text-lg text-gray-700 leading-relaxed text-center md:text-left"
+              >
+                <strong>Observation tool</strong> for psychologists. Designed in
+                collaboration with <strong>Cerebral Code</strong>. Built in
+                Figma using Material Design 3.
+              </p>
 
-                        <div class="pt-2 space-y-6">
-                            <div class="border-l-2 border-black pl-3 py-0.5">
-                                <p class="text-xs md:text-sm font-semibold text-black tracking-tight leading-snug">
-                                    Increased user confidence in accessing academic content by 70%.
-                                </p>
-                            </div>
+              <div class="pt-2 space-y-6">
+                <div class="border-l-2 border-black pl-3 py-0.5">
+                  <p
+                    class="text-xs md:text-sm font-semibold text-black tracking-tight leading-snug"
+                  >
+                    20% Efficiency Increase from Better Data Discovery
+                  </p>
+                </div>
 
-                            <div class="text-center md:text-left">
-                                <span class="inline-block bg-black text-white px-6 py-2.5 text-sm md:text-base font-medium group-hover:bg-gray-800 transition-colors rounded-sm">
-                                    Case Study Coming Soon &rarr;
-                                </span>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-            </div>
-
-        </main>
-
-        <!-- Footer -->
-        <footer class="mt-24 pt-8 border-t border-gray-200 text-xs md:text-sm flex justify-between items-center">
-            <p>&copy; 2026 Leon Hayes. Built with curiosity.</p>
-            <a href="#" class="border border-black px-3 py-1 font-medium hover:bg-black hover:text-white transition-all">
-                Back to Top &uarr;
+                <div class="text-center md:text-left">
+                  <span
+                    class="inline-block bg-black text-white px-6 py-2.5 text-sm md:text-base font-medium group-hover:bg-gray-800 transition-colors rounded-sm"
+                  >
+                    View Case Study &rarr;
+                  </span>
+                </div>
+              </div>
             </a>
-        </footer>
+          </article>
+        </div>
 
+        <hr class="border-gray-200 max-w-[850px] mx-auto" />
+
+        <!-- Project 2: Tiny Translator Placeholder -->
+        <div class="max-w-[850px] mx-auto">
+          <article class="space-y-6">
+            <div class="space-y-2 text-center md:text-left">
+              <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+                <span
+                  class="text-xs font-mono text-black border border-gray-200 px-2.5 py-0.5 rounded-sm uppercase tracking-wider"
+                  >Figma Prototype</span
+                >
+                <span
+                  class="text-xs font-mono text-black border border-gray-200 px-2.5 py-0.5 rounded-sm uppercase tracking-wider"
+                  >EdTech Accessibility</span
+                >
+              </div>
+            </div>
+
+            <a href="#" class="group block space-y-4 max-w-2xl mx-auto">
+              <!-- Generic Image Placeholder -->
+              <div
+                class="aspect-[4/3] w-full bg-gray-100 border border-gray-200 rounded-sm flex items-center justify-center p-6 text-center transition-transform group-hover:scale-[0.99]"
+              >
+                <span class="text-xs font-mono text-gray-400"
+                  >[Tiny Translator Thumbnail Placeholder]</span
+                >
+              </div>
+
+              <h2
+                class="text-xl md:text-2xl font-bold group-hover:text-gray-600 transition-colors text-black text-center md:text-left"
+              >
+                Tiny Translator
+              </h2>
+
+              <p
+                class="text-base md:text-lg text-gray-700 leading-relaxed text-center md:text-left"
+              >
+                Translation tool for students, families, and teachers. Designed
+                in Figma.
+              </p>
+
+              <div class="pt-2 space-y-6">
+                <div class="border-l-2 border-black pl-3 py-0.5">
+                  <p
+                    class="text-xs md:text-sm font-semibold text-black tracking-tight leading-snug"
+                  >
+                    Increased user confidence in accessing academic content by
+                    70%.
+                  </p>
+                </div>
+
+                <div class="text-center md:text-left">
+                  <span
+                    class="inline-block bg-black text-white px-6 py-2.5 text-sm md:text-base font-medium group-hover:bg-gray-800 transition-colors rounded-sm"
+                  >
+                    Case Study Coming Soon &rarr;
+                  </span>
+                </div>
+              </div>
+            </a>
+          </article>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer
+        class="mt-24 pt-8 border-t border-gray-200 text-xs md:text-sm flex justify-between items-center"
+      >
+        <p>&copy; 2026 Leon Hayes. Built with curiosity.</p>
+        <a
+          href="#"
+          class="border border-black px-3 py-1 font-medium hover:bg-black hover:text-white transition-all"
+        >
+          Back to Top &uarr;
+        </a>
+      </footer>
     </div>
 
     <!-- Mobile Navigation Logic -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const toggleBtn = document.getElementById('menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const openIcon = document.getElementById('menu-open-icon');
-            const closeIcon = document.getElementById('menu-close-icon');
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggleBtn = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const openIcon = document.getElementById("menu-open-icon");
+        const closeIcon = document.getElementById("menu-close-icon");
 
-            if (toggleBtn && mobileMenu) {
-                toggleBtn.addEventListener('click', () => {
-                    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-                    toggleBtn.setAttribute('aria-expanded', !isExpanded);
-                    mobileMenu.classList.toggle('hidden');
-                    openIcon.classList.toggle('hidden');
-                    closeIcon.classList.toggle('hidden');
-                });
+        if (toggleBtn && mobileMenu) {
+          toggleBtn.addEventListener("click", () => {
+            const isExpanded =
+              toggleBtn.getAttribute("aria-expanded") === "true";
+            toggleBtn.setAttribute("aria-expanded", !isExpanded);
+            mobileMenu.classList.toggle("hidden");
+            openIcon.classList.toggle("hidden");
+            closeIcon.classList.toggle("hidden");
+          });
 
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape' && toggleBtn.getAttribute('aria-expanded') === 'true') {
-                        toggleBtn.setAttribute('aria-expanded', 'false');
-                        mobileMenu.classList.add('hidden');
-                        openIcon.classList.remove('hidden');
-                        closeIcon.classList.add('hidden');
-                        toggleBtn.focus();
-                    }
-                });
+          document.addEventListener("keydown", (e) => {
+            if (
+              e.key === "Escape" &&
+              toggleBtn.getAttribute("aria-expanded") === "true"
+            ) {
+              toggleBtn.setAttribute("aria-expanded", "false");
+              mobileMenu.classList.add("hidden");
+              openIcon.classList.remove("hidden");
+              closeIcon.classList.add("hidden");
+              toggleBtn.focus();
             }
-        });
+          });
+        }
+      });
     </script>
-
-</body>
+  </body>
 </html>
