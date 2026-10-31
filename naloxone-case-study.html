@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Naloxone Emergency Response Training — Leon Hayes</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="components/main-nav.js" defer></script>
+
     <style>
         /* Modern, clean typography setup and smooth scroll behavior */
         html { scroll-behavior: smooth; }
@@ -12,52 +14,11 @@
     </style>
 </head>
 <body class="bg-white text-black min-h-screen">
+    <!-- Centrally Managed Web Component Navigation -->
+  <main-nav></main-nav>
 
     <!-- Main Container Constrained to Max 1200px -->
     <div class="max-w-[1200px] mx-auto px-4 md:px-8 py-4 md:py-8">
-
-        <!-- Top Navigation Header -->
-        <header class="border-b border-gray-100 pb-4 mb-10 md:mb-16">
-            <div class="flex justify-between items-center">
-                <a href="index.html" class="text-base md:text-lg font-bold tracking-normal text-black hover:text-gray-600 transition-colors flex items-center space-x-2">
-                    <span class="text-base font-normal">&larr;</span>
-                    <span>Back to Portfolio</span>
-                </a>
-
-                <!-- Desktop Navigation Links -->
-                <nav class="hidden md:flex space-x-8 text-xs md:text-sm font-medium items-center" aria-label="Main Navigation">
-                    <a href="index.html#work" class="hover:text-gray-600 transition-colors py-1">Work</a>
-                    <a href="lab.html" class="hover:text-gray-600 transition-colors py-1">Lab</a>
-                    <a href="about.html" class="hover:text-gray-600 transition-colors py-1">About</a>
-                </nav>
-
-                <!-- Accessible Mobile Menu Toggle Button -->
-                <button 
-                    id="menu-toggle" 
-                    type="button" 
-                    class="md:hidden p-2 text-black hover:text-gray-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-black rounded transition-colors" 
-                    aria-expanded="false" 
-                    aria-controls="mobile-menu" 
-                    aria-label="Toggle navigation menu"
-                >
-                    <!-- Hamburger Icon -->
-                    <svg id="menu-open-icon" class="w-6 h-6 block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                    <!-- Close Icon (Hidden by Default) -->
-                    <svg id="menu-close-icon" class="w-6 h-6 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Mobile Navigation Drawer -->
-            <nav id="mobile-menu" class="hidden md:hidden pt-4 pb-2 flex flex-col space-y-3 text-sm font-medium border-t border-gray-100 mt-3" aria-label="Mobile Navigation">
-                <a href="index.html#work" class="hover:text-gray-600 transition-colors py-1">Work</a>
-                <a href="lab.html" class="hover:text-gray-600 transition-colors py-1">Lab</a>
-                <a href="about.html" class="hover:text-gray-600 transition-colors py-1">About</a>
-            </nav>
-        </header>
 
         <main class="w-full space-y-20">
             <!-- Hero UI Image -->
