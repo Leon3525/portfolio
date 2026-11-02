@@ -4,19 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lab — Leon Hayes</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Load the navigation Web Component -->
-    <script src="components/main-nav.js" defer></script>
-    <style>
-      /* Modern, clean typography setup and smooth scroll behavior */
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      }
 
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Global Design System Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Navigation & Footer Web Components -->
+    <script src="components/main-nav.js" defer></script>
+    <script src="components/main-footer.js" defer></script>
+
+    <style>
       /* Interdisciplinary Blender Styles */
       .blender-square {
         position: absolute;
@@ -48,6 +47,7 @@
       }
     </style>
   </head>
+
   <body class="bg-white text-black min-h-screen">
     <!-- Centrally Managed Web Component Navigation -->
     <main-nav></main-nav>
@@ -57,7 +57,7 @@
       <!-- Hero Section -->
       <section class="mb-16 max-w-3xl">
         <h1
-          class="text-3xl md:text-5xl font-bold tracking-tight mb-4 leading-tight"
+          class="text-3xl md:text-5xl font-bold tracking-tight mb-4 leading-tight text-black"
         >
           You made it to the
           <span class="italic font-serif font-normal text-gray-700"
@@ -72,18 +72,14 @@
         </p>
 
         <div class="mb-16">
-          <a
-            href="hit-me-up.html"
-            class="inline-block bg-black text-white px-7 py-3.5 text-base font-medium hover:bg-gray-800 transition-colors rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
-          >
+          <a href="hit-me-up.html" class="btn-primary focus-ring-accent">
             Hit Me Up &rarr;
           </a>
         </div>
 
         <!-- Hero Category Navigation Buttons -->
         <div class="space-y-3 pt-6 border-t border-gray-200 w-full">
-          <span
-            class="text-xs font-mono text-gray-500 uppercase tracking-wider block"
+          <span class="section-eyebrow mb-0 block"
             >Jump to Sandbox Section:</span
           >
           <div
@@ -92,31 +88,31 @@
           >
             <a
               href="#is-components"
-              class="flex-1 min-w-[180px] text-center whitespace-nowrap text-xs font-mono text-black bg-white border border-gray-300 px-3.5 py-2.5 rounded-sm hover:bg-black hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-black"
+              class="flex-1 min-w-[180px] text-center whitespace-nowrap text-xs font-mono text-black bg-white border border-gray-300 px-3.5 py-2.5 rounded-sm hover:bg-black hover:text-white transition-colors focus-ring-accent"
             >
               Interactive Components
             </a>
             <a
               href="#interactive-video"
-              class="flex-1 min-w-[180px] text-center whitespace-nowrap text-xs font-mono text-black bg-white border border-gray-300 px-3.5 py-2.5 rounded-sm hover:bg-black hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-black"
+              class="flex-1 min-w-[180px] text-center whitespace-nowrap text-xs font-mono text-black bg-white border border-gray-300 px-3.5 py-2.5 rounded-sm hover:bg-black hover:text-white transition-colors focus-ring-accent"
             >
               Interactive Video
             </a>
             <a
               href="#interactive-quizzes"
-              class="flex-1 min-w-[180px] text-center whitespace-nowrap text-xs font-mono text-black bg-white border border-gray-300 px-3.5 py-2.5 rounded-sm hover:bg-black hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-black"
+              class="flex-1 min-w-[180px] text-center whitespace-nowrap text-xs font-mono text-black bg-white border border-gray-300 px-3.5 py-2.5 rounded-sm hover:bg-black hover:text-white transition-colors focus-ring-accent"
             >
               Interactive Quizzes
             </a>
             <a
               href="#h5p-media"
-              class="flex-1 min-w-[180px] text-center whitespace-nowrap text-xs font-mono text-black bg-white border border-gray-300 px-3.5 py-2.5 rounded-sm hover:bg-black hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-black"
+              class="flex-1 min-w-[180px] text-center whitespace-nowrap text-xs font-mono text-black bg-white border border-gray-300 px-3.5 py-2.5 rounded-sm hover:bg-black hover:text-white transition-colors focus-ring-accent"
             >
               H5P Media
             </a>
             <a
               href="#motion-graphics"
-              class="flex-1 min-w-[180px] text-center whitespace-nowrap text-xs font-mono text-black bg-white border border-gray-300 px-3.5 py-2.5 rounded-sm hover:bg-black hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-black"
+              class="flex-1 min-w-[180px] text-center whitespace-nowrap text-xs font-mono text-black bg-white border border-gray-300 px-3.5 py-2.5 rounded-sm hover:bg-black hover:text-white transition-colors focus-ring-accent"
             >
               Motion Graphics
             </a>
@@ -124,7 +120,7 @@
         </div>
       </section>
 
-      <main class="space-y-24 border-t border-gray-200 pt-16">
+      <main class="space-y-24 section-block">
         <!-- SECTION 1: Interactive Components Container -->
         <section
           id="is-components"
@@ -133,15 +129,12 @@
         >
           <div class="space-y-2">
             <div class="flex justify-between items-center w-full">
-              <h2
-                id="components-heading"
-                class="text-xl md:text-2xl font-bold tracking-tight text-black"
-              >
+              <h2 id="components-heading" class="section-title">
                 Interactive Components
               </h2>
               <a
                 href="#"
-                class="text-xs font-mono text-gray-500 hover:text-black transition-colors underline decoration-gray-300 underline-offset-4 shrink-0"
+                class="text-xs font-mono text-gray-500 hover:text-black transition-colors underline decoration-gray-300 underline-offset-4 shrink-0 focus-ring-accent"
               >
                 Back to Top &uarr;
               </a>
@@ -206,7 +199,7 @@
                     id="blenderStartBtn"
                     type="button"
                     onclick="runBlender()"
-                    class="bg-black text-white hover:bg-gray-800 focus:ring-2 focus:ring-black focus:ring-offset-2 transition-all px-8 py-3 text-xs font-mono font-bold uppercase tracking-wider rounded-sm shadow-sm focus:outline-none"
+                    class="bg-black text-white hover:bg-gray-800 transition-all px-8 py-3 text-xs font-mono font-bold uppercase tracking-wider rounded-sm shadow-sm focus-ring-accent"
                   >
                     Start Blender
                   </button>
@@ -224,9 +217,7 @@
                 >
                   Data Analysis In The Lab
                 </h3>
-                <p
-                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider"
-                >
+                <p class="section-eyebrow mb-0 text-center">
                   Select a methodology below to examine the analysis framework
                 </p>
               </header>
@@ -241,7 +232,7 @@
                     id="qualBtn"
                     type="button"
                     aria-pressed="false"
-                    class="toggle-btn flex-1 py-2.5 px-3 text-xs font-mono font-bold text-gray-600 bg-transparent rounded-sm transition-all hover:text-black focus:outline-none focus:ring-2 focus:ring-black focus:z-10"
+                    class="toggle-btn flex-1 py-2.5 px-3 text-xs font-mono font-bold text-gray-600 bg-transparent rounded-sm transition-all hover:text-black focus-ring-accent"
                   >
                     Qualitative Analysis
                   </button>
@@ -249,7 +240,7 @@
                     id="quantBtn"
                     type="button"
                     aria-pressed="false"
-                    class="toggle-btn flex-1 py-2.5 px-3 text-xs font-mono font-bold text-gray-600 bg-transparent rounded-sm transition-all hover:text-black focus:outline-none focus:ring-2 focus:ring-black focus:z-10"
+                    class="toggle-btn flex-1 py-2.5 px-3 text-xs font-mono font-bold text-gray-600 bg-transparent rounded-sm transition-all hover:text-black focus-ring-accent"
                   >
                     Quantitative Analysis
                   </button>
@@ -262,7 +253,7 @@
                     id="qualCardBtn"
                     type="button"
                     onclick="setMethodology('qualitative')"
-                    class="group relative border-2 border-gray-200 rounded-sm p-2 md:p-4 transition-all duration-200 text-left focus:outline-none focus:ring-2 focus:ring-black"
+                    class="group relative border-2 border-gray-200 rounded-sm p-2 md:p-4 transition-all duration-200 text-left focus-ring-accent"
                   >
                     <div
                       class="aspect-[4/3] w-full flex items-center justify-center overflow-hidden"
@@ -285,7 +276,7 @@
                     id="quantCardBtn"
                     type="button"
                     onclick="setMethodology('quantitative')"
-                    class="group relative border-2 border-gray-200 rounded-sm p-2 md:p-4 transition-all duration-200 text-left focus:outline-none focus:ring-2 focus:ring-black"
+                    class="group relative border-2 border-gray-200 rounded-sm p-2 md:p-4 transition-all duration-200 text-left focus-ring-accent"
                   >
                     <div
                       class="aspect-[4/3] w-full flex items-center justify-center overflow-hidden"
@@ -380,20 +371,17 @@
         <!-- SECTION 2: Interactive Video Container -->
         <section
           id="interactive-video"
-          class="space-y-8 border-t border-gray-200 pt-16 scroll-mt-8"
+          class="space-y-8 section-block scroll-mt-8"
           aria-labelledby="video-heading"
         >
           <div class="space-y-2">
             <div class="flex justify-between items-center w-full">
-              <h2
-                id="video-heading"
-                class="text-xl md:text-2xl font-bold tracking-tight text-black"
-              >
+              <h2 id="video-heading" class="section-title">
                 Interactive Video
               </h2>
               <a
                 href="#"
-                class="text-xs font-mono text-gray-500 hover:text-black transition-colors underline decoration-gray-300 underline-offset-4 shrink-0"
+                class="text-xs font-mono text-gray-500 hover:text-black transition-colors underline decoration-gray-300 underline-offset-4 shrink-0 focus-ring-accent"
               >
                 Back to Top &uarr;
               </a>
@@ -410,14 +398,8 @@
           <article class="space-y-6 max-w-[850px] mx-auto">
             <div class="space-y-2 text-center md:text-left">
               <div class="flex flex-wrap gap-2 justify-center md:justify-start">
-                <span
-                  class="text-xs font-mono text-black border border-gray-200 px-2.5 py-0.5 rounded-sm uppercase tracking-wider"
-                  >Camtasia</span
-                >
-                <span
-                  class="text-xs font-mono text-black border border-gray-200 px-2.5 py-0.5 rounded-sm uppercase tracking-wider"
-                  >Scaffolded Media</span
-                >
+                <span class="card-tag">Camtasia</span>
+                <span class="card-tag">Scaffolded Media</span>
               </div>
               <h3 class="font-bold text-lg md:text-xl text-black">
                 American Gothic Challenge
@@ -443,20 +425,17 @@
         <!-- SECTION 3: Interactive Quizzes Container -->
         <section
           id="interactive-quizzes"
-          class="space-y-8 border-t border-gray-200 pt-16 scroll-mt-8"
+          class="space-y-8 section-block scroll-mt-8"
           aria-labelledby="quizzes-heading"
         >
           <div class="space-y-2">
             <div class="flex justify-between items-center w-full">
-              <h2
-                id="quizzes-heading"
-                class="text-xl md:text-2xl font-bold tracking-tight text-black"
-              >
+              <h2 id="quizzes-heading" class="section-title">
                 Interactive Quizzes
               </h2>
               <a
                 href="#"
-                class="text-xs font-mono text-gray-500 hover:text-black transition-colors underline decoration-gray-300 underline-offset-4 shrink-0"
+                class="text-xs font-mono text-gray-500 hover:text-black transition-colors underline decoration-gray-300 underline-offset-4 shrink-0 focus-ring-accent"
               >
                 Back to Top &uarr;
               </a>
@@ -472,14 +451,8 @@
           <article class="space-y-6 max-w-[850px] mx-auto">
             <div class="space-y-2 text-center md:text-left">
               <div class="flex flex-wrap gap-2 justify-center md:justify-start">
-                <span
-                  class="text-xs font-mono text-black border border-gray-200 px-2.5 py-0.5 rounded-sm uppercase tracking-wider"
-                  >HTML/JS Quiz</span
-                >
-                <span
-                  class="text-xs font-mono text-black border border-gray-200 px-2.5 py-0.5 rounded-sm uppercase tracking-wider"
-                  >Gamified Assessment</span
-                >
+                <span class="card-tag">HTML/JS Quiz</span>
+                <span class="card-tag">Gamified Assessment</span>
               </div>
               <h3 class="font-bold text-lg md:text-xl text-black">
                 Retro Style Quiz: Play Fetch With Max
@@ -504,20 +477,17 @@
         <!-- SECTION 4: H5P Media Container -->
         <section
           id="h5p-media"
-          class="space-y-8 border-t border-gray-200 pt-16 scroll-mt-8"
+          class="space-y-8 section-block scroll-mt-8"
           aria-labelledby="h5p-heading"
         >
           <div class="space-y-2">
             <div class="flex justify-between items-center w-full">
-              <h2
-                id="h5p-heading"
-                class="text-xl md:text-2xl font-bold tracking-tight text-black"
-              >
+              <h2 id="h5p-heading" class="section-title">
                 H5P Multimedia Assets
               </h2>
               <a
                 href="#"
-                class="text-xs font-mono text-gray-500 hover:text-black transition-colors underline decoration-gray-300 underline-offset-4 shrink-0"
+                class="text-xs font-mono text-gray-500 hover:text-black transition-colors underline decoration-gray-300 underline-offset-4 shrink-0 focus-ring-accent"
               >
                 Back to Top &uarr;
               </a>
@@ -538,10 +508,7 @@
             <article class="space-y-4 flex flex-col justify-between">
               <div class="space-y-3">
                 <div class="flex flex-wrap gap-2">
-                  <span
-                    class="text-xs font-mono text-black border border-gray-200 px-2.5 py-0.5 rounded-sm uppercase tracking-wider"
-                    >H5P Branching</span
-                  >
+                  <span class="card-tag">H5P Branching</span>
                 </div>
                 <h3 class="font-bold text-lg md:text-xl text-black">
                   Branching Scenario Sandbox
@@ -564,10 +531,7 @@
             <article class="space-y-4 flex flex-col justify-between">
               <div class="space-y-3">
                 <div class="flex flex-wrap gap-2">
-                  <span
-                    class="text-xs font-mono text-black border border-gray-200 px-2.5 py-0.5 rounded-sm uppercase tracking-wider"
-                    >H5P Presentation</span
-                  >
+                  <span class="card-tag">H5P Presentation</span>
                 </div>
                 <h3 class="font-bold text-lg md:text-xl text-black">
                   Interactive Course Deck
@@ -591,20 +555,17 @@
         <!-- SECTION 5: Motion Graphics & Video Editing Container -->
         <section
           id="motion-graphics"
-          class="space-y-8 border-t border-gray-200 pt-16 scroll-mt-8"
+          class="space-y-8 section-block scroll-mt-8"
           aria-labelledby="motion-heading"
         >
           <div class="space-y-2">
             <div class="flex justify-between items-center w-full">
-              <h2
-                id="motion-heading"
-                class="text-xl md:text-2xl font-bold tracking-tight text-black"
-              >
+              <h2 id="motion-heading" class="section-title">
                 Motion Graphics & Video Editing
               </h2>
               <a
                 href="#"
-                class="text-xs font-mono text-gray-500 hover:text-black transition-colors underline decoration-gray-300 underline-offset-4 shrink-0"
+                class="text-xs font-mono text-gray-500 hover:text-black transition-colors underline decoration-gray-300 underline-offset-4 shrink-0 focus-ring-accent"
               >
                 Back to Top &uarr;
               </a>
@@ -621,14 +582,8 @@
           <article class="space-y-6 max-w-[850px] mx-auto">
             <div class="space-y-2 text-center md:text-left">
               <div class="flex flex-wrap gap-2 justify-center md:justify-start">
-                <span
-                  class="text-xs font-mono text-black border border-gray-200 px-2.5 py-0.5 rounded-sm uppercase tracking-wider"
-                  >Video Production</span
-                >
-                <span
-                  class="text-xs font-mono text-black border border-gray-200 px-2.5 py-0.5 rounded-sm uppercase tracking-wider"
-                  >Motion Bumper</span
-                >
+                <span class="card-tag">Video Production</span>
+                <span class="card-tag">Motion Bumper</span>
               </div>
               <h3 class="font-bold text-lg md:text-xl text-black">
                 Instructional Intro Bumper Demo
@@ -655,17 +610,7 @@
       </main>
 
       <!-- Footer -->
-      <footer
-        class="mt-24 pt-8 border-t border-gray-200 text-xs md:text-sm flex justify-between items-center"
-      >
-        <p>&copy; 2026 Leon Hayes. Built with curiosity.</p>
-        <a
-          href="#"
-          class="border border-black px-3 py-1 font-medium hover:bg-black hover:text-white transition-all"
-        >
-          Back to Top &uarr;
-        </a>
-      </footer>
+      <main-footer></main-footer>
     </div>
 
     <!-- Component JavaScript Logic -->

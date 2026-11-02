@@ -4,19 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hit Me Up — Leon Hayes</title>
+
+    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Global Design System Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Navigation & Footer Web Components -->
     <script src="components/main-nav.js" defer></script>
-    <style>
-      /* Modern, clean typography setup and smooth scroll behavior */
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      }
-    </style>
+    <script src="components/main-footer.js" defer></script>
   </head>
+
   <body class="bg-white text-black min-h-screen">
     <!-- Centrally Managed Web Component Navigation -->
     <main-nav></main-nav>
@@ -28,7 +27,7 @@
         <!-- Hero Heading -->
         <div class="mb-12 max-w-2xl">
           <h1
-            class="text-3xl md:text-5xl font-bold tracking-tight mb-4 leading-tight"
+            class="text-3xl md:text-5xl font-bold tracking-tight mb-4 leading-tight text-black"
           >
             Let's skip the
             <span class="italic font-serif font-normal text-gray-700"
@@ -70,9 +69,7 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div class="flex flex-col space-y-2">
-                <label
-                  for="name"
-                  class="font-mono text-xs md:text-sm uppercase tracking-wider text-gray-500"
+                <label for="name" class="section-eyebrow text-gray-500 mb-0"
                   >Your Name</label
                 >
                 <input
@@ -80,14 +77,12 @@
                   id="name"
                   name="name"
                   placeholder="Leon Hayes"
-                  class="w-full bg-white border border-gray-200 p-3.5 text-base md:text-lg rounded-none focus:outline-none focus:border-black transition-colors"
+                  class="w-full bg-white border border-gray-200 p-3.5 text-base md:text-lg rounded-none focus:outline-none focus:border-black focus-ring-accent transition-colors"
                   required
                 />
               </div>
               <div class="flex flex-col space-y-2">
-                <label
-                  for="company"
-                  class="font-mono text-xs md:text-sm uppercase tracking-wider text-gray-500"
+                <label for="company" class="section-eyebrow text-gray-500 mb-0"
                   >Company / Organization</label
                 >
                 <input
@@ -95,15 +90,13 @@
                   id="company"
                   name="company"
                   placeholder="Independent Studio"
-                  class="w-full bg-white border border-gray-200 p-3.5 text-base md:text-lg rounded-none focus:outline-none focus:border-black transition-colors"
+                  class="w-full bg-white border border-gray-200 p-3.5 text-base md:text-lg rounded-none focus:outline-none focus:border-black focus-ring-accent transition-colors"
                 />
               </div>
             </div>
 
             <div class="flex flex-col space-y-2">
-              <label
-                for="email"
-                class="font-mono text-xs md:text-sm uppercase tracking-wider text-gray-500"
+              <label for="email" class="section-eyebrow text-gray-500 mb-0"
                 >Email Address</label
               >
               <input
@@ -111,64 +104,63 @@
                 id="email"
                 name="email"
                 placeholder="you@example.com"
-                class="w-full bg-white border border-gray-200 p-3.5 text-base md:text-lg rounded-none focus:outline-none focus:border-black transition-colors"
+                class="w-full bg-white border border-gray-200 p-3.5 text-base md:text-lg rounded-none focus:outline-none focus:border-black focus-ring-accent transition-colors"
                 required
               />
             </div>
 
             <div class="flex flex-col space-y-3">
-              <span
-                class="font-mono text-xs md:text-sm uppercase tracking-wider text-gray-500"
+              <span class="section-eyebrow text-gray-500 mb-0"
                 >What asset are we building?</span
               >
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <label
-                  class="border border-gray-200 p-3.5 flex items-center space-x-3 cursor-pointer hover:bg-gray-50 transition-colors"
+                  class="border border-gray-200 p-3.5 flex items-center space-x-3 cursor-pointer hover:bg-gray-50 transition-colors focus-ring-accent rounded-sm"
                 >
                   <input
                     type="checkbox"
                     name="asset-type"
                     value="HTML / JS Widget"
-                    class="accent-black w-4 h-4"
+                    class="accent-black w-4 h-4 focus-ring-accent"
                   />
                   <span class="text-base md:text-lg text-gray-700"
                     >HTML / JS Widget</span
                   >
                 </label>
                 <label
-                  class="border border-gray-200 p-3.5 flex items-center space-x-3 cursor-pointer hover:bg-gray-50 transition-colors"
+                  class="border border-gray-200 p-3.5 flex items-center space-x-3 cursor-pointer hover:bg-gray-50 transition-colors focus-ring-accent rounded-sm"
                 >
                   <input
                     type="checkbox"
                     name="asset-type"
                     value="H5P Media Asset"
-                    class="accent-black w-4 h-4"
+                    class="accent-black w-4 h-4 focus-ring-accent"
                   />
                   <span class="text-base md:text-lg text-gray-700"
                     >H5P Media Asset</span
                   >
                 </label>
                 <label
-                  class="border border-gray-200 p-3.5 flex items-center space-x-3 cursor-pointer hover:bg-gray-50 transition-colors"
+                  class="border border-gray-200 p-3.5 flex items-center space-x-3 cursor-pointer hover:bg-gray-50 transition-colors focus-ring-accent rounded-sm"
                 >
                   <input
                     type="checkbox"
                     name="asset-type"
                     value="Motion Graphics / Video"
-                    class="accent-black w-4 h-4"
+                    class="accent-black w-4 h-4 focus-ring-accent"
                   />
                   <span class="text-base md:text-lg text-gray-700"
                     >Motion Graphics / Video</span
                   >
                 </label>
                 <label
-                  class="border border-gray-200 p-3.5 flex items-center space-x-3 cursor-pointer hover:bg-gray-50 transition-colors"
+                  class="border border-gray-200 p-3.5 flex items-center space-x-3 cursor-pointer hover:bg-gray-50 transition-colors focus-ring-accent rounded-sm"
                 >
                   <input
                     type="checkbox"
                     name="asset-type"
                     value="Other"
-                    class="accent-black w-4 h-4"
+                    class="accent-black w-4 h-4 focus-ring-accent"
                   />
                   <span class="text-base md:text-lg text-gray-700">Other</span>
                 </label>
@@ -176,15 +168,13 @@
             </div>
 
             <div class="flex flex-col space-y-2">
-              <label
-                for="timeline"
-                class="font-mono text-xs md:text-sm uppercase tracking-wider text-gray-500"
+              <label for="timeline" class="section-eyebrow text-gray-500 mb-0"
                 >Ideal Timeline Sprint</label
               >
               <select
                 id="timeline"
                 name="timeline"
-                class="w-full bg-white border border-gray-200 p-3.5 text-base md:text-lg rounded-none focus:outline-none focus:border-black transition-colors appearance-none cursor-pointer"
+                class="w-full bg-white border border-gray-200 p-3.5 text-base md:text-lg rounded-none focus:outline-none focus:border-black focus-ring-accent transition-colors appearance-none cursor-pointer"
               >
                 <option>Immediate Sprint (1–2 weeks)</option>
                 <option>Standard Milestone (3–4 weeks)</option>
@@ -194,9 +184,7 @@
             </div>
 
             <div class="flex flex-col space-y-2">
-              <label
-                for="details"
-                class="font-mono text-xs md:text-sm uppercase tracking-wider text-gray-500"
+              <label for="details" class="section-eyebrow text-gray-500 mb-0"
                 >Project Context & Constraints</label
               >
               <textarea
@@ -204,7 +192,7 @@
                 name="message"
                 rows="5"
                 placeholder="Share a few brief details about the learning experience, your raw content assets, or project goals..."
-                class="w-full bg-white border border-gray-200 p-3.5 text-base md:text-lg rounded-none focus:outline-none focus:border-black transition-colors resize-none"
+                class="w-full bg-white border border-gray-200 p-3.5 text-base md:text-lg rounded-none focus:outline-none focus:border-black focus-ring-accent transition-colors resize-none"
                 required
               ></textarea>
             </div>
@@ -214,7 +202,7 @@
               <button
                 id="submit-btn"
                 type="submit"
-                class="inline-block bg-black text-white px-8 py-3.5 text-base font-medium hover:bg-gray-800 transition-colors disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:bg-black"
+                class="btn-primary focus-ring-accent text-base disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:bg-black"
               >
                 Send Brief
               </button>
@@ -224,38 +212,30 @@
                 id="form-status"
                 role="status"
                 aria-live="polite"
-                class="hidden border p-4 text-sm md:text-base leading-relaxed"
+                class="hidden border p-4 text-sm md:text-base leading-relaxed rounded-sm"
               ></div>
             </div>
           </form>
 
           <!-- Sidebar Box -->
           <aside
-            class="md:col-span-1 space-y-8 bg-gray-50 border border-gray-200 p-8"
+            class="md:col-span-1 space-y-8 bg-gray-50 border border-gray-200 p-8 rounded-sm"
           >
             <div>
-              <h2
-                class="font-mono text-xs md:text-sm uppercase tracking-wider text-gray-500 mb-2"
-              >
-                Direct Channel
-              </h2>
+              <h2 class="section-eyebrow mb-2">Direct Channel</h2>
               <p class="text-xs md:text-sm text-gray-600 leading-relaxed">
                 Prefer secure or open email formats? Skip this panel and email
                 me anytime at:
               </p>
               <a
                 href="mailto:leonhayes100@gmail.com"
-                class="text-sm md:text-base font-bold text-black block mt-2 hover:text-gray-600 transition-colors"
+                class="text-sm md:text-base font-bold text-black block mt-2 hover:text-gray-600 transition-colors focus-ring-accent rounded-sm"
                 >leonhayes100@gmail.com</a
               >
             </div>
 
             <div class="border-t border-gray-200 pt-6">
-              <h2
-                class="font-mono text-xs md:text-sm uppercase tracking-wider text-gray-500 mb-2"
-              >
-                Contract Guidelines
-              </h2>
+              <h2 class="section-eyebrow mb-2">Contract Guidelines</h2>
               <ul
                 class="text-xs md:text-sm text-gray-600 space-y-2 leading-relaxed"
               >
@@ -269,17 +249,7 @@
       </main>
 
       <!-- Footer -->
-      <footer
-        class="mt-24 pt-8 border-t border-gray-200 text-xs md:text-sm flex justify-between items-center"
-      >
-        <p>&copy; 2026 Leon Hayes. All rights reserved.</p>
-        <a
-          href="#"
-          class="border border-black px-3 py-1 font-medium hover:bg-black hover:text-white transition-all"
-        >
-          Back to Top &uarr;
-        </a>
-      </footer>
+      <main-footer></main-footer>
     </div>
 
     <!-- Mobile Menu Accessible Toggle Script -->

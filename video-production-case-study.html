@@ -4,18 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Educational Video Production Case Study — Leon Hayes</title>
+
+    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Global Design System Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Navigation & Footer Web Components -->
     <script src="components/main-nav.js" defer></script>
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      }
-    </style>
+    <script src="components/main-footer.js" defer></script>
   </head>
+
   <body class="bg-white text-black min-h-screen">
     <!-- Centrally Managed Web Component Navigation -->
     <main-nav></main-nav>
@@ -39,7 +39,7 @@
               web-share;
             "
             referrerpolicy="strict-origin-when-cross-origin"
-            class="absolute top-0 left-0 w-full h-full"
+            class="absolute top-0 left-0 w-full h-full focus-ring-accent"
             title="AM4000_CSMInterview_9_25_26"
           ></iframe>
         </div>
@@ -47,7 +47,9 @@
 
       <!-- Hero Title & Overview -->
       <div class="mb-12 max-w-3xl">
-        <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-3">
+        <h1
+          class="text-3xl md:text-5xl font-bold tracking-tight mb-3 text-black"
+        >
           Documentary-Style Educational Video Production
         </h1>
         <p
@@ -61,11 +63,7 @@
         <!-- Context Overview -->
         <div class="md:col-span-2 space-y-8 border border-gray-200 p-8">
           <div>
-            <h2
-              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
-            >
-              Overview
-            </h2>
+            <h2 class="section-eyebrow mb-2">Overview</h2>
             <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-4">
               Beyond standard technical tutorials and static course media, our
               Learning Production (LP) team at RMCAD produces immersive,
@@ -81,10 +79,7 @@
           <div>
             <!-- Elevated CTAs -->
             <div class="flex flex-wrap items-center gap-4">
-              <a
-                href="#deliverables"
-                class="inline-block bg-black text-white px-7 py-3.5 text-base font-medium hover:bg-gray-800 transition-colors"
-              >
+              <a href="#deliverables" class="btn-primary focus-ring-accent">
                 View Multimedia Assets &rarr;
               </a>
             </div>
@@ -94,31 +89,19 @@
         <!-- Metadata Panel -->
         <div class="bg-gray-50 border border-gray-200 p-8 space-y-6">
           <div>
-            <h3
-              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1"
-            >
-              Organization
-            </h3>
+            <h3 class="section-eyebrow mb-1">Organization</h3>
             <p class="text-sm md:text-base font-bold text-black">
               Rocky Mountain College of Art + Design
             </p>
           </div>
           <div>
-            <h3
-              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1"
-            >
-              Role
-            </h3>
+            <h3 class="section-eyebrow mb-1">Role</h3>
             <p class="text-sm md:text-base font-bold text-black">
               Instructional Content Developer
             </p>
           </div>
           <div>
-            <h3
-              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1"
-            >
-              Learning Production Team
-            </h3>
+            <h3 class="section-eyebrow mb-1">Learning Production Team</h3>
             <p
               class="text-xs md:text-sm font-mono text-gray-800 leading-relaxed"
             >
@@ -127,11 +110,7 @@
             </p>
           </div>
           <div>
-            <h3
-              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1"
-            >
-              Tools & Tech
-            </h3>
+            <h3 class="section-eyebrow mb-1">Tools & Tech</h3>
             <p
               class="text-xs md:text-sm font-mono text-gray-800 leading-relaxed"
             >
@@ -139,18 +118,8 @@
             </p>
           </div>
           <div>
-            <h3
-              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1"
-            >
-              Timeline
-            </h3>
-            <ul
-              class="text-xs md:text-sm space-y-1.5 font-medium text-gray-700 leading-relaxed"
-            >
-              <p class="text-sm md:text-base font-bold text-black">
-                Summer 2026
-              </p>
-            </ul>
+            <h3 class="section-eyebrow mb-1">Timeline</h3>
+            <p class="text-sm md:text-base font-bold text-black">Summer 2026</p>
           </div>
         </div>
       </div>
@@ -180,7 +149,7 @@
             <div
               class="border border-gray-200 bg-gray-50/50 p-6 space-y-3 rounded-sm"
             >
-              <span class="text-xs font-mono uppercase text-gray-500"
+              <span class="section-eyebrow mb-0 block"
                 >Institution Focus 01</span
               >
               <h3 class="font-bold text-lg text-black">
@@ -196,7 +165,7 @@
             <div
               class="border border-gray-200 bg-gray-50/50 p-6 space-y-3 rounded-sm"
             >
-              <span class="text-xs font-mono uppercase text-gray-500"
+              <span class="section-eyebrow mb-0 block"
                 >Institution Focus 02</span
               >
               <h3 class="font-bold text-lg text-black">
@@ -241,7 +210,7 @@
                   class="group py-3.5 [&_summary::-webkit-details-marker]:hidden"
                 >
                   <summary
-                    class="flex items-center justify-between cursor-pointer font-bold text-black hover:text-gray-600 transition-colors"
+                    class="flex items-center justify-between cursor-pointer font-bold text-black hover:text-gray-600 transition-colors focus-ring-accent rounded-sm"
                   >
                     <span class="text-base md:text-lg"
                       >Standardized Shoot Window</span
@@ -276,7 +245,7 @@
                   class="group py-3.5 [&_summary::-webkit-details-marker]:hidden"
                 >
                   <summary
-                    class="flex items-center justify-between cursor-pointer font-bold text-black hover:text-gray-600 transition-colors"
+                    class="flex items-center justify-between cursor-pointer font-bold text-black hover:text-gray-600 transition-colors focus-ring-accent rounded-sm"
                   >
                     <span class="text-base md:text-lg"
                       >Collaborative Team Roles</span
@@ -309,7 +278,7 @@
                   class="group py-3.5 [&_summary::-webkit-details-marker]:hidden"
                 >
                   <summary
-                    class="flex items-center justify-between cursor-pointer font-bold text-black hover:text-gray-600 transition-colors"
+                    class="flex items-center justify-between cursor-pointer font-bold text-black hover:text-gray-600 transition-colors focus-ring-accent rounded-sm"
                   >
                     <span class="text-base md:text-lg"
                       >Targeted B-Roll Shot Lists</span
@@ -387,10 +356,7 @@
                 <div
                   class="flex items-center justify-between border-b border-gray-200 pb-3"
                 >
-                  <span
-                    class="text-xs font-mono text-gray-500 uppercase tracking-wider"
-                    >Shoot 01</span
-                  >
+                  <span class="section-eyebrow mb-0">Shoot 01</span>
                   <span class="text-xs font-mono text-gray-500"
                     >Museo de las Americas</span
                   >
@@ -408,8 +374,7 @@
 
               <!-- Focus Callout Box: Insight -->
               <div class="bg-white border-l-2 border-gray-400 p-4 space-y-1.5">
-                <span
-                  class="text-xs font-mono text-gray-500 uppercase tracking-wider block font-bold"
+                <span class="section-eyebrow mb-0 block"
                   >Post-Shoot Insight</span
                 >
                 <p
@@ -431,10 +396,7 @@
                 <div
                   class="flex items-center justify-between border-b border-gray-200 pb-3"
                 >
-                  <span
-                    class="text-xs font-mono text-gray-500 uppercase tracking-wider"
-                    >Shoot 02</span
-                  >
+                  <span class="section-eyebrow mb-0">Shoot 02</span>
                   <span class="text-xs font-mono text-gray-500"
                     >Clyfford Still Museum</span
                   >
@@ -453,8 +415,7 @@
 
               <!-- Focus Callout Box: Pivot & Outcome -->
               <div class="bg-white border-l-2 border-black p-4 space-y-1.5">
-                <span
-                  class="text-xs font-mono text-black uppercase tracking-wider block font-bold"
+                <span class="section-eyebrow mb-0 block text-black"
                   >Applied Solution & Outcome</span
                 >
                 <p
@@ -493,17 +454,13 @@
               class="grid grid-cols-1 md:grid-cols-3 gap-6 border-b border-gray-200 pb-6"
             >
               <div>
-                <span
-                  class="text-xs font-mono text-gray-500 uppercase tracking-wider block mb-1"
-                  >Format Specs</span
-                >
+                <span class="section-eyebrow mb-1 block">Format Specs</span>
                 <p class="text-sm font-bold text-black">
                   1080p H.264 / Master Audio
                 </p>
               </div>
               <div>
-                <span
-                  class="text-xs font-mono text-gray-500 uppercase tracking-wider block mb-1"
+                <span class="section-eyebrow mb-1 block"
                   >Accessibility Compliance</span
                 >
                 <p class="text-sm font-bold text-black">
@@ -511,10 +468,7 @@
                 </p>
               </div>
               <div>
-                <span
-                  class="text-xs font-mono text-gray-500 uppercase tracking-wider block mb-1"
-                  >LMS Delivery</span
-                >
+                <span class="section-eyebrow mb-1 block">LMS Delivery</span>
                 <p class="text-sm font-bold text-black">
                   Responsive Vimeo Player Embed
                 </p>
@@ -535,9 +489,10 @@
               </div>
               <a
                 href="lab.html"
-                class="inline-flex items-center space-x-2 bg-black text-white px-6 py-3 text-sm md:text-base font-medium hover:bg-gray-800 transition-colors shrink-0 rounded-sm focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+                class="btn-primary focus-ring-accent inline-flex items-center space-x-2 shrink-0"
               >
-                Explore Interactive Lab &rarr;
+                <span>Explore Interactive Lab</span>
+                <span>&rarr;</span>
               </a>
             </div>
           </div>
@@ -556,9 +511,7 @@
             <div
               class="border border-gray-200 bg-gray-50/50 p-5 rounded-sm space-y-2"
             >
-              <h3
-                class="font-bold text-black text-sm uppercase tracking-wider font-mono"
-              >
+              <h3 class="section-eyebrow text-black text-sm mb-0">
                 Pedagogical Value
               </h3>
               <p class="text-sm md:text-base text-gray-700 leading-relaxed">
@@ -571,9 +524,7 @@
             <div
               class="border border-gray-200 bg-gray-50/50 p-5 rounded-sm space-y-2"
             >
-              <h3
-                class="font-bold text-black text-sm uppercase tracking-wider font-mono"
-              >
+              <h3 class="section-eyebrow text-black text-sm mb-0">
                 Team Agility
               </h3>
               <p class="text-sm md:text-base text-gray-700 leading-relaxed">
@@ -586,9 +537,7 @@
             <div
               class="border border-gray-200 bg-gray-50/50 p-5 rounded-sm space-y-2"
             >
-              <h3
-                class="font-bold text-black text-sm uppercase tracking-wider font-mono"
-              >
+              <h3 class="section-eyebrow text-black text-sm mb-0">
                 Community Trust
               </h3>
               <p class="text-sm md:text-base text-gray-700 leading-relaxed">
@@ -612,8 +561,7 @@
                 <span
                   class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0"
                 ></span>
-                <span
-                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider"
+                <span class="section-eyebrow mb-0"
                   >LP Team is available immediately</span
                 >
               </div>
@@ -635,7 +583,7 @@
 
             <a
               href="hit-me-up.html"
-              class="inline-flex items-center space-x-2 bg-black text-white px-6 py-3 text-sm md:text-base font-medium hover:bg-gray-800 transition-colors shrink-0 rounded-sm focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+              class="btn-primary focus-ring-accent inline-flex items-center space-x-2 shrink-0"
             >
               <span>Request Multimedia</span>
               <span aria-hidden="true">&rarr;</span>
@@ -645,17 +593,7 @@
       </main>
 
       <!-- Footer -->
-      <footer
-        class="mt-24 pt-8 border-t border-gray-200 text-xs md:text-sm flex justify-between items-center"
-      >
-        <p>&copy; 2026 Leon Hayes. All rights reserved.</p>
-        <a
-          href="#"
-          class="border border-black px-3 py-1 font-medium hover:bg-black hover:text-white transition-all"
-        >
-          Back to Top &uarr;
-        </a>
-      </footer>
+      <main-footer></main-footer>
     </div>
 
     <!-- Mobile Navigation & Vimeo API Scripts -->

@@ -1,1 +1,169 @@
-/* Unlinked because we are using tailwind cdn. */
+/* ==========================================================================
+   LEON HAYES PORTFOLIO DESIGN SYSTEM & GLOBAL STYLESHEET
+   Aesthetic: Modern Brutalist (High Contrast, Clean Grid, Monospace Accents)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. COLOR TOKENS & ACCESSIBILITY (WCAG 2.1 AA COMPLIANT)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Neutral Palette */
+  --color-bg: #ffffff;
+  --color-bg-subtle: #f9fafb; /* gray-50 */
+  --color-surface: #f3f4f6; /* gray-100 */
+  --color-border: #e5e7eb; /* gray-200 */
+  --color-border-dark: #000000;
+
+  --color-text-primary: #000000;
+  --color-text-secondary: #374151; /* gray-700 */
+  --color-text-muted: #6b7280; /* gray-500 */
+
+  /* Brand / Accent Tokens (Emerald Palette) */
+  /* Note: #059669 (Emerald-600) guarantees a minimum 4.5:1 contrast ratio against white/gray-50 */
+  --color-accent: #059669;
+  --color-accent-hover: #047857; /* Emerald-700 */
+  --color-accent-light: #ecfdf5; /* Emerald-50 */
+  --color-accent-pulse: #10b981; /* Emerald-500 for active UI indicators */
+}
+
+/* --------------------------------------------------------------------------
+   2. CORE TYPOGRAPHY & SMOOTH SCROLLING
+   -------------------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+}
+
+/* Monospace Utility Overrides */
+.font-mono {
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+}
+
+/* --------------------------------------------------------------------------
+   3. STANDARDIZED HEADING SYSTEM
+   -------------------------------------------------------------------------- */
+/* Dual-Layer Eyebrow Label (Mono category indicator) */
+.section-eyebrow {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.75rem; /* 12px */
+  line-height: 1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-eyebrow {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem;
+  }
+}
+
+/* Section Title (Primary H2) */
+.section-title {
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--color-text-primary);
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 1.5rem; /* 24px */
+    line-height: 2rem;
+  }
+}
+
+/* Section Container Rule (Standardized 64px top padding & border divider) */
+.section-block {
+  border-top: 1px solid var(--color-border);
+  padding-top: 4rem; /* pt-16 */
+}
+
+/* --------------------------------------------------------------------------
+   4. METADATA PILLS & BADGES (UNIFIED COMPONENT STYLING)
+   -------------------------------------------------------------------------- */
+.card-tag {
+  display: inline-block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.75rem; /* 12px */
+  line-height: 1rem;
+  color: var(--color-text-primary);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.125rem; /* rounded-sm */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Active / Featured Variant */
+.card-tag-accent {
+  background-color: var(--color-accent-light);
+  border-color: var(--color-accent);
+  color: var(--color-accent-hover);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   5. BRAND ACCENT & OUTCOME STYLING
+   -------------------------------------------------------------------------- */
+/* High-contrast emerald text for key outcomes and metrics */
+.text-accent {
+  color: var(--color-accent);
+}
+
+/* Accent callout left-border line for case study metrics */
+.outcome-border-accent {
+  border-left: 2px solid var(--color-accent);
+}
+
+/* Focus state rings for WCAG 2.1 AA interactive controls (Keyboard-only) */
+.focus-ring-accent:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow:
+    0 0 0 2px #ffffff,
+    0 0 0 4px var(--color-accent);
+}
+
+/* --------------------------------------------------------------------------
+   6. CUSTOM ACCORDION STYLES
+   -------------------------------------------------------------------------- */
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary {
+  list-style: none;
+}
+
+/* --------------------------------------------------------------------------
+   7. CUSTOM BUTTON STYLES
+   -------------------------------------------------------------------------- */
+
+.btn-primary {
+  display: inline-block;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0.875rem 1.75rem; /* px-7 py-3.5 */
+  font-size: 1rem; /* text-base */
+  font-weight: 500;
+  border-radius: 0.125rem; /* rounded-sm */
+  transition: background-color 150ms ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #1f2937; /* gray-800 */
+}

@@ -4,125 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BxObs Case Study — Leon Hayes</title>
+
+    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      /* Modern, clean typography setup and smooth scroll behavior */
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      }
-    </style>
+
+    <!-- Global Design System Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Navigation & Footer Web Components -->
+    <script src="components/main-nav.js" defer></script>
+    <script src="components/main-footer.js" defer></script>
   </head>
+
   <body class="bg-white text-black min-h-screen">
+    <!-- Centrally Managed Web Component Navigation -->
+    <main-nav></main-nav>
+
     <!-- Main Container Constrained to Max 1200px -->
     <div class="max-w-[1200px] mx-auto px-4 md:px-8 py-4 md:py-8">
-      <!-- Top Navigation Header -->
-      <header class="border-b border-gray-100 pb-4 mb-10 md:mb-16">
-        <div class="flex justify-between items-center">
-          <a
-            href="index.html"
-            class="text-base md:text-lg font-bold tracking-normal text-black hover:text-gray-600 transition-colors flex items-center space-x-2"
-          >
-            <span class="text-base font-normal">&larr;</span>
-            <span>Back to Portfolio</span>
-          </a>
-
-          <!-- Desktop Navigation Links -->
-          <nav
-            class="hidden md:flex space-x-8 text-xs md:text-sm font-medium items-center"
-            aria-label="Main Navigation"
-          >
-            <a
-              href="index.html#work"
-              class="hover:text-gray-600 transition-colors py-1"
-              >Work</a
-            >
-            <a
-              href="lab.html"
-              class="hover:text-gray-600 transition-colors py-1"
-              >Lab</a
-            >
-            <a
-              href="about.html"
-              class="hover:text-gray-600 transition-colors py-1"
-              >About</a
-            >
-          </nav>
-
-          <!-- Accessible Mobile Menu Toggle Button -->
-          <button
-            id="menu-toggle"
-            type="button"
-            class="md:hidden p-2 text-black hover:text-gray-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-black rounded transition-colors"
-            aria-expanded="false"
-            aria-controls="mobile-menu"
-            aria-label="Toggle navigation menu"
-          >
-            <!-- Hamburger Icon -->
-            <svg
-              id="menu-open-icon"
-              class="w-6 h-6 block"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-            <!-- Close Icon (Hidden by Default) -->
-            <svg
-              id="menu-close-icon"
-              class="w-6 h-6 hidden"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-        </div>
-
-        <!-- Mobile Navigation Drawer -->
-        <nav
-          id="mobile-menu"
-          class="hidden md:hidden pt-4 pb-2 flex flex-col space-y-3 text-sm font-medium border-t border-gray-100 mt-3"
-          aria-label="Mobile Navigation"
-        >
-          <a
-            href="index.html#work"
-            class="hover:text-gray-600 transition-colors py-1"
-            >Work</a
-          >
-          <a href="lab.html" class="hover:text-gray-600 transition-colors py-1"
-            >Lab</a
-          >
-          <a
-            href="about.html"
-            class="hover:text-gray-600 transition-colors py-1"
-            >About</a
-          >
-        </nav>
-      </header>
-
       <main class="w-full space-y-20">
-        <!-- Hero / Context Section -->
-        <section>
-          <div class="mb-12 max-w-2xl">
-            <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-3">
+        <!-- Hero Section -->
+        <section aria-label="Project Preview">
+          <!-- 1. Featured Hero Image (Placed Top) -->
+          <div class="mb-10">
+            <div
+              class="aspect-[16/7] w-full border border-gray-200 overflow-hidden bg-gray-50 rounded-sm"
+            >
+              <img
+                src="Images/BxObsThumbnail@3x.png"
+                alt="BxObs Assessment Assistant Applet interface mockup overview"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          <!-- 2. Hero Title & Subheading -->
+          <div class="mb-12 max-w-3xl">
+            <h1
+              class="text-3xl md:text-5xl font-bold tracking-tight mb-3 text-black"
+            >
               BxObs Assessment Assistant Applet
             </h1>
             <p
@@ -132,28 +52,18 @@
             </p>
           </div>
 
-          <!-- Hero Image -->
-          <div
-            class="aspect-[16/7] w-full border border-gray-200 mb-12 overflow-hidden bg-gray-50"
-          >
-            <img
-              src="Images/BxObsThumbnail@3x.png"
-              alt="Hero Mockup Collage"
-              class="w-full h-full object-cover"
-            />
-          </div>
-
+          <!-- 3. Context Overview & Metadata Panel -->
           <div class="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
             <!-- Context & Problem -->
             <div class="md:col-span-2 space-y-8 border border-gray-200 p-8">
               <div>
                 <h2
-                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
+                  class="text-xl md:text-2xl font-bold tracking-tight text-black mb-3"
                 >
                   Context
                 </h2>
                 <p
-                  class="text-base md:text-lg text-gray-700 leading-relaxed mb-4"
+                  class="text-base md:text-lg text-gray-700 leading-relaxed mb-6"
                 >
                   BxObs (behavior observation) gives practicing psychologists
                   the ability to collect observation data in real-time while
@@ -164,16 +74,16 @@
                 <!-- Elevated Top CTA -->
                 <div class="flex flex-wrap items-center gap-4">
                   <a
-                    href="hitmeup.html"
-                    class="inline-block bg-black text-white px-7 py-3.5 text-base font-medium hover:bg-gray-800 transition-colors"
+                    href="hit-me-up.html"
+                    class="btn-primary focus-ring-accent"
                   >
                     Hire Me for a Similar Prototype &rarr;
                   </a>
                 </div>
               </div>
-              <div>
+              <div class="pt-6 border-t border-gray-200">
                 <h2
-                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
+                  class="text-xl md:text-2xl font-bold tracking-tight text-black mb-3"
                 >
                   The Problem
                 </h2>
@@ -187,9 +97,9 @@
                   administrative burden and reduces time for student support.
                 </p>
               </div>
-              <div>
+              <div class="pt-6 border-t border-gray-200">
                 <h2
-                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
+                  class="text-xl md:text-2xl font-bold tracking-tight text-black mb-3"
                 >
                   The Solution
                 </h2>
@@ -205,7 +115,7 @@
             <div class="bg-gray-50 border border-gray-200 p-8 space-y-6">
               <div>
                 <h3
-                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1"
+                  class="text-xs font-mono uppercase tracking-wider text-gray-500 mb-1"
                 >
                   Role
                 </h3>
@@ -215,7 +125,7 @@
               </div>
               <div>
                 <h3
-                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1"
+                  class="text-xs font-mono uppercase tracking-wider text-gray-500 mb-1"
                 >
                   Timeline
                 </h3>
@@ -225,7 +135,7 @@
               </div>
               <div>
                 <h3
-                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1"
+                  class="text-xs font-mono uppercase tracking-wider text-gray-500 mb-1"
                 >
                   Skills Demonstrated
                 </h3>
@@ -240,7 +150,7 @@
               </div>
               <div>
                 <h3
-                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1"
+                  class="text-xs font-mono uppercase tracking-wider text-gray-500 mb-1"
                 >
                   Tools Stack
                 </h3>
@@ -255,7 +165,7 @@
         <!-- Value Proposition & Applet Preview Block -->
         <section class="border-t border-gray-200 pt-16">
           <div
-            class="bg-gray-50 border border-gray-200 p-8 md:p-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-center"
+            class="bg-gray-50 border border-gray-200 p-8 md:p-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-center rounded-sm"
           >
             <!-- Text Column -->
             <div class="md:col-span-7 space-y-6">
@@ -291,7 +201,7 @@
 
             <!-- Phone Mockup Column -->
             <div
-              class="md:col-span-5 bg-gray-100 aspect-[3/4] border border-gray-200 flex items-center justify-center"
+              class="md:col-span-5 bg-gray-100 aspect-[3/4] border border-gray-200 rounded-sm flex items-center justify-center"
             >
               <span class="text-gray-400 font-mono text-sm md:text-base"
                 >[Applet Selection Screen UI]</span
@@ -303,23 +213,18 @@
         <!-- What the Research Tells Us -->
         <section class="space-y-10 border-t border-gray-200 pt-16">
           <div class="max-w-2xl">
-            <h2
-              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
-            >
-              Research Phase
-            </h2>
-            <h3 class="text-xl md:text-2xl font-bold tracking-tight">
+            <h2 class="text-xl md:text-2xl font-bold tracking-tight text-black">
               What the Research Tells Us
-            </h3>
+            </h2>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-            <div class="bg-gray-50 border border-gray-200 p-8 space-y-4">
-              <h4
-                class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider"
-              >
+            <div
+              class="bg-gray-50 border border-gray-200 p-8 space-y-4 rounded-sm"
+            >
+              <h3 class="text-lg font-bold text-black">
                 Users Need Utility & Efficiency
-              </h4>
+              </h3>
               <p class="text-base md:text-lg text-gray-700 leading-relaxed">
                 Through interviews with clinical and school psychologists, I
                 identified key pain points disrupting accuracy, efficiency, and
@@ -351,12 +256,12 @@
               </ul>
             </div>
 
-            <div class="bg-gray-50 border border-gray-200 p-8 space-y-4">
-              <h4
-                class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider"
-              >
+            <div
+              class="bg-gray-50 border border-gray-200 p-8 space-y-4 rounded-sm"
+            >
+              <h3 class="text-lg font-bold text-black">
                 Psychometric Considerations
-              </h4>
+              </h3>
               <p class="text-base md:text-lg text-gray-700 leading-relaxed">
                 Collaborated with licensed experts to align with industry best
                 practices like the Revised Edition of the School Observation
@@ -367,27 +272,27 @@
                 class="flex flex-wrap gap-2 pt-2 text-xs md:text-sm font-mono"
               >
                 <span
-                  class="border border-gray-200 bg-white px-3 py-1.5 text-gray-800 shadow-sm"
+                  class="border border-gray-200 bg-white px-3 py-1.5 text-gray-800 shadow-sm rounded-sm"
                   >• Engaged in lesson</span
                 >
                 <span
-                  class="border border-gray-200 bg-white px-3 py-1.5 text-gray-800 shadow-sm"
+                  class="border border-gray-200 bg-white px-3 py-1.5 text-gray-800 shadow-sm rounded-sm"
                   >• Working</span
                 >
                 <span
-                  class="border border-gray-200 bg-white px-3 py-1.5 text-gray-800 shadow-sm"
+                  class="border border-gray-200 bg-white px-3 py-1.5 text-gray-800 shadow-sm rounded-sm"
                   >• Waiting</span
                 >
                 <span
-                  class="border border-gray-200 bg-white px-3 py-1.5 text-gray-800 shadow-sm"
+                  class="border border-gray-200 bg-white px-3 py-1.5 text-gray-800 shadow-sm rounded-sm"
                   >• Following directions</span
                 >
                 <span
-                  class="border border-gray-200 bg-white px-3 py-1.5 text-gray-800 shadow-sm"
+                  class="border border-gray-200 bg-white px-3 py-1.5 text-gray-800 shadow-sm rounded-sm"
                   >• Playing</span
                 >
                 <span
-                  class="border border-gray-200 bg-white px-3 py-1.5 text-gray-800 shadow-sm"
+                  class="border border-gray-200 bg-white px-3 py-1.5 text-gray-800 shadow-sm rounded-sm"
                   >• Social Interaction</span
                 >
               </div>
@@ -398,14 +303,9 @@
         <!-- Process & User Flows (Visual Pipeline) -->
         <section class="space-y-8 border-t border-gray-200 pt-16">
           <div class="max-w-2xl">
-            <h2
-              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
-            >
+            <h2 class="text-xl md:text-2xl font-bold tracking-tight text-black">
               User Experience Architecture
             </h2>
-            <h3 class="text-xl md:text-2xl font-bold tracking-tight">
-              Simple. Effective. Useful Flow.
-            </h3>
             <p class="text-base md:text-lg text-gray-700 leading-relaxed mt-2">
               Balancing simplicity and clinical utility by removing overwhelming
               options while preserving robust data logging.
@@ -414,17 +314,15 @@
 
           <div class="space-y-6">
             <!-- Flow 1 -->
-            <div class="bg-gray-50 border border-gray-200 p-6">
-              <h4
-                class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-4"
-              >
+            <div class="bg-gray-50 border border-gray-200 p-6 rounded-sm">
+              <h3 class="text-base font-bold text-black mb-4">
                 Starting a New Observation
-              </h4>
+              </h3>
               <div
                 class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs md:text-sm font-medium"
               >
                 <div
-                  class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between"
+                  class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between rounded-sm"
                 >
                   <span>1. Open a new observation</span>
                   <span class="hidden md:inline text-gray-300 font-bold"
@@ -432,7 +330,7 @@
                   >
                 </div>
                 <div
-                  class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between"
+                  class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between rounded-sm"
                 >
                   <span>2. Choose a method</span>
                   <span class="hidden md:inline text-gray-300 font-bold"
@@ -440,7 +338,7 @@
                   >
                 </div>
                 <div
-                  class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between"
+                  class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between rounded-sm"
                 >
                   <span>3. Define meta information</span>
                   <span class="hidden md:inline text-gray-300 font-bold"
@@ -448,7 +346,7 @@
                   >
                 </div>
                 <div
-                  class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between"
+                  class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between rounded-sm"
                 >
                   <span>4. Begin observation</span>
                 </div>
@@ -456,17 +354,15 @@
             </div>
 
             <!-- Flow 2 -->
-            <div class="bg-gray-50 border border-gray-200 p-6">
-              <h4
-                class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-4"
-              >
+            <div class="bg-gray-50 border border-gray-200 p-6 rounded-sm">
+              <h3 class="text-base font-bold text-black mb-4">
                 Exporting Observation Reports
-              </h4>
+              </h3>
               <div
                 class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 text-xs md:text-sm font-medium"
               >
                 <div
-                  class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between"
+                  class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between rounded-sm"
                 >
                   <span>1. Finish observation</span>
                   <span class="hidden md:inline text-gray-300 font-bold"
@@ -474,7 +370,7 @@
                   >
                 </div>
                 <div
-                  class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between"
+                  class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between rounded-sm"
                 >
                   <span>2. Review / export data at-a-glance</span>
                   <span class="hidden md:inline text-gray-300 font-bold"
@@ -482,7 +378,7 @@
                   >
                 </div>
                 <div
-                  class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between"
+                  class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between rounded-sm"
                 >
                   <span>3. Generate AI report</span>
                   <span class="hidden md:inline text-gray-300 font-bold"
@@ -490,7 +386,7 @@
                   >
                 </div>
                 <div
-                  class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between"
+                  class="bg-white border border-gray-200 p-4 shadow-sm flex items-center justify-between rounded-sm"
                 >
                   <span>4. Export to case report</span>
                 </div>
@@ -504,14 +400,9 @@
           class="border-t border-gray-200 pt-16 grid grid-cols-1 md:grid-cols-3 gap-12 items-center"
         >
           <div class="space-y-3">
-            <h2
-              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider"
-            >
-              Design System
-            </h2>
-            <h3 class="text-lg md:text-xl font-bold">
+            <h2 class="text-xl md:text-2xl font-bold text-black">
               Google Material Design 3
-            </h3>
+            </h2>
             <p class="text-base md:text-lg text-gray-700 leading-relaxed">
               Selected for its adaptable guidelines and flexible components,
               ensuring product consistency with Cerebral Code's primary
@@ -519,7 +410,7 @@
             </p>
           </div>
           <div
-            class="md:col-span-2 bg-gray-50 border border-gray-200 aspect-[16/8] flex items-center justify-center"
+            class="md:col-span-2 bg-gray-50 border border-gray-200 aspect-[16/8] flex items-center justify-center rounded-sm"
           >
             <span class="text-gray-400 font-mono text-sm md:text-base"
               >[Material Design 3 Kit Preview]</span
@@ -527,17 +418,14 @@
           </div>
         </section>
 
-        <!-- Core Methodologies Section (Fixed Tab Logic) -->
+        <!-- Core Methodologies Section -->
         <section class="space-y-10 border-t border-gray-200 pt-16">
           <div class="max-w-2xl">
             <h2
-              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
+              class="text-xl md:text-2xl font-bold tracking-tight text-black mb-3"
             >
-              Prototyping & Tools
-            </h2>
-            <h3 class="text-xl md:text-2xl font-bold tracking-tight mb-3">
               Breathing Life into Design
-            </h3>
+            </h2>
             <p class="text-base md:text-lg text-gray-700 leading-relaxed">
               I utilized a strict modular system of component variants to map
               out the application's core observation methodologies, making
@@ -550,42 +438,42 @@
             <button
               onclick="switchTab('abc')"
               id="tab-abc"
-              class="method-tab border-b-2 border-black text-black px-4 py-3 text-xs md:text-sm font-mono font-bold transition-colors"
+              class="method-tab border-b-2 border-black text-black px-4 py-3 text-xs md:text-sm font-mono font-bold transition-colors focus-ring-accent"
             >
               ABC Tool
             </button>
             <button
               onclick="switchTab('frequency')"
               id="tab-frequency"
-              class="method-tab border-b-2 border-transparent text-gray-400 hover:text-black px-4 py-3 text-xs md:text-sm font-mono font-bold transition-colors"
+              class="method-tab border-b-2 border-transparent text-gray-400 hover:text-black px-4 py-3 text-xs md:text-sm font-mono font-bold transition-colors focus-ring-accent"
             >
               Frequency Tool
             </button>
             <button
               onclick="switchTab('narrative')"
               id="tab-narrative"
-              class="method-tab border-b-2 border-transparent text-gray-400 hover:text-black px-4 py-3 text-xs md:text-sm font-mono font-bold transition-colors"
+              class="method-tab border-b-2 border-transparent text-gray-400 hover:text-black px-4 py-3 text-xs md:text-sm font-mono font-bold transition-colors focus-ring-accent"
             >
               Narrative Tool
             </button>
             <button
               onclick="switchTab('interval')"
               id="tab-interval"
-              class="method-tab border-b-2 border-transparent text-gray-400 hover:text-black px-4 py-3 text-xs md:text-sm font-mono font-bold transition-colors"
+              class="method-tab border-b-2 border-transparent text-gray-400 hover:text-black px-4 py-3 text-xs md:text-sm font-mono font-bold transition-colors focus-ring-accent"
             >
               Interval Tool
             </button>
           </div>
 
           <!-- Tab Panels Container -->
-          <div class="bg-gray-50 border border-gray-200 p-6 md:p-10">
+          <div class="bg-gray-50 border border-gray-200 p-6 md:p-10 rounded-sm">
             <!-- Tool 1: ABC (Visible by Default) -->
             <div
               id="panel-abc"
               class="tab-panel grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
             >
               <div
-                class="bg-gray-100 aspect-[3/4] max-w-sm mx-auto w-full flex items-center justify-center border border-gray-200"
+                class="bg-gray-100 aspect-[3/4] max-w-sm mx-auto w-full flex items-center justify-center border border-gray-200 rounded-sm"
               >
                 <span class="text-gray-400 font-mono text-sm md:text-base"
                   >[ABC Tool Mockup]</span
@@ -617,7 +505,7 @@
               class="tab-panel hidden grid-cols-1 md:grid-cols-2 gap-12 items-center"
             >
               <div
-                class="bg-gray-100 aspect-[3/4] max-w-sm mx-auto w-full flex items-center justify-center border border-gray-200"
+                class="bg-gray-100 aspect-[3/4] max-w-sm mx-auto w-full flex items-center justify-center border border-gray-200 rounded-sm"
               >
                 <span class="text-gray-400 font-mono text-sm md:text-base"
                   >[Frequency Tool Mockup]</span
@@ -648,7 +536,7 @@
               class="tab-panel hidden grid-cols-1 md:grid-cols-2 gap-12 items-center"
             >
               <div
-                class="bg-gray-100 aspect-[3/4] max-w-sm mx-auto w-full flex items-center justify-center border border-gray-200"
+                class="bg-gray-100 aspect-[3/4] max-w-sm mx-auto w-full flex items-center justify-center border border-gray-200 rounded-sm"
               >
                 <span class="text-gray-400 font-mono text-sm md:text-base"
                   >[Narrative Tool Mockup]</span
@@ -679,7 +567,7 @@
               class="tab-panel hidden grid-cols-1 md:grid-cols-2 gap-12 items-center"
             >
               <div
-                class="bg-gray-100 aspect-[3/4] max-w-sm mx-auto w-full flex items-center justify-center border border-gray-200"
+                class="bg-gray-100 aspect-[3/4] max-w-sm mx-auto w-full flex items-center justify-center border border-gray-200 rounded-sm"
               >
                 <span class="text-gray-400 font-mono text-sm md:text-base"
                   >[Interval Tool Mockup]</span
@@ -706,59 +594,64 @@
           </div>
         </section>
 
-        <!-- Overview Matrix: Uses, Limitations, Competition (Clean Accordion Trigger) -->
+        <!-- Overview Matrix: Uses, Limitations, Competition -->
         <section class="space-y-12 border-t border-gray-200 pt-16">
           <div>
-            <h2
-              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
-            >
-              Analysis Overview
-            </h2>
-            <h3 class="text-xl md:text-2xl font-bold tracking-tight">
+            <h2 class="text-xl md:text-2xl font-bold tracking-tight text-black">
               Overview & Market Fit
-            </h3>
+            </h2>
           </div>
 
           <!-- Uses -->
           <div>
-            <h4
-              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-4"
-            >
-              Core Uses
-            </h4>
+            <h3 class="text-base font-bold text-black mb-4">Core Uses</h3>
             <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-              <div class="bg-gray-50 border border-gray-200 p-4 text-center">
-                <p class="font-bold text-sm md:text-base mb-1">Data Analysis</p>
+              <div
+                class="bg-gray-50 border border-gray-200 p-4 text-center rounded-sm"
+              >
+                <p class="font-bold text-sm md:text-base mb-1 text-black">
+                  Data Analysis
+                </p>
                 <p class="text-xs md:text-sm text-gray-600">
                   Systematic observational analysis
                 </p>
               </div>
-              <div class="bg-gray-50 border border-gray-200 p-4 text-center">
-                <p class="font-bold text-sm md:text-base mb-1">
+              <div
+                class="bg-gray-50 border border-gray-200 p-4 text-center rounded-sm"
+              >
+                <p class="font-bold text-sm md:text-base mb-1 text-black">
                   Quantify Behavior
                 </p>
                 <p class="text-xs md:text-sm text-gray-600">
                   Track compliance and engagement
                 </p>
               </div>
-              <div class="bg-gray-50 border border-gray-200 p-4 text-center">
-                <p class="font-bold text-sm md:text-base mb-1">
+              <div
+                class="bg-gray-50 border border-gray-200 p-4 text-center rounded-sm"
+              >
+                <p class="font-bold text-sm md:text-base mb-1 text-black">
                   Gather Evidence
                 </p>
                 <p class="text-xs md:text-sm text-gray-600">
                   Identify disorder triggers
                 </p>
               </div>
-              <div class="bg-gray-50 border border-gray-200 p-4 text-center">
-                <p class="font-bold text-sm md:text-base mb-1">
+              <div
+                class="bg-gray-50 border border-gray-200 p-4 text-center rounded-sm"
+              >
+                <p class="font-bold text-sm md:text-base mb-1 text-black">
                   Train Observers
                 </p>
                 <p class="text-xs md:text-sm text-gray-600">
                   Familiarity with coding systems
                 </p>
               </div>
-              <div class="bg-gray-50 border border-gray-200 p-4 text-center">
-                <p class="font-bold text-sm md:text-base mb-1">Norming</p>
+              <div
+                class="bg-gray-50 border border-gray-200 p-4 text-center rounded-sm"
+              >
+                <p class="font-bold text-sm md:text-base mb-1 text-black">
+                  Norming
+                </p>
                 <p class="text-xs md:text-sm text-gray-600">
                   Develop local norms for districts
                 </p>
@@ -771,12 +664,9 @@
             class="group border-t border-b border-gray-200 py-4 transition-all"
           >
             <summary
-              class="flex justify-between items-center cursor-pointer list-none text-black hover:text-gray-600"
+              class="flex justify-between items-center cursor-pointer list-none text-black hover:text-gray-600 focus-ring-accent rounded-sm font-bold text-sm md:text-base"
             >
-              <span
-                class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider"
-                >View Method Limitations & Competitive Benchmarking</span
-              >
+              <span>View Method Limitations & Competitive Benchmarking</span>
               <span
                 class="text-xs md:text-sm font-mono text-gray-400 group-open:rotate-180 transition-transform"
                 >&darr;</span
@@ -785,11 +675,9 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6 mt-4">
               <div class="space-y-4">
-                <h4
-                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider"
-                >
+                <h3 class="text-base font-bold text-black">
                   Method Limitations
-                </h4>
+                </h3>
                 <div class="space-y-3 text-sm md:text-base text-gray-600">
                   <div>
                     <p class="font-bold text-black">Observer Competency</p>
@@ -816,11 +704,9 @@
               </div>
 
               <div class="space-y-4">
-                <h4
-                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider"
-                >
+                <h3 class="text-base font-bold text-black">
                   Competitive Benchmarking
-                </h4>
+                </h3>
                 <div class="space-y-3 text-sm md:text-base text-gray-600">
                   <div>
                     <p class="font-bold text-black">BehaviorSnap</p>
@@ -844,17 +730,17 @@
           </details>
         </section>
 
-        <!-- Measurable Impact Banner (Margins Cleared) -->
+        <!-- Measurable Impact Banner -->
         <section class="border-t border-b border-gray-200 py-12">
           <div class="max-w-3xl">
             <h2
-              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-3"
+              class="text-xl md:text-2xl font-bold tracking-tight text-black mb-3"
             >
               Measurable Impact
             </h2>
             <div class="border-l-2 border-black pl-4 py-1 mb-3">
               <p
-                class="text-2xl md:text-4xl font-bold text-black tracking-tight"
+                class="text-2xl md:text-4xl font-bold text-black tracking-tight font-mono"
               >
                 20% Efficiency Increase
               </p>
@@ -872,12 +758,8 @@
         >
           <div class="space-y-6">
             <div>
-              <h2
-                class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
-              >
-                Lessons Learned
-              </h2>
-              <h3 class="font-bold text-lg md:text-xl mb-1">
+              <h2 class="text-lg font-bold text-black mb-1">Lessons Learned</h2>
+              <h3 class="text-base font-semibold text-gray-800 mb-1">
                 Translating Complex Needs
               </h3>
               <p class="text-sm md:text-base text-gray-600 leading-relaxed">
@@ -888,12 +770,10 @@
               </p>
             </div>
             <div>
-              <h2
-                class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
-              >
+              <h2 class="text-lg font-bold text-black mb-1">
                 Future Development
               </h2>
-              <h3 class="font-bold text-lg md:text-xl mb-1">
+              <h3 class="text-base font-semibold text-gray-800 mb-1">
                 Flexible Frameworks
               </h3>
               <p class="text-sm md:text-base text-gray-600 leading-relaxed">
@@ -905,10 +785,12 @@
           </div>
 
           <div
-            class="md:col-span-2 flex flex-col justify-between items-start bg-gray-50 border border-gray-200 p-8"
+            class="md:col-span-2 flex flex-col justify-between items-start bg-gray-50 border border-gray-200 p-8 rounded-sm"
           >
             <div>
-              <h2 class="text-xl md:text-2xl font-bold tracking-tight mb-2">
+              <h2
+                class="text-xl md:text-2xl font-bold tracking-tight text-black mb-2"
+              >
                 Need a
                 <span class="italic font-serif font-normal text-gray-700"
                   >prototype</span
@@ -924,8 +806,8 @@
               </p>
             </div>
             <a
-              href="hitmeup.html"
-              class="inline-block bg-black text-white px-7 py-3.5 text-base font-medium hover:bg-gray-800 transition-colors mt-6"
+              href="hit-me-up.html"
+              class="btn-primary focus-ring-accent inline-block mt-6"
             >
               Hit Me Up
             </a>
@@ -934,53 +816,8 @@
       </main>
 
       <!-- Footer -->
-      <footer
-        class="mt-24 pt-8 border-t border-gray-200 text-xs md:text-sm flex justify-between items-center"
-      >
-        <p>&copy; 2026 Leon Hayes. All rights reserved.</p>
-        <a
-          href="#"
-          class="border border-black px-3 py-1 font-medium hover:bg-black hover:text-white transition-all"
-        >
-          Back to Top &uarr;
-        </a>
-      </footer>
+      <main-footer></main-footer>
     </div>
-
-    <!-- Mobile Menu Accessible Toggle Script -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const toggleBtn = document.getElementById("menu-toggle");
-        const mobileMenu = document.getElementById("mobile-menu");
-        const openIcon = document.getElementById("menu-open-icon");
-        const closeIcon = document.getElementById("menu-close-icon");
-
-        if (toggleBtn && mobileMenu) {
-          toggleBtn.addEventListener("click", () => {
-            const isExpanded =
-              toggleBtn.getAttribute("aria-expanded") === "true";
-            toggleBtn.setAttribute("aria-expanded", !isExpanded);
-            mobileMenu.classList.toggle("hidden");
-            openIcon.classList.toggle("hidden");
-            closeIcon.classList.toggle("hidden");
-          });
-
-          // Close menu on ESC key press
-          document.addEventListener("keydown", (e) => {
-            if (
-              e.key === "Escape" &&
-              toggleBtn.getAttribute("aria-expanded") === "true"
-            ) {
-              toggleBtn.setAttribute("aria-expanded", "false");
-              mobileMenu.classList.add("hidden");
-              openIcon.classList.remove("hidden");
-              closeIcon.classList.add("hidden");
-              toggleBtn.focus();
-            }
-          });
-        }
-      });
-    </script>
 
     <!-- Javascript for Methodology Tab Switcher -->
     <script>

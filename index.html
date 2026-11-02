@@ -4,21 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Leon Hayes — Instructional Developer & Interactive Designer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Load the navigation Web Component -->
-    <script src="components/main-nav.js" defer></script>
 
-    <style>
-      /* Modern, clean typography setup and smooth scroll behavior */
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      }
-    </style>
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Global Design System Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Navigation & Footer Web Components -->
+    <script src="components/main-nav.js" defer></script>
+    <script src="components/main-footer.js" defer></script>
   </head>
+
   <body class="bg-white text-black min-h-screen">
     <!-- Centrally Managed Web Component Navigation -->
     <main-nav></main-nav>
@@ -30,7 +27,7 @@
         <!-- Hero Section -->
         <section class="max-w-2xl space-y-6">
           <h1
-            class="text-3xl md:text-5xl font-bold tracking-tight mb-4 leading-tight"
+            class="text-3xl md:text-5xl font-bold tracking-tight mb-4 leading-tight text-black"
           >
             Say
             <span class="italic font-serif font-normal text-gray-700"
@@ -40,41 +37,32 @@
           </h1>
 
           <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-            Brand-driven interactive design that inspires your learners. I
-            transform static course material into unforgettable learning
-            experiences with custom multimedia.
+            Brand-driven interactive design that inspires your learners.
           </p>
 
-          <!-- Availability Indicator -->
-          <div class="flex items-center space-x-2 pt-1">
-            <span
-              class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0"
-            ></span>
-            <p
-              class="text-xs md:text-sm font-mono text-gray-700 uppercase tracking-wider"
-            >
-              Available for short-term contract work (1–6 weeks)
-            </p>
-          </div>
-
-          <div>
-            <a
-              href="hit-me-up.html"
-              class="inline-block bg-black text-white px-7 py-3.5 text-base font-medium hover:bg-gray-800 transition-colors"
-            >
-              Hit Me Up
+          <!-- Action & Availability Cluster -->
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="hit-me-up.html" class="btn-primary focus-ring-accent">
+              Hit Me Up &rarr;
             </a>
+
+            <div class="flex items-center space-x-2">
+              <span
+                class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0"
+              ></span>
+              <span
+                class="text-xs md:text-sm font-mono text-gray-700 uppercase tracking-wider"
+              >
+                Available for short-term contract work
+              </span>
+            </div>
           </div>
         </section>
 
         <!-- Work Showcase Section -->
-        <section id="work" class="border-t border-gray-200 pt-16">
-          <div class="max-w-2xl mb-12">
-            <h2
-              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
-            >
-              Real Projects
-            </h2>
+        <section id="work" class="section-block">
+          <div class="max-w-2xl mb-12 space-y-2">
+            <h2 class="section-eyebrow">Real Projects</h2>
             <p class="text-base md:text-lg text-gray-700 leading-relaxed">
               Measurable outcomes. See how I turn complex problems into
               intuitive experiences that drive results.
@@ -133,7 +121,7 @@
                   value="0"
                   id="card-juxtapose-slider"
                   aria-label="Interactive Zara introductory comparison slider"
-                  class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+                  class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20 focus-ring-accent"
                   oninput="updateCardSlider(this.value)"
                 />
               </div>
@@ -163,22 +151,10 @@
               <a href="is-case-study.html" class="group block space-y-4">
                 <!-- Tags -->
                 <div class="flex flex-wrap gap-2 pt-2">
-                  <span
-                    class="text-xs font-mono text-black bg-gray-100 border border-gray-200 px-2.5 py-1 rounded-sm uppercase tracking-wider"
-                    >2026</span
-                  >
-                  <span
-                    class="text-xs font-mono text-black bg-gray-100 border border-gray-200 px-2.5 py-1 rounded-sm uppercase tracking-wider"
-                    >Design System</span
-                  >
-                  <span
-                    class="text-xs font-mono text-black bg-gray-100 border border-gray-200 px-2.5 py-1 rounded-sm uppercase tracking-wider"
-                    >WCAG 2.1 AA</span
-                  >
-                  <span
-                    class="text-xs font-mono text-black bg-gray-100 border border-gray-200 px-2.5 py-1 rounded-sm uppercase tracking-wider"
-                    >Gamification</span
-                  >
+                  <span class="card-tag">2026</span>
+                  <span class="card-tag">Design System</span>
+                  <span class="card-tag card-tag-accent">WCAG 2.1 AA</span>
+                  <span class="card-tag">Gamification</span>
                 </div>
 
                 <!-- Headline -->
@@ -200,19 +176,19 @@
                 <!-- Bottom: Outcome & Button -->
                 <div class="pt-4 space-y-6">
                   <!-- Outcome Line -->
-                  <div class="border-l-2 border-black pl-3 py-0.5">
+                  <div class="outcome-border-accent pl-3 py-0.5">
                     <p
                       class="text-xs md:text-sm font-semibold text-black tracking-tight leading-snug"
                     >
-                      100% WCAG 2.1 AA Compliance across multi-course LMS
-                      deployment
+                      <span class="text-accent font-bold">100%</span> WCAG 2.1
+                      AA Compliance across multi-course LMS deployment
                     </p>
                   </div>
 
                   <!-- Styled Button -->
                   <div>
                     <span
-                      class="inline-block bg-black text-white px-6 py-2.5 text-sm md:text-base font-medium group-hover:bg-gray-800 transition-colors rounded-sm"
+                      class="btn-primary px-6 py-2.5 text-sm md:text-base group-hover:bg-gray-800 transition-colors"
                     >
                       View Case Study &rarr;
                     </span>
@@ -223,35 +199,30 @@
           </article>
         </section>
 
-        <!-- SECTION: The Toolkit -->
+        <!-- SECTION: Services -->
         <section
           id="toolkit"
           aria-labelledby="toolkit-heading"
-          class="border-t border-gray-200 pt-16 space-y-6"
+          class="section-block space-y-6"
         >
-          <h2
-            id="toolkit-heading"
-            class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider"
-          >
-            The Toolkit
-          </h2>
+          <h2 id="toolkit-heading" class="section-eyebrow">Services</h2>
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
-            <!-- Toolkit Item 1 -->
+            <!-- Service Item 1 -->
             <article
               class="bg-gray-50 border border-gray-200 rounded-sm p-6 md:p-8 space-y-3 flex flex-col justify-between"
             >
               <div>
                 <h3 class="font-bold text-lg md:text-xl mb-2 text-black">
-                  Custom HTML &amp; Web
+                  Custom Web Components
                 </h3>
                 <p class="text-sm md:text-base text-gray-700 leading-relaxed">
-                  Bespoke interactive graphics, calculators, and custom CSS
-                  setups built natively for the web.
+                  Bespoke interactive graphics and responsive, framework-free
+                  tools built natively for the web.
                 </p>
               </div>
             </article>
 
-            <!-- Toolkit Item 2 -->
+            <!-- Service Item 2 -->
             <article
               class="bg-gray-50 border border-gray-200 rounded-sm p-6 md:p-8 space-y-3 flex flex-col justify-between"
             >
@@ -260,13 +231,13 @@
                   H5P Multimedia
                 </h3>
                 <p class="text-sm md:text-base text-gray-700 leading-relaxed">
-                  Dynamic branching scenarios, interactive videos, and granular
-                  micro-learning elements.
+                  Branching scenarios, interactive video, and bite-sized
+                  micro-learning modules.
                 </p>
               </div>
             </article>
 
-            <!-- Toolkit Item 3 -->
+            <!-- Service Item 3 -->
             <article
               class="bg-gray-50 border border-gray-200 rounded-sm p-6 md:p-8 space-y-3 flex flex-col justify-between"
             >
@@ -274,9 +245,9 @@
                 <h3 class="font-bold text-lg md:text-xl mb-2 text-black">
                   Motion Graphics
                 </h3>
-                <p class="text-sm md:text-base text-gray-600 leading-relaxed">
-                  Premium video titles, instructional content bumpers, and sleek
-                  Figma micro-animations.
+                <p class="text-sm md:text-base text-gray-700 leading-relaxed">
+                  Premium video titles, instructional content bumpers, and
+                  animated UI elements for modern learning media.
                 </p>
               </div>
             </article>
@@ -287,36 +258,26 @@
         <section
           id="about-summary"
           aria-labelledby="value-prop-heading"
-          class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start border-t border-gray-200 pt-16"
+          class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start section-block"
         >
           <!-- Left Column: Text Content -->
           <div class="space-y-4">
-            <p
-              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
-            >
-              Value
-            </p>
-            <h2
-              id="value-prop-heading"
-              class="text-xl md:text-2xl font-bold tracking-tight"
-            >
+            <p class="section-eyebrow mb-0">Value</p>
+            <h2 id="value-prop-heading" class="section-title">
               What makes me different?
             </h2>
             <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-              I believe in writing learning content that is completely
-              relatable. By tapping into the
+              I approach instructional design with a simple rule,
               <strong
                 >"If I wouldn't do it, I wouldn't ask my learners to do
-                it"</strong
+                it."</strong
               >
-              mindset, I focus on crafting real-world scenarios, interactive
-              components, and thought-provoking media that bypass standard,
-              uninspiring template check-boxes.
+              I skip uninspiring template checkboxes in favor of authentic,
+              real-world scenarios and custom media.
             </p>
             <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-              Instead of building massive, months-long courses, I specialize in
-              jumping onto your short-term contracts to deliver high-quality,
-              high-impact assets on quick timelines.
+              I specialize in jumping onto your short-term contracts to deliver
+              high-quality assets on quick timelines.
             </p>
           </div>
 
@@ -330,7 +291,7 @@
                 <h3
                   class="text-lg md:text-xl font-bold text-black group-hover:text-gray-600 transition-colors"
                 >
-                  Visual Design
+                  Design Precision
                 </h3>
                 <span
                   class="text-gray-400 transition-transform duration-200 group-open:rotate-180"
@@ -354,12 +315,9 @@
               <p
                 class="text-base md:text-lg text-gray-700 mt-2 leading-relaxed"
               >
-                With a background UX/UI and Graphic Design, I have years of
-                real-world experience. When crafting learning experiences I
-                intentionally use design elements like layout, typography, and
-                color to deliver content in a way that makes sense for your
-                learners. I specialize in developing interactive graphics and
-                custom imagery to take your learning from mid, to magnificent!
+                Backed by years of UX/UI and graphic design experience, I use
+                layout, typography, and visual hierarchy to make complex content
+                intuitive and engaging for unique learners.
               </p>
             </details>
 
@@ -371,7 +329,7 @@
                 <h3
                   class="text-lg md:text-xl font-bold text-black group-hover:text-gray-600 transition-colors"
                 >
-                  Learning Experience Design
+                  Pedagogical Rigor
                 </h3>
                 <span
                   class="text-gray-400 transition-transform duration-200 group-open:rotate-180"
@@ -395,23 +353,21 @@
               <p
                 class="text-base md:text-lg text-gray-700 mt-2 leading-relaxed"
               >
-                I am a licensed professional with a Master of Arts in Education
-                and sound knowledge of adult learning theory, multimedia
-                principles and instructional design models. My experience has
-                taught me to create accessible, interactive learning that drives
-                learner engagement and retention.
+                With an M.A. in Education and sound knowledge of adult learning
+                theory, I leverage my experience to design accessible,
+                interactive learning that drives engagement and retention.
               </p>
             </details>
 
             <!-- Accordion Item 3 -->
-            <details class="group border-b border-gray-200 pb-4">
+            <details class="group">
               <summary
                 class="flex justify-between items-center cursor-pointer list-none select-none py-2"
               >
                 <h3
                   class="text-lg md:text-xl font-bold text-black group-hover:text-gray-600 transition-colors"
                 >
-                  Digital Learning Development
+                  Rapid Execution
                 </h3>
                 <span
                   class="text-gray-400 transition-transform duration-200 group-open:rotate-180"
@@ -435,12 +391,9 @@
               <p
                 class="text-base md:text-lg text-gray-700 mt-2 leading-relaxed"
               >
-                Bringing curriculum to life brings me satisfaction! I can flex
-                my skillset to meet your needs, so whether you need interactive
-                web graphics, a quick prototype for a new course module, or a
-                professional edit of raw footage, I got your back! It is my aim
-                to create equitable courses that are exciting while keeping
-                accessibility at the foundation.
+                From rapid module prototypes to custom video suites, I build
+                equitable, production-ready digital learning assets grounded in
+                WCAG (accessibility standards).
               </p>
             </details>
           </div>
@@ -450,7 +403,7 @@
         <section
           id="secondary-projects"
           aria-label="Secondary Case Studies"
-          class="border-t border-gray-200 pt-16"
+          class="section-block"
         >
           <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
             <!-- Project Card 1: Motion Graphic Template Design -->
@@ -469,25 +422,13 @@
                     >
                   </div>
                   <div class="flex flex-wrap gap-2 mb-4">
-                    <span
-                      class="border border-black px-2.5 py-1 text-xs uppercase font-bold tracking-wider"
-                      >2026</span
-                    >
-                    <span
-                      class="border border-black px-2.5 py-1 text-xs uppercase font-bold tracking-wider"
-                      >MOGRT</span
-                    >
-                    <span
-                      class="border border-black px-2.5 py-1 text-xs uppercase font-bold tracking-wider"
-                      >After Effects</span
-                    >
-                    <span
-                      class="border border-black px-2.5 py-1 text-xs uppercase font-bold tracking-wider"
-                      >Premiere Pro</span
-                    >
+                    <span class="card-tag">2026</span>
+                    <span class="card-tag">MOGRT</span>
+                    <span class="card-tag">After Effects</span>
+                    <span class="card-tag">Premiere Pro</span>
                   </div>
                   <h3
-                    class="text-lg md:text-xl font-bold group-hover:text-gray-600 transition-colors mb-3"
+                    class="text-lg md:text-xl font-bold group-hover:text-gray-600 transition-colors mb-3 text-black"
                   >
                     Motion Graphic Template Design
                   </h3>
@@ -505,7 +446,7 @@
                 <div class="mt-auto space-y-6">
                   <!-- Outcome Line -->
                   <div
-                    class="border-l-2 border-black pl-3 py-0.5 flex items-start space-x-2"
+                    class="outcome-border-accent pl-3 py-0.5 flex items-start space-x-2"
                   >
                     <p
                       class="text-xs md:text-sm font-semibold text-black tracking-tight leading-snug"
@@ -518,7 +459,7 @@
                   <!-- Styled Button -->
                   <div>
                     <span
-                      class="inline-block bg-black text-white px-6 py-2.5 text-sm md:text-base font-medium group-hover:bg-gray-800 transition-colors"
+                      class="btn-primary px-6 py-2.5 text-sm md:text-base group-hover:bg-gray-800 transition-colors"
                     >
                       View Mini Case Study &rarr;
                     </span>
@@ -541,25 +482,13 @@
                   />
 
                   <div class="flex flex-wrap gap-2 mb-4">
-                    <span
-                      class="border border-black px-2.5 py-1 text-xs uppercase font-bold tracking-wider"
-                      >2026</span
-                    >
-                    <span
-                      class="border border-black px-2.5 py-1 text-xs uppercase font-bold tracking-wider"
-                      >Articulate</span
-                    >
-                    <span
-                      class="border border-black px-2.5 py-1 text-xs uppercase font-bold tracking-wider"
-                      >LXD</span
-                    >
-                    <span
-                      class="border border-black px-2.5 py-1 text-xs uppercase font-bold tracking-wider"
-                      >eLearning</span
-                    >
+                    <span class="card-tag">2026</span>
+                    <span class="card-tag">Articulate</span>
+                    <span class="card-tag">LXD</span>
+                    <span class="card-tag">eLearning</span>
                   </div>
                   <h3
-                    class="text-lg md:text-xl font-bold group-hover:text-gray-600 transition-colors mb-3"
+                    class="text-lg md:text-xl font-bold group-hover:text-gray-600 transition-colors mb-3 text-black"
                   >
                     Emergency Response Training Naloxone (Narcan®)
                   </h3>
@@ -576,20 +505,21 @@
                 <div class="mt-auto space-y-6">
                   <!-- Outcome Line -->
                   <div
-                    class="border-l-2 border-black pl-3 py-0.5 flex items-start space-x-2"
+                    class="outcome-border-accent pl-3 py-0.5 flex items-start space-x-2"
                   >
                     <p
                       class="text-xs md:text-sm font-semibold text-black tracking-tight leading-snug"
                     >
-                      100% staff participation, strengthening organizational
-                      consistency in safety and care practices
+                      <span class="text-accent font-bold">100%</span> staff
+                      participation, strengthening organizational consistency in
+                      safety and care practices
                     </p>
                   </div>
 
                   <!-- Styled Button -->
                   <div>
                     <span
-                      class="inline-block bg-black text-white px-6 py-2.5 text-sm md:text-base font-medium group-hover:bg-gray-800 transition-colors"
+                      class="btn-primary px-6 py-2.5 text-sm md:text-base group-hover:bg-gray-800 transition-colors"
                     >
                       View Case Study &rarr;
                     </span>
@@ -601,15 +531,9 @@
         </section>
 
         <!-- TEAM PROJECTS SECTION -->
-        <section
-          class="border-t border-gray-200 pt-16"
-          aria-labelledby="team-projects-heading"
-        >
-          <div class="max-w-2xl mb-12">
-            <h2
-              id="team-projects-heading"
-              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
-            >
+        <section class="section-block" aria-labelledby="team-projects-heading">
+          <div class="max-w-2xl mb-12 space-y-2">
+            <h2 id="team-projects-heading" class="section-eyebrow">
               RMCAD Team Projects
             </h2>
             <p class="text-base md:text-lg text-gray-700 leading-relaxed">
@@ -625,7 +549,7 @@
                 <!-- 16:9 Linked Image Aspect Frame -->
                 <a
                   href="video-production-case-study.html"
-                  class="relative w-full aspect-[16/9] rounded-sm overflow-hidden group block shadow-sm focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+                  class="relative w-full aspect-[16/9] rounded-sm overflow-hidden group block shadow-sm focus-ring-accent"
                   aria-label="View Documentary-Style Educational Video Production Case Study"
                 >
                   <img
@@ -642,22 +566,10 @@
                 >
                   <!-- Tags -->
                   <div class="flex flex-wrap gap-2 pt-2">
-                    <span
-                      class="text-xs font-mono text-black bg-gray-100 border border-gray-200 px-2.5 py-1 rounded-sm uppercase tracking-wider"
-                      >2026</span
-                    >
-                    <span
-                      class="text-xs font-mono text-black bg-gray-100 border border-gray-200 px-2.5 py-1 rounded-sm uppercase tracking-wider"
-                      >Video Production</span
-                    >
-                    <span
-                      class="text-xs font-mono text-black bg-gray-100 border border-gray-200 px-2.5 py-1 rounded-sm uppercase tracking-wider"
-                      >Fieldwork</span
-                    >
-                    <span
-                      class="text-xs font-mono text-black bg-gray-100 border border-gray-200 px-2.5 py-1 rounded-sm uppercase tracking-wider"
-                      >LP Team</span
-                    >
+                    <span class="card-tag">2026</span>
+                    <span class="card-tag">Video Production</span>
+                    <span class="card-tag">Fieldwork</span>
+                    <span class="card-tag">LP Team</span>
                   </div>
 
                   <!-- Headline -->
@@ -679,7 +591,7 @@
                   <!-- Bottom: Outcome & Button -->
                   <div class="pt-4 space-y-6">
                     <!-- Outcome Line -->
-                    <div class="border-l-2 border-black pl-3 py-0.5">
+                    <div class="outcome-border-accent pl-3 py-0.5">
                       <p
                         class="text-xs md:text-sm font-semibold text-black tracking-tight leading-snug"
                       >
@@ -691,7 +603,7 @@
                     <!-- Styled Button -->
                     <div>
                       <span
-                        class="inline-block bg-black text-white px-6 py-2.5 text-sm md:text-base font-medium group-hover:bg-gray-800 transition-colors rounded-sm"
+                        class="btn-primary px-6 py-2.5 text-sm md:text-base group-hover:bg-gray-800 transition-colors"
                       >
                         View Case Study &rarr;
                       </span>
@@ -705,7 +617,7 @@
 
         <!-- FINAL CTA CONTACT BANNER -->
         <section
-          class="space-y-6 border-t border-gray-200 pt-16 pb-12"
+          class="space-y-6 section-block pb-12"
           aria-labelledby="cta-heading"
         >
           <div
@@ -716,8 +628,7 @@
                 <span
                   class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0"
                 ></span>
-                <span
-                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider"
+                <span class="section-eyebrow mb-0"
                   >Available for short-term contract work (1–6 weeks)</span
                 >
               </div>
@@ -740,7 +651,7 @@
 
             <a
               href="hit-me-up.html"
-              class="inline-flex items-center space-x-2 bg-black text-white px-6 py-3 text-sm md:text-base font-medium hover:bg-gray-800 transition-colors shrink-0 rounded-sm focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+              class="btn-primary focus-ring-accent inline-flex items-center space-x-2 shrink-0"
             >
               <span>Hit Me Up</span>
               <span aria-hidden="true">&rarr;</span>
@@ -750,17 +661,7 @@
       </main>
 
       <!-- Footer -->
-      <footer
-        class="pt-8 border-t border-gray-200 text-xs md:text-sm flex justify-between items-center"
-      >
-        <p>&copy; 2026 Leon Hayes. All rights reserved.</p>
-        <a
-          href="#"
-          class="border border-black px-3 py-1 font-medium hover:bg-black hover:text-white transition-all"
-        >
-          Back to Top &uarr;
-        </a>
-      </footer>
+      <main-footer></main-footer>
     </div>
 
     <!-- Interactive Juxtapose Slider Script -->

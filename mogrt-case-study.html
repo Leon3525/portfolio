@@ -4,18 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Motion Graphic Templates Mini Case Study — Leon Hayes</title>
+
+    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Global Design System Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Navigation & Footer Web Components -->
     <script src="components/main-nav.js" defer></script>
-    <style>
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      }
-    </style>
+    <script src="components/main-footer.js" defer></script>
   </head>
+
   <body class="bg-white text-black min-h-screen">
     <!-- Centrally Managed Web Component Navigation -->
     <main-nav></main-nav>
@@ -35,7 +35,9 @@
 
       <!-- Hero Title & Subheading -->
       <div class="mb-12 max-w-3xl">
-        <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-3">
+        <h1
+          class="text-3xl md:text-5xl font-bold tracking-tight mb-3 text-black"
+        >
           Motion Graphic Templates for Scalable Video Systems
         </h1>
         <p
@@ -50,11 +52,7 @@
         <!-- Overview Section -->
         <div class="md:col-span-2 space-y-8 border border-gray-200 p-8">
           <div>
-            <h2
-              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-2"
-            >
-              Overview
-            </h2>
+            <h2 class="section-eyebrow mb-2">Overview</h2>
             <p class="text-base md:text-lg text-gray-700 leading-relaxed mb-4">
               Motion graphic templates are an essential part of any scalable
               video production system. Moving beyond simply creating one off
@@ -69,10 +67,7 @@
           <div>
             <!-- CTAs -->
             <div class="flex flex-wrap items-center gap-4">
-              <a
-                href="#process"
-                class="inline-block bg-black text-white px-7 py-3.5 text-base font-medium hover:bg-gray-800 transition-colors"
-              >
+              <a href="#process" class="btn-primary focus-ring-accent">
                 View Design Process &rarr;
               </a>
             </div>
@@ -82,31 +77,19 @@
         <!-- Metadata Panel -->
         <div class="bg-gray-50 border border-gray-200 p-8 space-y-6">
           <div>
-            <h3
-              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1"
-            >
-              Organization
-            </h3>
+            <h3 class="section-eyebrow mb-1">Organization</h3>
             <p class="text-sm md:text-base font-bold text-black">
               Rocky Mountain College of Art + Design
             </p>
           </div>
           <div>
-            <h3
-              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1"
-            >
-              Role
-            </h3>
+            <h3 class="section-eyebrow mb-1">Role</h3>
             <p class="text-sm md:text-base font-bold text-black">
               Instructional Content Developer
             </p>
           </div>
           <div>
-            <h3
-              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1"
-            >
-              Tools & Tech
-            </h3>
+            <h3 class="section-eyebrow mb-1">Tools & Tech</h3>
             <p
               class="text-xs md:text-sm font-mono text-gray-800 leading-relaxed"
             >
@@ -116,11 +99,7 @@
             </p>
           </div>
           <div>
-            <h3
-              class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider mb-1"
-            >
-              Timeline
-            </h3>
+            <h3 class="section-eyebrow mb-1">Timeline</h3>
             <p class="text-sm md:text-base font-bold text-black">
               1 Month (Summer 2026)
             </p>
@@ -221,9 +200,7 @@
             <div
               class="border border-gray-200 bg-gray-50/50 p-6 space-y-3 rounded-sm"
             >
-              <span class="text-xs font-mono uppercase text-gray-500"
-                >Analysis Point 01</span
-              >
+              <span class="section-eyebrow mb-0 block">Analysis Point 01</span>
               <h3 class="font-bold text-lg text-black">
                 Institutional Unification
               </h3>
@@ -237,9 +214,7 @@
             <div
               class="border border-gray-200 bg-gray-50/50 p-6 space-y-3 rounded-sm"
             >
-              <span class="text-xs font-mono uppercase text-gray-500"
-                >Analysis Point 02</span
-              >
+              <span class="section-eyebrow mb-0 block">Analysis Point 02</span>
               <h3 class="font-bold text-lg text-black">
                 Department Flexibility
               </h3>
@@ -303,15 +278,14 @@
               class="md:col-span-4 border border-gray-200 bg-gray-50 p-6 space-y-4 rounded-sm flex flex-col justify-between h-full"
             >
               <div class="space-y-3">
-                <span
-                  class="text-xs font-mono text-gray-500 uppercase tracking-wider block"
+                <span class="section-eyebrow mb-0 block"
                   >Direct Video Link</span
                 >
                 <a
                   href="https://www.loom.com/share/a9007b59f0b4463495eb3b8eb30d3109"
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="group block space-y-3"
+                  class="group block space-y-3 focus-ring-accent rounded-sm"
                 >
                   <div
                     class="overflow-hidden border border-gray-200 rounded-sm bg-white"
@@ -332,10 +306,7 @@
               </div>
 
               <div class="pt-3 border-t border-gray-200/60">
-                <span
-                  class="text-xs font-mono text-gray-500 uppercase tracking-wider block mb-1"
-                  >Purpose</span
-                >
+                <span class="section-eyebrow mb-1 block">Purpose</span>
                 <span class="text-xs md:text-sm font-medium text-gray-800"
                   >Rapid Executive Review</span
                 >
@@ -357,13 +328,11 @@
             <div
               class="border border-gray-200 bg-gray-50/50 p-6 rounded-sm space-y-2"
             >
-              <h3
-                class="font-bold text-black text-sm uppercase tracking-wider font-mono"
-              >
+              <h3 class="section-eyebrow text-black text-sm mb-0">
                 Scalable Branding
               </h3>
               <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                Motion, graphic templates are essential for any organization who
+                Motion graphic templates are essential for any organization who
                 has a need for consistent video.
               </p>
             </div>
@@ -371,9 +340,7 @@
             <div
               class="border border-gray-200 bg-gray-50/50 p-6 rounded-sm space-y-2"
             >
-              <h3
-                class="font-bold text-black text-sm uppercase tracking-wider font-mono"
-              >
+              <h3 class="section-eyebrow text-black text-sm mb-0">
                 Viewer Trust
               </h3>
               <p class="text-base md:text-lg text-gray-700 leading-relaxed">
@@ -384,23 +351,19 @@
             <div
               class="border border-gray-200 bg-gray-50/50 p-6 rounded-sm space-y-2"
             >
-              <h3
-                class="font-bold text-black text-sm uppercase tracking-wider font-mono"
-              >
+              <h3 class="section-eyebrow text-black text-sm mb-0">
                 Editor Efficiency
               </h3>
               <p class="text-base md:text-lg text-gray-700 leading-relaxed">
                 Video editors need the ability to focus on editing video and not
-                wasting time generated one off graphics.
+                wasting time generating one off graphics.
               </p>
             </div>
 
             <div
               class="border border-gray-200 bg-gray-50/50 p-6 rounded-sm space-y-2"
             >
-              <h3
-                class="font-bold text-black text-sm uppercase tracking-wider font-mono"
-              >
+              <h3 class="section-eyebrow text-black text-sm mb-0">
                 Workflow Autonomy
               </h3>
               <p class="text-base md:text-lg text-gray-700 leading-relaxed">
@@ -424,8 +387,7 @@
                 <span
                   class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0"
                 ></span>
-                <span
-                  class="text-xs md:text-sm font-mono text-gray-500 uppercase tracking-wider"
+                <span class="section-eyebrow mb-0"
                   >Available for short-term contract work (1–6 weeks)</span
                 >
               </div>
@@ -447,8 +409,8 @@
             </div>
 
             <a
-              href="hitmeup.html"
-              class="inline-flex items-center space-x-2 bg-black text-white px-7 py-3.5 text-base font-medium hover:bg-gray-800 transition-colors shrink-0 rounded-sm focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2"
+              href="hit-me-up.html"
+              class="btn-primary focus-ring-accent inline-flex items-center space-x-2 shrink-0"
             >
               <span>Hit Me Up</span>
               <span aria-hidden="true">&rarr;</span>
@@ -458,17 +420,7 @@
       </main>
 
       <!-- Footer -->
-      <footer
-        class="mt-24 pt-8 border-t border-gray-200 text-xs md:text-sm flex justify-between items-center"
-      >
-        <p>&copy; 2026 Leon Hayes. All rights reserved.</p>
-        <a
-          href="#"
-          class="border border-black px-3 py-1 font-medium hover:bg-black hover:text-white transition-all"
-        >
-          Back to Top &uarr;
-        </a>
-      </footer>
+      <main-footer></main-footer>
     </div>
 
     <!-- Mobile Navigation Script -->
